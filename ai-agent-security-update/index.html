@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Security update on AI Agent Tools adoption, risks, and mitigation strategies">
+    <meta property="og:title" content="Security Update: AI Agent Tools">
+    <meta property="og:description" content="Understanding the risks and approach to AI agent tool adoption">
+    <meta property="og:type" content="article">
+    <title>Security Update: AI Agent Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        li strong {
+            color: #111;
+        }
+
+        .risk-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .risk-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout {
+            background: #f9f9f9;
+            border-left: 3px solid #333;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Security Update: AI Agent Tools</h1>
+            <p class="subtitle">Internal Security Communication</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Context</h2>
+                <p>We're choosing to be permissive and move fast with AI tool adoption. That's the right posture for Mindvalley—we don't want to gate everything and miss opportunities.</p>
+            </section>
+
+            <section>
+                <h2>A New Category of Tool</h2>
+                <p>We're adopting a new category of tool: AI agents that take autonomous actions on our behalf—installing software, executing code, accessing systems.</p>
+                <p>This is fundamentally different from traditional software where a human approves every action. Tools like Claude Code and open source frameworks like OpenClaw can do things the user didn't fully understand they authorized.</p>
+            </section>
+
+            <section>
+                <h2>The Accountability Shift</h2>
+                <p>With traditional enterprise software, vendors hold responsibility for security. If something goes wrong, there's accountability.</p>
+                <p>We have invested significantly in this space. We have a dedicated security team, industry-standard tooling, established processes for vendor reviews, access controls, and incident response, and we leverage Google's SOC for monitoring and protection. This foundation keeps us and our customers safe.</p>
+                <p>AI agents represent a new category—and our existing investment doesn't yet fully cover the specific risks they introduce. This new category works differently:</p>
+                <ul>
+                    <li>Commercial vendors like Anthropic hold limited liability for what their tools do</li>
+                    <li>Open source tools hold zero accountability—it's explicit in the license</li>
+                    <li>If something goes wrong, it's entirely on us</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Risks We Are Accepting</h2>
+                <p>By choosing to move fast and stay permissive, we are consciously accepting the following risks:</p>
+
+                <div class="risk-category">
+                    <h3>User-related risks</h3>
+                    <ul>
+                        <li><strong>Unauthorized actions</strong> — Tools may install software, execute code, or make changes the user didn't fully intend to authorize</li>
+                        <li><strong>Data exposure</strong> — AI agents may access or transmit sensitive data without the user realizing</li>
+                        <li><strong>Understanding gap</strong> — People may not fully grasp what they're authorizing these tools to do</li>
+                    </ul>
+                </div>
+
+                <div class="risk-category">
+                    <h3>External risks</h3>
+                    <ul>
+                        <li><strong>Attack vector</strong> — Bad actors may exploit AI agents as an entry point into our systems</li>
+                        <li><strong>Prompt injection</strong> — Malicious content in files, emails, or web pages could hijack an AI agent into taking unintended actions</li>
+                        <li><strong>Compromised dependencies</strong> — AI tools may install software or packages that contain malicious code</li>
+                    </ul>
+                </div>
+
+                <div class="risk-category">
+                    <h3>Accountability risks</h3>
+                    <ul>
+                        <li><strong>No recourse</strong> — If something goes wrong, we cannot hold vendors accountable</li>
+                        <li><strong>Visibility gap</strong> — Until monitoring is in place, we are operating without full awareness of what's happening</li>
+                    </ul>
+                </div>
+
+                <div class="callout">
+                    <p>We accept these risks because the alternative—gating everything and moving slowly—doesn't match Mindvalley's culture or competitive position. The response is not to restrict, but to build detection and response capability that matches the risk we're taking.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Where We Are Now</h2>
+                <p>We don't currently have full visibility into what these tools are doing or where our exposure is. That's the gap I'm closing.</p>
+            </section>
+
+            <section>
+                <h2>What I'm Doing</h2>
+                <p>Building the safety net that lets us stay permissive while catching problems fast:</p>
+                <ul>
+                    <li><strong>Monitoring & alerting</strong> — Improving visibility into AI tool activity and security events</li>
+                    <li><strong>Training</strong> — AI safe use training at onboarding and as a yearly refresher</li>
+                    <li><strong>Contracts</strong> — Working with HR on an AI safe use addendum to employment contracts</li>
+                    <li><strong>Incident process</strong> — Security issues trigger proper incidents with alerting, root cause analysis, monthly review, and exec reporting</li>
+                    <li><strong>Transparency</strong> — Sharing security status at A-Report</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What This Means For You</h2>
+                <p>No decisions needed. This is awareness.</p>
+                <p>You may hear about security incidents more often going forward. That's the system working, not things getting worse.</p>
+                <p>Questions welcome.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Internal Security Communication</p>
+        </footer>
+    </div>
+</body>
+</html>
