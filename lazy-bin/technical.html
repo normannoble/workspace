@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Details - Lazy Bin</title>
+    <meta name="description" content="Hardware specifications, software architecture, and technical implementation details of the Lazy Bin project.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-lighter: #334155;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--light);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 1px;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--dark-light) 0%, var(--dark) 100%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title .icon.hardware {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--secondary);
+        }
+
+        .section-title .icon.software {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+        }
+
+        .section-title .icon.ai {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+        }
+
+        .section-title .icon.arch {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .card .subtitle {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Specs Table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specs-table th {
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .specs-table td {
+            color: var(--light);
+        }
+
+        .specs-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .arch-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .arch-box {
+            background: var(--dark-light);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .arch-box.highlight {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .arch-box h4 {
+            font-size: 0.9rem;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .arch-box span {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .arch-arrow {
+            color: var(--gray);
+            font-size: 1.5rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: var(--dark-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .code-block .comment {
+            color: #6b7280;
+        }
+
+        .code-block .keyword {
+            color: var(--primary);
+        }
+
+        .code-block .string {
+            color: var(--accent);
+        }
+
+        .code-block .function {
+            color: var(--secondary);
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .features-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.1rem;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+        }
+
+        .features-list li strong {
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        .author {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .page-header {
+                padding: 3rem 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .arch-flow {
+                flex-direction: column;
+            }
+
+            .arch-arrow {
+                transform: rotate(90deg);
+            }
+
+            .specs-table {
+                font-size: 0.9rem;
+            }
+
+            .specs-table th,
+            .specs-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Lazy Bin</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="technical.html" class="active">Technical</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Technical Details</h1>
+        <p>Hardware specifications, software architecture, and implementation details behind Lazy Bin</p>
+    </section>
+
+    <div class="content">
+        <!-- Hardware Section -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon hardware">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+                </span>
+                Hardware Components
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Arduino</h3>
+                    <div class="subtitle">Microcontroller</div>
+                    <p>Central brain that receives commands via serial communication and controls the motor driver outputs.</p>
+                </div>
+                <div class="card">
+                    <h3>L298N Motor Driver</h3>
+                    <div class="subtitle">Motor Controller</div>
+                    <p>Dual H-bridge driver that controls the speed and direction of both DC motors using PWM signals.</p>
+                </div>
+                <div class="card">
+                    <h3>DC Motors (x2)</h3>
+                    <div class="subtitle">Motorized Wheels</div>
+                    <p>Two independently controlled motors for differential drive steering - enabling forward, backward, and turning motions.</p>
+                </div>
+                <div class="card">
+                    <h3>Caster Wheels (x2)</h3>
+                    <div class="subtitle">Passive Support</div>
+                    <p>Omnidirectional caster wheels provide balance and allow smooth movement in any direction.</p>
+                </div>
+                <div class="card">
+                    <h3>9V Battery</h3>
+                    <div class="subtitle">Power Supply</div>
+                    <p>Portable power source with switch for easy on/off control. Powers both the Arduino and motors.</p>
+                </div>
+                <div class="card">
+                    <h3>False Bottom</h3>
+                    <div class="subtitle">Enclosure</div>
+                    <p>Custom-built compartment that conceals and protects all electronics while maintaining the bin's functionality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware Specs Table -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon hardware">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                </span>
+                Specifications
+            </h2>
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Specification</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Motor Speed Range</td>
+                        <td>PWM 1-255</td>
+                        <td>Variable speed control via analogWrite()</td>
+                    </tr>
+                    <tr>
+                        <td>Power Supply</td>
+                        <td>9V DC</td>
+                        <td>Battery with physical switch</td>
+                    </tr>
+                    <tr>
+                        <td>Communication</td>
+                        <td>Serial (USB)</td>
+                        <td>Tethered to computer for AI processing</td>
+                    </tr>
+                    <tr>
+                        <td>Motor Balancing</td>
+                        <td>Software-calibrated</td>
+                        <td>Right motor stronger, compensated in code</td>
+                    </tr>
+                    <tr>
+                        <td>Command Memory</td>
+                        <td>50ms buffer</td>
+                        <td>Prevents erratic stopping during tracking drops</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Software Section -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon software">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                </span>
+                Software Stack
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Python</h3>
+                    <div class="subtitle">Control Script</div>
+                    <p>Main control loop that handles keyboard/joystick input, AI detection results, and serial communication with Arduino.</p>
+                </div>
+                <div class="card">
+                    <h3>Arduino IDE</h3>
+                    <div class="subtitle">Firmware</div>
+                    <p>Motor control firmware that interprets WASD commands and translates them to motor driver signals.</p>
+                </div>
+                <div class="card">
+                    <h3>YOLOv8 (Modified)</h3>
+                    <div class="subtitle">Object Detection</div>
+                    <p>Custom-trained model for detecting specific trash objects in the user's hand via webcam feed.</p>
+                </div>
+                <div class="card">
+                    <h3>Visual Studio Code</h3>
+                    <div class="subtitle">Development Environment</div>
+                    <p>Primary IDE for Python development and Arduino serial port management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Section -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon ai">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </span>
+                Custom AI Model
+            </h2>
+            <div class="architecture">
+                <p style="color: var(--gray);">After evaluating thousands of existing trash detection models on Hugging Face, none met the accuracy requirements for this specific use case. The solution was to train a custom model from scratch.</p>
+
+                <ul class="features-list">
+                    <li><strong>Training Data:</strong> ~1,000 manually labeled images per object class</li>
+                    <li><strong>Labeling Time:</strong> Approximately 7 hours per object class</li>
+                    <li><strong>Model Base:</strong> Built on YOLOv8 architecture for real-time detection</li>
+                    <li><strong>Detection Target:</strong> Trash items held in human hands</li>
+                    <li><strong>Output:</strong> Bounding box coordinates used to calculate movement direction</li>
+                    <li><strong>Processing:</strong> Runs on computer, sends commands to Arduino via serial</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon arch">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </span>
+                System Architecture
+            </h2>
+            <div class="architecture">
+                <p style="color: var(--gray); margin-bottom: 1rem;">Data flows from the webcam through AI detection, to movement logic, and finally to the physical motors:</p>
+
+                <div class="arch-flow">
+                    <div class="arch-box">
+                        <h4>Webcam</h4>
+                        <span>Video Feed</span>
+                    </div>
+                    <span class="arch-arrow">&#8594;</span>
+                    <div class="arch-box highlight">
+                        <h4>AI Model</h4>
+                        <span>Object Detection</span>
+                    </div>
+                    <span class="arch-arrow">&#8594;</span>
+                    <div class="arch-box">
+                        <h4>Python Script</h4>
+                        <span>Movement Logic</span>
+                    </div>
+                    <span class="arch-arrow">&#8594;</span>
+                    <div class="arch-box">
+                        <h4>Serial (USB)</h4>
+                        <span>Commands</span>
+                    </div>
+                    <span class="arch-arrow">&#8594;</span>
+                    <div class="arch-box">
+                        <h4>Arduino</h4>
+                        <span>Motor Control</span>
+                    </div>
+                    <span class="arch-arrow">&#8594;</span>
+                    <div class="arch-box highlight">
+                        <h4>Motors</h4>
+                        <span>Movement</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Control Commands -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon software">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg>
+                </span>
+                Control Commands
+            </h2>
+            <div class="architecture">
+                <p style="color: var(--gray);">The bin responds to simple character commands sent via serial communication:</p>
+
+                <div class="code-block">
+                    <pre><span class="comment">// Movement Commands (sent from Python to Arduino)</span>
+<span class="string">'W'</span> <span class="comment">- Move forward</span>
+<span class="string">'S'</span> <span class="comment">- Move backward</span>
+<span class="string">'A'</span> <span class="comment">- Turn left</span>
+<span class="string">'D'</span> <span class="comment">- Turn right</span>
+<span class="string">'X'</span> <span class="comment">- Stop all motors</span>
+
+<span class="comment">// The Python script converts AI detection coordinates</span>
+<span class="comment">// into these simple directional commands</span>
+<span class="keyword">if</span> trash_x < center_x:
+    <span class="function">send_command</span>(<span class="string">'A'</span>)  <span class="comment"># Turn left toward trash</span>
+<span class="keyword">elif</span> trash_x > center_x:
+    <span class="function">send_command</span>(<span class="string">'D'</span>)  <span class="comment"># Turn right toward trash</span>
+<span class="keyword">else</span>:
+    <span class="function">send_command</span>(<span class="string">'W'</span>)  <span class="comment"># Move forward</span></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="icon ai">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                </span>
+                Key Features
+            </h2>
+            <div class="architecture">
+                <ul class="features-list">
+                    <li><strong>Autonomous Navigation:</strong> Bin detects trash in your hand and drives toward you automatically</li>
+                    <li><strong>Return to Home:</strong> After trash is deposited, the bin remembers its starting position and returns to its resting spot</li>
+                    <li><strong>50ms Command Memory:</strong> Smooths out movement when AI tracking momentarily loses the target</li>
+                    <li><strong>Motor Balancing:</strong> Software compensation for motor strength differences ensures straight-line driving</li>
+                    <li><strong>Continuous Input:</strong> Python script handles held keys for smooth manual control via keyboard or joystick</li>
+                    <li><strong>Clean Design:</strong> False bottom conceals all electronics while maintaining normal bin functionality</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Lazy Bin - AI-Powered Autonomous Trash Can</p>
+        <p class="author">A project by Findlay</p>
+    </footer>
+</body>
+</html>

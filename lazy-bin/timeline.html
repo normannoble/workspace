@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Timeline - Lazy Bin</title>
+    <meta name="description" content="Follow the complete development journey of Lazy Bin, from initial concept to working prototype.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: var(--dark);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--light);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 1px;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--dark-light) 0%, var(--dark) 100%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 1px;
+        }
+
+        .timeline-month {
+            margin-bottom: 3rem;
+        }
+
+        .month-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            margin-left: -3rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .month-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--dark);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-entry {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-entry:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateX(5px);
+        }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 1.75rem;
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+
+        .entry-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .entry-date svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .timeline-entry h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--light);
+        }
+
+        .timeline-entry p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .timeline-entry a {
+            color: var(--primary);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .timeline-entry a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .tag.research {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+        }
+
+        .tag.hardware {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--secondary);
+        }
+
+        .tag.software {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+        }
+
+        .tag.milestone {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        .author {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .page-header {
+                padding: 3rem 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .timeline-section {
+                padding: 2rem 1rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .month-label {
+                margin-left: -2rem;
+                padding-left: 2rem;
+            }
+
+            .timeline-entry {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .timeline-entry::before {
+                left: -1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Lazy Bin</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="timeline.html" class="active">Timeline</a></li>
+                <li><a href="technical.html">Technical</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Development Timeline</h1>
+        <p>From initial concept to working prototype - the complete journey of building an AI-powered autonomous trash can</p>
+    </section>
+
+    <section class="timeline-section">
+        <div class="timeline">
+            <!-- September -->
+            <div class="timeline-month">
+                <div class="month-label">September</div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        1st September
+                    </div>
+                    <h3>The Idea Takes Shape</h3>
+                    <p>I've been considering a concept for a trash can that automatically catches trash. I'm still deciding whether it'll catch trash mid-air or if the bin will move toward you to drop trash in it. I've been looking at motors on Shopee and Lazada to see what they have, and I've also been checking out various AI models to see which can identify objects. I will need to determine whether existing AI can track flying trash or if I'll need to train my own.</p>
+                    <div class="tags">
+                        <span class="tag research">Research</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        2nd September
+                    </div>
+                    <h3>Design Decision</h3>
+                    <p>I've settled on the design where the bin finds the trash in my hand and rolls toward me. Once the trash is deposited, it will return to its original resting place (e.g., under my desk). I have selected the hardware as well. It will have two motorized wheels, two caster wheels, an Arduino, and an L298N motor driver. I intend to use a 9V battery for power with a switch. To make it look nice, I'll add a false bottom to conceal the electronics and wires.</p>
+                    <div class="tags">
+                        <span class="tag milestone">Milestone</span>
+                        <span class="tag hardware">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        3rd September
+                    </div>
+                    <h3>Planning & AI Research</h3>
+                    <p>After checking and confirming compatibility, I drew a sketch and then emailed Mr. Steven to see if he would oversee me. I was also looking at AI models throughout the day for object tracking, such as YOLOv8. I'm still trying to figure out how to deploy and run the model on the bin so that it can track the trash in my hand and follow it around.</p>
+                    <div class="tags">
+                        <span class="tag research">Research</span>
+                        <span class="tag software">Software</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        4th September
+                    </div>
+                    <h3>Parts Ordered</h3>
+                    <p>Since Mr. Steven was okay with being my project supervisor, I spent the day creating a list of all the required items in a Google Sheet. I ordered the parts on Shopee and spent the rest of my day learning about the various AI models on Hugging Face.</p>
+                    <div class="tags">
+                        <span class="tag hardware">Hardware</span>
+                        <span class="tag research">Research</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- October -->
+            <div class="timeline-month">
+                <div class="month-label">October</div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        1st October
+                    </div>
+                    <h3>Parts Arrive - Testing Begins</h3>
+                    <p>Last few pieces showed up, the Arduino from Europe included, and it was go time. I taped the wheels down to my desk and plugged the Arduino into my computer for some testing. I wrote a quick script to drive each wheel forward and backward - so we know the motor functionality is working at least!</p>
+                    <div class="tags">
+                        <span class="tag milestone">Milestone</span>
+                        <span class="tag hardware">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        3rd October
+                    </div>
+                    <h3>Speed Control & Keyboard Input</h3>
+                    <p>After I verified the motors, I began to play with speed by varying values between 1 and 255. I also figured out how to send keyboard input through the Serial Monitor, where 'W', 'A', 'S', and 'D' commands would move the bin and 'X' would stop it. My next step is to develop Python code that accommodates continuous input, so it streams the command to the terminal if a key is held down, allowing the bin to continuously move in a direction until the key is released or a different command is given.</p>
+                    <div class="tags">
+                        <span class="tag software">Software</span>
+                        <span class="tag hardware">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        4th - 11th October
+                    </div>
+                    <h3>Continuous Motion Script</h3>
+                    <p>The development of this script for continuous motion was more challenging than I originally thought it would be. I had no idea that keeping the Serial Monitor open would interfere with Visual Studio Code's ability to connect to the Arduino. But after further research and learning about how to properly manage these ports and the USB connection, I got the control script working. This allowed me to control and move the wheels easier from my keyboard without having to hit enter for every single action or having to press the "x" key to stop. Then, I connected a joystick to my computer via Bluetooth and had keybinds for even smoother control.</p>
+                    <div class="tags">
+                        <span class="tag software">Software</span>
+                        <span class="tag milestone">Milestone</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        12th October
+                    </div>
+                    <h3>Autonomy Roadmap</h3>
+                    <p>I spent today determining the exact steps to make the bin fully autonomous. There are technical steps next, so I created a checklist for myself so I don't get confused:</p>
+                    <ul style="color: var(--gray); margin-top: 0.5rem; margin-left: 1.5rem; font-size: 0.95rem;">
+                        <li><strong>AI Implementation:</strong> Find or train a model and plug it into VS Code. Run a Python script to pull the data for detection.</li>
+                        <li><strong>Movement Logic:</strong> Build the movement logic of the moving under me scenario - how far it needs to go, for how long, and how it comes back when it's done under the desk.</li>
+                        <li><strong>Bin:</strong> Build the bin with a false bottom for the L298N, Arduino, and battery, so it's hidden and protected. Drill a hole to tether the bin so it has a range.</li>
+                        <li><strong>Code Finalization:</strong> Integrate the code with all of this so that once trash is detected, everything is triggered.</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag research">Research</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        13th October - 1st November
+                    </div>
+                    <h3>Deep Learning Period</h3>
+                    <p>As a result of the difficulties with the script, I committed myself for the remainder of the month to develop a deeper understanding of electronics, Arduino, and Python integration. While this was a significant time commitment to research, I felt it was necessary to invest this time to potentially save myself additional time later during the project's final assembly and logic, and to leave extra room for troubleshooting or final improvements.</p>
+                    <div class="tags">
+                        <span class="tag research">Research</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- November -->
+            <div class="timeline-month">
+                <div class="month-label">November</div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        2nd - 5th November
+                    </div>
+                    <h3>Decision to Build Custom AI</h3>
+                    <p>While researching in October, I came across thousands of AI models that already exist for trash detection. I sifted through them for three days to find one that would work for my purposes, but ultimately was unsuccessful, as the detection was either not accurate enough or not the objects I was targeting.</p>
+                    <p style="margin-top: 0.75rem;">Yet it was through this research that I had an epiphany and realized that I could construct and train my own model. It is not difficult to do; it just takes a lot of work and time - but I knew this would be the solution to get the bin functioning the way I wanted it to.</p>
+                    <div class="tags">
+                        <span class="tag milestone">Milestone</span>
+                        <span class="tag software">Software</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        5th November - 19th December
+                    </div>
+                    <h3>Training the Custom Model</h3>
+                    <p>Building the custom AI model took much longer than expected. I had to collect and manually label around 1,000 photos for each object the bin needed to recognize to train the model. This was extremely tedious, and it took around seven hours of manual labor for each new object to be appropriately labeled. I had to pause for a few days as I was on holiday from the 13th to the 17th, but I have completed the primary data set.</p>
+                    <div class="tags">
+                        <span class="tag software">Software</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January -->
+            <div class="timeline-month">
+                <div class="month-label">January</div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        1st - 5th January
+                    </div>
+                    <h3>Physical Prototype Complete</h3>
+                    <p>I finished building the first physical prototype of the bin by adding the motors and the false bottom. I drilled all the electronic components into the false bottom and soldered multiple jumpers to provide reach to the motors. After the physical build, I corrected some balance issues to allow the bin to roll. With the hardware complete, I was able to run basic code that rolls the wheels for a few seconds at a time, indicating the mechanical prototype works.</p>
+                    <div class="tags">
+                        <span class="tag milestone">Milestone</span>
+                        <span class="tag hardware">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        6th - 11th January
+                    </div>
+                    <h3>Balance Tuning & Command Memory</h3>
+                    <p>For the next five days, I was correcting balance problems and working through bugs in my script for the bin in Python. I balanced out the hardware specifically for the right and left motor, as the right motor was stronger, which made the bin veer off to the side. I balanced this out so it would drive straight. I also added a 50 ms memory of commands in the script; this way, if the AI tracking dropped out for even a split second, the bin would have some momentum instead of erratically stopping.</p>
+                    <div class="tags">
+                        <span class="tag software">Software</span>
+                        <span class="tag hardware">Hardware</span>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="entry-date">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        12th - 24th January
+                    </div>
+                    <h3>Full Integration Complete</h3>
+                    <p>I spent the next 12 days working on changing my AI detection software and some of the files to better integrate with the movement system. I refined the tracking logic so the bin could smoothly follow the detected trash position from my webcam feed. I also implemented the return-to-home feature, where the bin remembers its starting position and rolls back after the trash is deposited. By the end of this period, I had a fully functional prototype that could detect trash in my hand, drive toward me, wait for the drop, and return to its resting spot under my desk.</p>
+                    <div class="tags">
+                        <span class="tag milestone">Milestone</span>
+                        <span class="tag software">Software</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Lazy Bin - AI-Powered Autonomous Trash Can</p>
+        <p class="author">A project by Findlay</p>
+    </footer>
+</body>
+</html>
