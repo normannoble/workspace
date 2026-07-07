@@ -459,8 +459,8 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
     align-items: start;
 }
 .sidebar {
@@ -475,23 +475,26 @@ body {
 .sidebar::-webkit-scrollbar { width: 4px; }
 .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 .sidebar-title {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--text-muted);
-    padding: 0.5rem 0.75rem 0.35rem;
+    padding: 0.5rem 0.6rem 0.3rem;
 }
 .sidebar a {
     display: block;
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.35rem 0.75rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 6px;
     transition: all 0.12s;
-    line-height: 1.4;
+    line-height: 1.35;
     border-left: 2px solid transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .sidebar a:hover {
     background: var(--purple-50);
@@ -504,15 +507,16 @@ body {
     border-left-color: var(--purple-500);
 }
 .sidebar .sidebar-badge {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    padding: 0.1rem 0.35rem;
+    padding: 0.05rem 0.25rem;
     border-radius: 3px;
     background: var(--purple-50);
     color: var(--purple-600);
     font-family: 'SF Mono', 'Fira Code', monospace;
-    margin-right: 0.4rem;
+    margin-right: 0.3rem;
     border: 1px solid var(--purple-100);
+    flex-shrink: 0;
 }
 .sidebar-divider {
     height: 1px;
@@ -614,7 +618,7 @@ body {
 Talent Engine
 </a>
 </div>
-<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+<div class="topnav-links"><a href="job-descriptions.html">Jobs</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance</a><a href="career-development.html">Career</a><a href="offboarding.html">Offboarding</a></div>
 </div>
 </nav>
 
