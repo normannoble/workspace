@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senior HR Business Partner — Human Resources &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html" class="active">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="hiring.html">Hiring</a> &rsaquo; Senior HR Business Partner — Human Resources</div>
+<h1>Senior HR Business Partner — Human Resources</h1>
+<h2>The Opportunity</h2>
+<p>You'll partner with VP and SVP-level executives on the most consequential organizational challenges — large-scale org design, M&amp;A people integration, culture transformation, and enterprise talent strategy. This is the senior-most individual contributor HRBP role, where your judgment on organizational matters carries weight at the executive level and your interventions create lasting structural improvements to how the business manages talent. You won't just advise on people problems; you'll shape the organizational architecture, develop the leadership bench, and define what excellent business partnership looks like for other HRBPs. If you've built the strategic depth and executive influence to operate at this level — and you want to apply it to challenges worthy of your expertise — this is the role.</p>
+<h2>What You'll Do</h2>
+<ul>
+<li><strong>Be the strategic advisor executives can't lead without</strong> — VP and SVP-level leaders will involve you in business planning, leadership team decisions, and strategic pivots. Your people strategies for major business segments will demonstrably contribute to business outcomes with clear, measurable connections between organizational interventions and performance improvements.</li>
+<li><strong>Drive organizational design at scale</strong> — You'll lead large-scale restructurings, M&amp;A integration, and new business unit creation with minimal disruption and outcomes that hold up over time. Your workforce planning operates 12-24 months ahead, anticipating capability gaps and translating them into concrete talent investment decisions.</li>
+<li><strong>Develop the organization's most critical leaders</strong> — You'll build succession depth for key roles that's genuinely ready, coach senior leaders to measurably improve their effectiveness, and create talent mobility programs that break down silos and retain high-potential talent.</li>
+<li><strong>Handle the situations that require the most judgment</strong> — Executive misconduct investigations, systemic cultural issues, high-profile departures, and organizational crises will land on your desk. You'll navigate them with the discretion, strategic awareness, and composure they demand.</li>
+<li><strong>Shape enterprise HR strategy and develop other HRBPs</strong> — Your deep business insight will influence company-wide programs, and your mentorship will help IC2 and IC3 HRBPs develop into stronger business partners.</li>
+</ul>
+<h2>What You Bring</h2>
+<ul>
+<li>8-12+ years of progressive HR experience, including at least 4 years in a strategic HRBP role supporting VP-level and above</li>
+<li>Expert knowledge across HR disciplines with particular depth in organizational design, executive talent management, and change management</li>
+<li>Sophisticated business acumen — you engage with senior executives on business strategy, financial performance, and competitive dynamics as a peer</li>
+<li>Executive influence and advisory skills — you challenge, coach, and redirect VP/SVP-level leaders on sensitive people decisions while maintaining trust</li>
+<li>Deep experience with organizational diagnostics at scale — you identify systemic dysfunction patterns and design multi-faceted interventions</li>
+<li>Exceptional judgment under ambiguity and pressure — you make consequential decisions when information is incomplete and multiple interests are in tension</li>
+<li>Resilience and composure in high-stakes situations — executive conflicts, sensitive investigations, and organizational crises</li>
+</ul>
+<h2>Nice to Have</h2>
+<ul>
+<li>M&amp;A people integration experience — cultural assessment, integration planning, and retention strategy</li>
+<li>Experience with large-scale culture transformation during periods of significant organizational change</li>
+<li>HR certifications (SHRM-SCP, SPHR) or advanced degree (MBA, MS in I/O Psychology or OD)</li>
+</ul>
+<h2>Why [Company]</h2>
+<ul>
+<li><strong>The highest-stakes organizational challenges</strong> — You'll work on org design, M&amp;A integration, culture transformation, and executive talent strategy. The complexity here matches the expertise you've built.</li>
+<li><strong>Executive leaders who treat HR as a strategic function</strong> — Our senior leaders don't just tolerate HRBP involvement — they depend on it. You'll have genuine influence on the most consequential organizational decisions.</li>
+<li><strong>Legacy-level impact</strong> — Your organizational design work, leadership development programs, and cultural interventions will shape the company for years. This is work that outlasts any single business cycle.</li>
+</ul>
+<h2>How to Apply</h2>
+<p>Submit your application through our careers page, or reach out directly to our HR leadership team. Given the seniority of this role, our process is tailored — expect conversations with the CHRO or Head of HR, in-depth discussions about your approach to organizational challenges, and meetings with the executive leaders you'd partner with. We move efficiently and respect your time.</p>
+<hr />
+<h2>Channel Adaptation Notes</h2>
+<h3>LinkedIn Version (150-300 words)</h3>
+<p>We're hiring a Senior HR Business Partner to partner with VP/SVP-level executives on the most consequential organizational challenges — large-scale org design, M&amp;A integration, culture transformation, and enterprise talent strategy.</p>
+<p>You'll drive organizational design at scale, develop the leadership bench, handle the situations that require the deepest judgment, and shape enterprise HR strategy through business insight. This is the senior-most IC HRBP role — your influence is executive-level.</p>
+<p>What we're looking for: 8-12+ years with 4+ years supporting VP-level leaders, expert OD and talent management knowledge, sophisticated business acumen, executive influence skills, and the judgment to navigate high-stakes situations.</p>
+<p>If you're ready for organizational challenges that match your expertise, let's connect.</p>
+<h3>Indeed / Job Board Version (400-600 words)</h3>
+<p><strong>Senior HR Business Partner</strong></p>
+<p><strong>Location:</strong> Hybrid / Remote</p>
+<p><strong>About the Role</strong></p>
+<p>We're looking for a Senior HR Business Partner to partner with VP/SVP-level executives on large-scale organizational design, M&amp;A people integration, culture transformation, and enterprise talent strategy.</p>
+<p><strong>What You'll Do</strong></p>
+<ul>
+<li>Partner with VP/SVP-level leaders on organizational strategy, restructuring, and leadership decisions</li>
+<li>Lead large-scale org design, M&amp;A integration, and new business unit creation</li>
+<li>Build succession depth, coach senior leaders, and develop talent mobility programs</li>
+<li>Navigate the most complex ER situations — executive investigations, cultural issues, organizational crises</li>
+<li>Shape enterprise HR strategy and mentor developing HRBPs</li>
+</ul>
+<p><strong>What You Bring</strong></p>
+<ul>
+<li>8-12+ years of progressive HR experience with 4+ years supporting VP-level and above</li>
+<li>Expert organizational design, executive talent management, and change management knowledge</li>
+<li>Sophisticated business acumen — you engage as a peer with senior executives</li>
+<li>Executive influence and advisory skills with VP/SVP-level leaders</li>
+<li>Exceptional judgment under ambiguity with high-stakes situations</li>
+</ul>
+<p><strong>Nice to Have</strong></p>
+<ul>
+<li>M&amp;A people integration experience</li>
+<li>Large-scale culture transformation experience</li>
+<li>HR certifications (SHRM-SCP, SPHR) or advanced degree</li>
+</ul>
+<p>Apply today or reach out directly to our HR leadership team.</p>
+<h3>Recruiter Outreach Version (100-150 words)</h3>
+<p>Hi [Name],</p>
+<p>Your work as a senior HRBP, particularly [specific org design initiative, M&amp;A integration, or executive partnership], stands out. The combination of strategic depth and executive influence you bring is exactly what this role demands.</p>
+<p>We're hiring a Senior HR Business Partner to partner with VP/SVP-level executives on large-scale organizational challenges — org design, M&amp;A integration, culture transformation, and enterprise talent strategy. This is a role with real executive influence and legacy-level organizational impact.</p>
+<p>Would you be open to a conversation to explore whether this fits?</p>
+<hr />
+<p><em>See also: Senior HR Business Partner JD | Job Advertising Guide</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: Senior HR Business Partner (IC4) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: Senior HR Business Partner (IC4)</div>
+<h1>30-60-90 Day Onboarding: Senior HR Business Partner (IC4)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> IC4 — Senior HR Business Partner
+<strong>Focus:</strong> Assessing organizational landscape, building executive trust, shaping people strategy for major business segments
+<strong>Manager's Role:</strong> Strategic thought partner, executive sponsor, organizational navigator</p>
+<p>IC4 Senior HRBPs are expert-level professionals who partner with VP and SVP-level executives on the most complex organizational challenges. Onboarding at this level is less about learning HR fundamentals and more about rapidly building executive trust, understanding organizational power dynamics, and identifying where strategic people interventions will create the most lasting impact. The goal is to become an indispensable advisor to senior leadership within 90 days.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Assess the Landscape</h3>
+<p><strong>Primary Objectives:</strong>
+- Develop deep understanding of supported business segments' strategy, competitive position, and leadership dynamics
+- Build relationships with VP/SVP-level leaders and understand their priorities, challenges, and decision-making styles
+- Assess organizational health, talent pipeline strength, and cultural dynamics at a systemic level
+- Understand the HR operating model, enterprise strategy, and where Senior HRBP influence is most needed</p>
+<h3>Week 1: Executive Orientation</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>HR leadership intros, enterprise strategy overview, organizational context, stakeholder map</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Business Strategy</td>
+<td>Deep-dive on supported business segments—P&amp;L, growth plans, competitive dynamics, strategic pivots</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Leadership &amp; Talent</td>
+<td>Executive team profiles, succession pipeline, talent review outcomes, leadership effectiveness data</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Organizational Health</td>
+<td>Engagement trends, attrition patterns, cultural dynamics, active ER situations, pending org changes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Executive Intros</td>
+<td>One-on-ones with VP/SVP leaders in supported segments, HR leadership, and peer Senior HRBPs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] 1:1 with each VP/SVP in supported business segments
+- [ ] CHRO or HR VP (alignment on strategic priorities)
+- [ ] Peer Senior HRBPs for cross-segment context
+- [ ] Legal counsel for employment law landscape and active cases
+- [ ] Previous Senior HRBP (if applicable) for thorough handoff</p>
+<h3>Weeks 2-4: Strategic Assessment</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Expert-level understanding of business segment strategies, financial health, and competitive positioning
+- [ ] Assessment of leadership team effectiveness, succession depth, and executive development needs
+- [ ] Systemic view of organizational health—patterns across teams, leaders, and business cycles
+- [ ] Understanding of active and anticipated organizational changes (restructurings, M&amp;A, growth initiatives)
+- [ ] Clear view of where strategic people interventions will create the most business impact</p>
+<p><strong>Activities:</strong>
+- Conduct confidential conversations with senior leaders to understand leadership dynamics and organizational tensions
+- Review succession plans, talent pipeline data, and leadership assessment results for critical roles
+- Analyze multi-year engagement, attrition, and organizational health trends across supported segments
+- Assess pending or likely organizational design challenges (scale, M&amp;A integration, restructuring)
+- Document strategic assessment with initial recommendations for people strategy priorities</p>
+<p><strong>Milestones:</strong>
+- [ ] Can engage credibly with VP/SVP leaders on their business strategy and organizational challenges
+- [ ] Leadership pipeline and succession depth assessed for critical roles
+- [ ] Organizational health patterns identified across supported segments
+- [ ] Initial strategic people priorities forming based on business need and impact potential
+- [ ] Executive relationships initiated with early trust signals established</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- What is your strategic assessment of the supported business segments?
+- What are the highest-impact people strategy opportunities you see?
+- How are executive relationships developing?
+- What organizational dynamics or risks should we be aware of?
+- Initial feedback on executive presence and strategic impact</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Deep strategic understanding of supported business segments
+- [ ] Executive relationships initiated with VP/SVP leaders
+- [ ] Systemic organizational health assessment completed
+- [ ] 2-3 high-impact strategic priorities identified
+- [ ] Operating with senior-level judgment and initiative</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Shape Direction</h3>
+<p><strong>Primary Objectives:</strong>
+- Begin influencing strategic people decisions at the executive level
+- Own the people strategy for supported business segments
+- Address the most complex organizational and talent challenges
+- Demonstrate the strategic advisory value that defines IC4 partnership</p>
+<h3>Weeks 5-6: Establishing Strategic Influence</h3>
+<p><strong>Activities:</strong>
+- Lead strategic workforce planning conversations with VP/SVP leaders
+- Drive organizational design recommendations for team structure, accountability, and scaling
+- Coach senior leaders on their effectiveness as people leaders
+- Own the most complex and sensitive ER situations (executive-level, systemic cultural issues, high-stakes decisions)
+- Begin shaping talent strategy—succession planning, high-potential acceleration, critical role pipeline</p>
+<p><strong>Demonstrating Executive Advisory:</strong>
+- [ ] VP/SVP leaders actively involving Senior HRBP in business planning and strategic discussions
+- [ ] Organizational design recommendations producing improved structure and accountability
+- [ ] Executive coaching relationships forming with demonstrable value
+- [ ] Complex ER situations handled with judgment that balances all stakeholder interests
+- [ ] Talent strategy taking shape with concrete succession and development plans</p>
+<h3>Weeks 7-8: Driving Enterprise Impact</h3>
+<p><strong>Activities:</strong>
+- Influence enterprise HR strategy through business-grounded insight and advocacy
+- Lead or champion large-scale organizational initiatives (restructuring, culture transformation, M&amp;A integration)
+- Mentor IC2 and IC3 HRBPs on business partnership quality and strategic thinking
+- Build cross-functional coalitions with Finance, Legal, and executive leadership on people initiatives
+- Establish systematic feedback loops between business reality and HR Centers of Excellence</p>
+<p><strong>Growing Impact:</strong>
+- [ ] Enterprise HR strategy influenced through deep business insight
+- [ ] Large-scale organizational initiatives advancing with strategic people planning
+- [ ] Junior HRBPs developing faster through mentorship and role modeling
+- [ ] Cross-functional alignment on complex people initiatives achieved
+- [ ] Recognized as a strategic advisor whose judgment carries weight at the executive level</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is executive advisory partnership developing?
+- What strategic impact have you had on organizational decisions?
+- Where are you driving the most value and where do you want to expand?
+- How are you developing other HRBPs?
+- Feedback on executive influence and strategic leadership</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Full ownership of people strategy for supported business segments
+- [ ] Executive leaders treating Senior HRBP as indispensable strategic advisor
+- [ ] Complex organizational challenges being addressed with IC4-level judgment
+- [ ] Mentoring and developing other HRBPs
+- [ ] Contributing at IC4 level consistently</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Drive Strategic Impact</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate fully at IC4 level as trusted executive advisor
+- Demonstrate people strategies that measurably contribute to business outcomes
+- Drive lasting structural improvements to how the business manages talent
+- Establish trajectory for sustained strategic impact</p>
+<h3>Weeks 9-10: Full IC4 Operation</h3>
+<p><strong>Activities:</strong>
+- Own people strategy end-to-end for major business segments with full executive partnership
+- Drive the most consequential organizational decisions—large-scale org design, executive talent strategy, culture transformation
+- Lead organizational health management at a systemic level—root causes addressed, not just symptoms
+- Ensure calibration processes produce fair, defensible outcomes that build manager capability
+- Champion enterprise HR transformations within supported segments with genuine adoption</p>
+<p><strong>IC4 Expectations Met:</strong>
+- [ ] VP/SVP leaders treat Senior HRBP as indispensable strategic advisor on all organizational decisions
+- [ ] People strategies demonstrably contributing to business outcomes with measurable improvements
+- [ ] Organizational design initiatives executed with minimal disruption and outcomes that hold up over time
+- [ ] Workforce planning operating at strategic level—anticipating gaps 12-24 months out
+- [ ] The most complex ER and organizational situations handled with exceptional judgment</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Document strategic people vision for supported business segments over next 12-24 months
+- Set goals for next quarter focused on enterprise-level impact
+- Discuss continued development—deeper executive partnership, M&amp;A expertise, organizational transformation leadership
+- Solidify position as trusted executive advisor
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear strategic vision for people strategy across supported segments
+- [ ] Development plan established for continued growth at IC4 level
+- [ ] Executive relationships solidified as genuine thought partnerships
+- [ ] Known as the trusted strategic advisor whose judgment is sought on consequential decisions
+- [ ] Positioned for continued enterprise-level impact</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Executive partnership quality and business leader feedback
+- Organizational health and talent strategy impact
+- HRBP mentorship and team development contribution
+- Path forward and strategic priorities</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at IC4 level
+- [ ] Strategic ownership clearly established with executive partners
+- [ ] Organizational influence demonstrated at senior leadership level
+- [ ] Strong executive relationships and trusted advisor reputation
+- [ ] Clear on continued strategic impact path</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct manager</td>
+<td>Strategic alignment, organizational navigation</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>VP/SVP business leaders</td>
+<td>Executive partnership, organizational decisions</td>
+<td>Weekly or biweekly</td>
+</tr>
+<tr>
+<td>CHRO/HR VP</td>
+<td>Enterprise strategy alignment, sponsorship</td>
+<td>Biweekly or monthly</td>
+</tr>
+<tr>
+<td>Peer Senior HRBPs</td>
+<td>Cross-segment coordination, pattern sharing</td>
+<td>Biweekly</td>
+</tr>
+<tr>
+<td>Legal counsel</td>
+<td>Complex ER, compliance, M&amp;A</td>
+<td>First month, as needed</td>
+</tr>
+<tr>
+<td>Finance leadership</td>
+<td>Workforce planning, compensation strategy, budgeting</td>
+<td>First month, ongoing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common IC4 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Executives testing or not yet trusting the new Senior HRBP</td>
+<td>Lead with business insight, not HR jargon; demonstrate value through quality of strategic counsel</td>
+</tr>
+<tr>
+<td>Inheriting complex political dynamics between leaders</td>
+<td>Listen extensively before acting; understand history and power dynamics before intervening</td>
+</tr>
+<tr>
+<td>Scope is ambiguous between strategic and operational</td>
+<td>Clarify expectations with manager; intentionally delegate operational work to free strategic capacity</td>
+</tr>
+<tr>
+<td>Mentoring other HRBPs while still onboarding yourself</td>
+<td>Start with knowledge sharing from fresh perspective; deepen coaching as your context grows</td>
+</tr>
+<tr>
+<td>Pressure to demonstrate impact immediately at executive level</td>
+<td>Balance quick wins with longer-term strategic bets; some interventions need runway to show results</td>
+</tr>
+<tr>
+<td>M&amp;A or restructuring dropped on you early</td>
+<td>Leverage prior experience; be transparent about what context you still need; ask for appropriate support</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] Supported business segments identified with executive alignment</li>
+<li>[ ] Thorough handoff from previous Senior HRBP or interim support</li>
+<li>[ ] Executive meetings scheduled with VP/SVP leaders</li>
+<li>[ ] Sensitive situations, active ER cases, and organizational context documented</li>
+<li>[ ] Strategic priorities and expectations aligned with HR leadership</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] Executive introductions complete</li>
+<li>[ ] Business strategy and organizational context transferred</li>
+<li>[ ] Talent and organizational health data shared</li>
+<li>[ ] Active situations and pending decisions briefed</li>
+<li>[ ] Regular cadence established with manager and key executives</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Strategic ownership transferring at appropriate pace</li>
+<li>[ ] Executive influence opportunities provided</li>
+<li>[ ] Complex organizational challenges supported with appropriate latitude</li>
+<li>[ ] HRBP mentoring relationships forming</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: IC4 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

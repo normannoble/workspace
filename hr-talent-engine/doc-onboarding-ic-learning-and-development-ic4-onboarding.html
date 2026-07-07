@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: Principal L&D Specialist (IC4) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: Principal L&D Specialist (IC4)</div>
+<h1>30-60-90 Day Onboarding: Principal L&amp;D Specialist (IC4)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> IC4 — Principal L&amp;D Specialist
+<strong>Focus:</strong> Assessing the enterprise learning landscape, shaping organizational learning strategy, driving capability development at scale
+<strong>Manager's Role:</strong> Strategic thought partner, executive sponsor, organizational navigator</p>
+<p>IC4 Principal L&amp;D Specialists are strategic learning leaders who shape how the organization builds capability at scale. Onboarding at this level is less about learning instructional design and more about rapidly understanding organizational capability gaps, building executive trust, and identifying where strategic learning interventions will create the most lasting business impact. The goal is to define and begin driving enterprise learning strategy within 90 days.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Assess the Landscape</h3>
+<p><strong>Primary Objectives:</strong>
+- Develop deep understanding of organizational strategy, capability gaps, and talent pipeline priorities
+- Assess the current learning ecosystem—programs, technology, measurement maturity, team capability
+- Build relationships with HR leadership, business executives, and cross-functional partners
+- Understand where enterprise learning strategy can most impact business outcomes</p>
+<h3>Week 1: Enterprise Orientation</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>HR leadership intros, enterprise strategy overview, L&amp;D function context, role expectations</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Business Strategy</td>
+<td>Organizational priorities, growth plans, competitive position, and capability implications</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Learning Ecosystem</td>
+<td>Program portfolio assessment, technology stack, measurement practices, team structure and capability</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Talent Strategy</td>
+<td>Succession planning, leadership pipeline, high-potential development, organizational capability frameworks</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Executive Intros</td>
+<td>Meet HR leadership, business unit heads, Finance, IT partners, and peer principal-level HR professionals</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] CHRO or HR VP (strategic alignment)
+- [ ] Business unit leaders (capability needs and strategic priorities)
+- [ ] HRBPs (business context, partnership model)
+- [ ] IT/Digital leaders (learning technology landscape)
+- [ ] Previous Principal L&amp;D Specialist or program owners (if applicable)</p>
+<h3>Weeks 2-4: Strategic Assessment</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Expert-level understanding of organizational strategy and capability implications
+- [ ] Assessment of current learning program portfolio—effectiveness, gaps, redundancies, investment allocation
+- [ ] Evaluation of learning technology stack—LMS, authoring platforms, emerging tools, integration points
+- [ ] Assessment of L&amp;D team capability—strengths, development needs, capacity for strategic work
+- [ ] Clear view of where enterprise learning strategy needs to evolve to support business direction</p>
+<p><strong>Activities:</strong>
+- Conduct stakeholder conversations with business and HR leaders to understand capability priorities
+- Review program evaluation data, learning analytics, and ROI evidence across the portfolio
+- Assess learning technology maturity and identify gaps or modernization needs
+- Evaluate leadership development and organizational capability frameworks currently in use
+- Document strategic assessment with prioritized recommendations for learning strategy evolution</p>
+<p><strong>Milestones:</strong>
+- [ ] Can engage credibly with executives on how learning strategy connects to business outcomes
+- [ ] Learning program portfolio assessed with clear view of strengths, gaps, and investment priorities
+- [ ] Technology landscape evaluated with initial recommendations
+- [ ] L&amp;D team capability assessed with development priorities identified
+- [ ] Strategic learning priorities forming based on business need and organizational readiness</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- What is your strategic assessment of the learning ecosystem and organizational capability?
+- What are the highest-impact learning strategy opportunities?
+- How are executive and cross-functional relationships developing?
+- What organizational dynamics should we be aware of?
+- Initial feedback on strategic thinking and executive engagement</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Deep understanding of organizational strategy and capability landscape
+- [ ] Executive relationships initiated with credibility signals established
+- [ ] Comprehensive learning ecosystem assessment completed
+- [ ] 2-3 high-impact strategic priorities identified
+- [ ] Operating with IC4-level judgment and initiative</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Shape Direction</h3>
+<p><strong>Primary Objectives:</strong>
+- Begin defining enterprise learning strategy aligned with business priorities
+- Drive high-impact learning initiatives—leadership development, organizational capability, change support
+- Influence how the organization invests in learning technology and program design
+- Mentor senior L&amp;D team members and raise the quality bar</p>
+<h3>Weeks 5-6: Establishing Strategic Influence</h3>
+<p><strong>Activities:</strong>
+- Draft enterprise learning strategy framework aligned with business objectives and capability gaps
+- Lead or redesign high-impact programs—leadership development, organizational capability building, change management support
+- Evaluate and recommend learning technology investments with clear rationale connecting to outcomes
+- Begin executive coaching or advisory relationships on organizational capability development
+- Establish evaluation frameworks that credibly demonstrate business impact for major investments</p>
+<p><strong>Demonstrating Strategic Leadership:</strong>
+- [ ] Enterprise learning strategy taking shape with executive alignment
+- [ ] Leadership development programs designed to demonstrably prepare leaders for increased scope
+- [ ] Learning technology recommendations grounded in organizational needs, not trends
+- [ ] Evaluation frameworks moving toward credible business impact measurement (Level 4/ROI)
+- [ ] Executive relationships forming with demonstrated strategic value</p>
+<h3>Weeks 7-8: Driving Enterprise Impact</h3>
+<p><strong>Activities:</strong>
+- Influence learning investment decisions across business units through strategic advocacy
+- Build organizational capability frameworks that define "good" across critical skill areas
+- Connect learning strategy to succession planning and high-potential development
+- Mentor IC3 L&amp;D Specialists toward strategic thinking and enterprise-level contribution
+- Establish quality standards and best practices adopted across the L&amp;D function</p>
+<p><strong>Growing Impact:</strong>
+- [ ] Enterprise learning strategy influencing investment decisions and resource allocation
+- [ ] Organizational capability frameworks providing shared language for development and assessment
+- [ ] Senior L&amp;D team members developing faster through mentorship and challenging assignments
+- [ ] Quality standards and best practices raising the bar across the L&amp;D function
+- [ ] Recognized as a strategic authority whose judgment shapes learning decisions</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is the enterprise learning strategy developing?
+- What impact are you having on learning investment and program quality?
+- Where are you driving the most value and where do you want to expand?
+- How are mentorship relationships with senior L&amp;D team members?
+- Feedback on strategic influence and executive engagement</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Enterprise learning strategy framework in place with stakeholder alignment
+- [ ] High-impact programs advanced or initiated with measurable objectives
+- [ ] Mentoring and developing senior L&amp;D team members
+- [ ] Executive trust and strategic advisory value demonstrated
+- [ ] Contributing at IC4 level consistently</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Drive Strategic Impact</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate fully at IC4 level as the enterprise learning strategy leader
+- Demonstrate learning programs with measurable business impact
+- Drive lasting improvements to how the organization builds capability at scale
+- Establish trajectory for sustained strategic influence</p>
+<h3>Weeks 9-10: Full IC4 Operation</h3>
+<p><strong>Activities:</strong>
+- Own enterprise learning strategy with clear alignment to business priorities and measurable outcomes
+- Drive the most complex learning challenges—leadership pipeline development, organizational transformation support, enterprise capability building
+- Ensure portfolio-level analysis informs decisions about what to invest in, redesign, or retire
+- Lead learning community of practice extending beyond the L&amp;D team
+- Synthesize learning analytics, industry research, and organizational data into strategic recommendations</p>
+<p><strong>IC4 Expectations Met:</strong>
+- [ ] Enterprise learning strategy articulated, aligned with business priorities, and guiding investment decisions
+- [ ] Organizational capability gaps addressed proactively based on strategic direction and workforce data
+- [ ] Leadership development programs demonstrably preparing leaders for increased scope
+- [ ] Evaluation frameworks credibly demonstrating business impact for major learning investments
+- [ ] IC3 L&amp;D Specialists growing toward strategic capability through mentorship and development</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Document enterprise learning vision for the next 12-24 months
+- Set goals for next quarter focused on deepening organizational impact
+- Discuss continued development—thought leadership, organizational transformation, executive advisory
+- Solidify position as the trusted enterprise learning strategy authority
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear enterprise learning vision aligned with long-term business strategy
+- [ ] Development plan established for continued growth and impact
+- [ ] Executive relationships solidified as strategic thought partnerships
+- [ ] Known as the authority whose judgment shapes enterprise learning decisions
+- [ ] Positioned for sustained strategic impact and organizational influence</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Enterprise learning strategy quality and executive alignment
+- Program impact and measurement maturity
+- Team development and L&amp;D function capability improvement
+- Path forward and strategic priorities</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at IC4 level
+- [ ] Enterprise learning strategy ownership clearly established
+- [ ] Strategic influence demonstrated at executive level
+- [ ] Strong executive relationships and trusted authority reputation
+- [ ] Clear on continued strategic impact path</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct manager</td>
+<td>Strategic alignment, organizational navigation</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>CHRO/HR VP</td>
+<td>Enterprise strategy, executive sponsorship</td>
+<td>Biweekly or monthly</td>
+</tr>
+<tr>
+<td>Business unit leaders</td>
+<td>Capability needs, learning investment priorities</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>HRBPs</td>
+<td>Business context, talent strategy alignment</td>
+<td>Biweekly</td>
+</tr>
+<tr>
+<td>IT/Digital leadership</td>
+<td>Learning technology decisions, platform strategy</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>IC3 L&amp;D Specialists</td>
+<td>Mentorship, team development, quality standards</td>
+<td>Ongoing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common IC4 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learning ecosystem more fragmented than expected</td>
+<td>Document the landscape; prioritize consolidation; don't try to fix everything immediately</td>
+</tr>
+<tr>
+<td>Measurement maturity far below where strategy needs it</td>
+<td>Build measurement capability progressively; start with quick wins that demonstrate value</td>
+</tr>
+<tr>
+<td>Executives skeptical of L&amp;D's strategic value</td>
+<td>Lead with business language and data; demonstrate impact through early wins on visible problems</td>
+</tr>
+<tr>
+<td>L&amp;D team accustomed to order-taking rather than strategic partnership</td>
+<td>Model the consulting approach; coach team members; build capability alongside delivering results</td>
+</tr>
+<tr>
+<td>Pressure to show immediate enterprise-level results</td>
+<td>Balance quick wins with longer-term strategic bets; set realistic expectations with leadership</td>
+</tr>
+<tr>
+<td>Learning technology decisions constrained by budget or IT</td>
+<td>Build business cases with clear ROI; align with IT priorities; find creative solutions within constraints</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] Strategic scope and enterprise priorities defined</li>
+<li>[ ] Thorough handoff from previous owner or interim support</li>
+<li>[ ] Executive meetings scheduled with business and HR leaders</li>
+<li>[ ] Learning ecosystem data, program evaluations, and technology landscape documented</li>
+<li>[ ] Strategic context and expectations aligned with HR leadership</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] Enterprise orientation complete</li>
+<li>[ ] Executive introductions done</li>
+<li>[ ] Learning ecosystem and program portfolio data shared</li>
+<li>[ ] Technology and team capability context transferred</li>
+<li>[ ] Regular cadence established with manager and key executives</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Strategic ownership developing at appropriate pace</li>
+<li>[ ] Executive influence opportunities provided</li>
+<li>[ ] High-impact program leadership supported</li>
+<li>[ ] Mentoring relationships forming with IC3 team members</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: IC4 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

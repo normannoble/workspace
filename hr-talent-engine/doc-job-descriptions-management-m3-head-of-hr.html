@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Head of HR &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html" class="active">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="job-descriptions.html">Job Descriptions</a> &rsaquo; Head of HR</div>
+<h1>Head of HR</h1>
+<p><strong>Level:</strong> M3 (Director / Senior Director)</p>
+<h2>Role Overview</h2>
+<p>The Head of HR is a senior leader responsible for a significant portion of or the entire HR function, managing M1 and M2 HR managers and shaping how HR operates at organizational scale. This role reports to executive leadership (CHRO, CPO, or CEO in smaller organizations) and contributes directly to company strategy, organizational design, and the overall people agenda.</p>
+<p>Success in this role requires developing other HR managers into effective leaders, building HR organizational capability that scales with company growth, and delivering consistent results across all five HR disciplines—Talent Acquisition, HR Operations, HRBP, L&amp;D, and Compensation &amp; Benefits. Heads of HR shape HR culture, establish function-wide standards and practices, and create the conditions for HR excellence that directly enables business performance.</p>
+<p>While operating primarily through others, Heads of HR maintain strategic HR judgment and the ability to engage deeply on the most consequential people matters. They understand the full breadth of HR disciplines, can evaluate program strategies and compliance risks, and provide hands-on guidance when critical situations demand senior perspective. This credibility across the HR domain is essential for earning trust with executive leadership and making sound organizational decisions about how the company builds, develops, and retains its workforce.</p>
+<hr />
+<h2>Success Outcomes</h2>
+<p>Success in this role means achieving the following outcomes:</p>
+<h3>Organizational Performance</h3>
+<ul>
+<li>Multiple HR teams delivering consistently against strategic objectives with appropriate quality and velocity across all five disciplines</li>
+<li>Coordinated execution across HR disciplines with clear priorities, minimal conflicts, and effective resource allocation—the HR function operating as an integrated system rather than a collection of separate teams</li>
+<li>A balanced portfolio of HR work: day-to-day service delivery, program innovation, process improvement, and long-term capability building</li>
+<li>An HR function that scales effectively with company growth without proportional increase in headcount or coordination overhead</li>
+</ul>
+<h3>Manager Development</h3>
+<ul>
+<li>HR managers (M1s and M2s) who are growing in capability and becoming excellent people leaders—not just effective HR practitioners who happen to manage</li>
+<li>Delegation that develops managers while ensuring quality outcomes—genuine development of leadership judgment, strategic thinking, and cross-discipline fluency</li>
+<li>A management culture within HR with shared practices, standards, and expectations that reflect the same rigor the function asks of the rest of the organization</li>
+<li>Bench strength and succession planning—the HR function is not dependent on any single manager, and the next generation of HR leaders is being deliberately developed</li>
+</ul>
+<h3>HR Function Excellence</h3>
+<ul>
+<li>HR standards and practices adopted across all disciplines that measurably improve service quality, employee experience, compliance posture, or operational efficiency</li>
+<li>HR strategy that aligns with business objectives and positions the function to support future organizational growth, whether through scaling, M&amp;A, geographic expansion, or strategic pivots</li>
+<li>Cross-discipline integration that creates compounding value—recruiting feeding into strong onboarding, onboarding connecting to L&amp;D, HRBP insights informing compensation strategy, and HR Operations enabling it all with reliable infrastructure</li>
+<li>An HR function that attracts and retains strong talent, known internally and externally for the quality of its people and the impact of its work</li>
+</ul>
+<h3>Strategic Leadership</h3>
+<ul>
+<li>HR strategy clearly aligned with company objectives, with measurable progress and regular executive visibility into function performance and impact</li>
+<li>Cross-functional partnerships with Finance, Legal, IT, and business leadership that improve organizational outcomes and position HR as a strategic partner rather than a service function</li>
+<li>Forward-looking planning that anticipates organizational needs 6-18 months ahead—workforce planning, capability gaps, compliance changes, and technology investments identified and addressed proactively</li>
+<li>Meaningful contribution to company strategy and direction, representing the people perspective in executive discussions on growth, market challenges, organizational design, and culture</li>
+</ul>
+<h3>Organizational Health</h3>
+<ul>
+<li>High engagement and retention across the HR function, with regrettable attrition minimized and team health actively monitored</li>
+<li>Organizational issues within and beyond the HR function identified and addressed proactively before they escalate—leveraging the unique position HR holds as an organizational sensor</li>
+<li>Inclusive culture within the HR function where diverse perspectives are valued and everyone can do their best work—modeling the standards the function promotes across the company</li>
+<li>Sustainable pace maintained across HR teams, with burnout and overwork addressed systematically, particularly during demanding business cycles</li>
+</ul>
+<h3>Culture and Compliance at Scale</h3>
+<ul>
+<li>A company-wide people culture that reflects organizational values—shaped deliberately through HR programs, policies, and practices rather than left to emerge organically</li>
+<li>Compliance posture across all HR domains that is robust, current, and appropriate to the organization's size, industry, and geographic footprint</li>
+<li>Employment practices that are fair, consistent, and legally defensible, with the judgment to know when consistency matters and when context-appropriate flexibility serves the organization better</li>
+<li>An HR function that is trusted by employees at all levels as a credible, fair, and effective steward of the employment relationship</li>
+</ul>
+<hr />
+<h2>Required Skills</h2>
+<h3>Leadership and Management</h3>
+<ul>
+<li>Manager development—coaches and develops M1 and M2 HR managers to excellence, not just execution, building their leadership judgment and cross-discipline capability</li>
+<li>Organizational design—structures HR teams and responsibilities for effectiveness at scale, adapting the function's shape as the company grows and its needs evolve</li>
+<li>Delegation mastery—develops managers through delegation while maintaining accountability for outcomes across all HR disciplines</li>
+<li>Executive presence—communicates effectively with C-level leadership and board when needed, representing the people agenda with authority and nuance</li>
+</ul>
+<h3>HR Domain Expertise</h3>
+<ul>
+<li>Broad and deep HR knowledge across all five disciplines, with the strategic judgment to evaluate program quality, compliance risks, and organizational impact across the full HR portfolio</li>
+<li>Employment law and regulatory expertise at the strategic level—understanding the compliance landscape well enough to assess organizational risk and guide policy decisions</li>
+<li>Program architecture at scale—can design, evaluate, and iterate on HR programs (performance management, compensation philosophy, talent development, employer brand) that work across the organization</li>
+<li>HR technology and data strategy—understands how HRIS, analytics, and operational infrastructure enable HR service delivery and can make informed investment decisions</li>
+</ul>
+<h3>Strategic Thinking</h3>
+<ul>
+<li>Strategic planning with 6-18 month horizons, balancing immediate HR service delivery needs with long-term capability building and function development</li>
+<li>Resource planning across multiple HR teams, optimizing for organizational impact and ensuring appropriate investment across disciplines</li>
+<li>Change leadership—drives organizational changes within and beyond the HR function while maintaining productivity and morale</li>
+<li>Business acumen—understands company strategy, financial dynamics, and competitive positioning well enough to connect HR work to business outcomes and speak the language of the executive team</li>
+</ul>
+<h3>Organizational Leadership</h3>
+<ul>
+<li>Culture building—shapes HR function culture and influences company-wide people culture through programs, policies, and leadership behavior</li>
+<li>Talent strategy for the HR function—attracts, develops, and retains strong HR professionals across all disciplines and career stages</li>
+<li>Cross-functional influence—builds partnerships with Finance, Legal, IT, and business leadership that position HR as a strategic partner</li>
+<li>Stakeholder management at the executive level—navigates competing priorities, builds alignment on people investments, and advocates effectively for HR resources and authority</li>
+</ul>
+<h3>Core Competencies</h3>
+<ul>
+<li>Systems thinking—understands how HR disciplines, business cycles, organizational dynamics, and people decisions interact across a complex organization and over extended time horizons</li>
+<li>Communication excellence—articulates HR vision, strategy, and priorities clearly at all levels, from frontline employees to the board</li>
+<li>Judgment under ambiguity—makes sound decisions about organizational matters when information is incomplete, stakes are high, and multiple legitimate interests are in tension</li>
+<li>Resilience—maintains organizational health and personal effectiveness through sustained pressure, organizational challenges, and the weight of being responsible for the people function</li>
+</ul>
+<hr />
+<h2>Required Experience</h2>
+<h3>Years of Experience</h3>
+<ul>
+<li>10-15+ years of professional HR experience across multiple disciplines</li>
+<li>5-8+ years in HR management, including experience managing other managers</li>
+</ul>
+<h3>Demonstrated Track Record</h3>
+<ul>
+<li>Built, scaled, or transformed HR organizations of meaningful size (15+ HR professionals across multiple disciplines)</li>
+<li>Developed multiple HR managers who became effective leaders—not just competent administrators but people who grew their teams and developed others</li>
+<li>Delivered significant organizational outcomes through HR teams over extended periods—programs, practices, and cultural improvements with lasting impact</li>
+<li>Successfully navigated organizational challenges: rapid growth, restructuring, M&amp;A integration, compliance crises, or strategic pivots that required the HR function to adapt</li>
+<li>Recognition as a senior HR leader by peers, executives, and the broader organization</li>
+</ul>
+<h3>Management Experience</h3>
+<ul>
+<li>Experience managing managers with demonstrated ability to develop management capability in others—M1 and M2 managers who became better leaders under this person's guidance</li>
+<li>Track record of building high-performing, healthy HR organizations—not just individual teams but an integrated function with shared culture and standards</li>
+<li>Experience with HR organizational design, hiring at scale within the function, and talent strategy for HR professionals</li>
+</ul>
+<h3>HR Domain Experience</h3>
+<ul>
+<li>Deep expertise in at least two HR disciplines with strategic fluency across all five (Talent Acquisition, HR Operations, HRBP, L&amp;D, Compensation &amp; Benefits)</li>
+<li>Experience owning and delivering HR strategy at the organizational level—not just executing programs designed by others but shaping the overall people agenda</li>
+<li>Track record with HR analytics, workforce planning, and data-driven decision-making at the strategic level</li>
+<li>Experience with employment law and compliance at the organizational level, including partnership with legal counsel on complex matters</li>
+</ul>
+<h3>Education</h3>
+<ul>
+<li>Bachelor's degree in Human Resources, Business Administration, Organizational Psychology, or related field—or equivalent practical experience</li>
+<li>Advanced degrees (MBA, MS in I/O Psychology or Organizational Development) valued but not required</li>
+<li>Senior HR certifications (SHRM-SCP, SPHR) valued but not required</li>
+</ul>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Scorecard: HR Operations Specialist (IC2) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html" class="active">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="hiring.html">Hiring</a> &rsaquo; Interview Scorecard: HR Operations Specialist (IC2)</div>
+<h1>Interview Scorecard: HR Operations Specialist (IC2)</h1>
+<h2>Candidate Information</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Candidate Name</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Interviewer Name</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Interview Date</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Interview Type</strong></td>
+<td>☐ HRIS &amp; Process Knowledge  ☐ Data Accuracy Exercise  ☐ Behavioral  ☐ Hiring Manager  ☐ Bar Raiser</td>
+</tr>
+<tr>
+<td><strong>Position</strong></td>
+<td>HR Operations Specialist (IC2)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Rating Scale</h2>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Label</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Strong No Hire</td>
+<td>Significant concerns; cannot succeed at IC2 level</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Lean No Hire</td>
+<td>Below IC2 expectations; more appropriate for IC1</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Neutral</td>
+<td>Mixed signals; need more data</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Lean Hire</td>
+<td>Meets IC2 expectations; strong HR operations specialist</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Strong Hire</td>
+<td>Exceeds IC2 expectations; approaching IC3 capability</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Level Context: What IC2 Looks Like</h2>
+<p>IC2 is a <strong>solid operational contributor</strong> who independently manages HR processes end-to-end across assigned areas with consistent quality and growing judgment. Evaluate for:</p>
+<ul>
+<li><strong>HRIS proficiency</strong> — Administers system transactions accurately and maintains data quality through audits and reconciliation</li>
+<li><strong>Process ownership</strong> — Manages employee lifecycle processes end-to-end with minimal rework</li>
+<li><strong>Compliance awareness</strong> — Completes compliance reporting accurately and identifies potential gaps proactively</li>
+<li><strong>Growing independence</strong> — Handles routine and moderately complex work independently while knowing when to escalate</li>
+</ul>
+<p><strong>Differentiation from IC1:</strong> IC2 manages processes end-to-end independently; IC1 completes well-defined tasks with guidance.
+<strong>Differentiation from IC3:</strong> IC2 executes reliably across assigned areas; IC3 owns critical systems and drives process improvement at scale.</p>
+<hr />
+<h2>Competency Assessment</h2>
+<h3>1. HR Systems &amp; Data Integrity</h3>
+<p><strong>What to assess:</strong> Proficiency in HRIS administration, data quality management, and reporting capability.</p>
+<p><strong>IC2 Expectations:</strong>
+- HRIS administered effectively for assigned areas, with transactions processed accurately, completely, and within established SLAs
+- Data quality maintained through regular audits, reconciliation activities, and timely correction of identified discrepancies
+- Reports and data extracts produced reliably for stakeholders, with a growing understanding of how HR data supports business decisions
+- System configurations and workflows maintained within assigned areas, with changes tested and documented appropriately</p>
+<p><strong>Sample Questions:</strong>
+- Walk me through how you ensure data accuracy when processing a batch of employee transactions in an HRIS.
+- Tell me about a data discrepancy you identified during an audit or routine task. How did you diagnose and resolve it?
+- Describe your experience generating HR reports. How do you validate the data before sharing with stakeholders?
+- How do you approach testing a system configuration change before deploying it?</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence (specific examples from the interview):</strong></p>
+<pre><code>[Your notes here]
+</code></pre>
+<hr />
+<h3>2. Process Execution &amp; Operational Efficiency</h3>
+<p><strong>What to assess:</strong> Ability to manage employee lifecycle processes end-to-end, identify improvement opportunities, and maintain SOPs.</p>
+<p><strong>IC2 Expectations:</strong>
+- Employee lifecycle processes (onboarding, transfers, promotions, offboarding) managed end-to-end with consistent quality and minimal rework
+- Opportunities to streamline repetitive tasks or eliminate manual steps identified and raised, with proposed solutions where possible
+- Standard operating procedures maintained and improved based on practical experience administering the processes
+- Self-directed task management and reliable execution across multiple concurrent workflows and deadlines</p>
+<p><strong>Sample Questions:</strong>
+- Walk me through how you manage the onboarding or offboarding process from start to finish. What steps do you own?
+- Tell me about a time you identified an opportunity to streamline or improve a repetitive HR process. What did you do?
+- How do you keep standard operating procedures accurate and up to date as processes evolve?
+- Describe how you manage your workload when you have multiple concurrent deadlines and competing priorities.</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence (specific examples from the interview):</strong></p>
+<pre><code>[Your notes here]
+</code></pre>
+<hr />
+<h3>3. Compliance &amp; Risk Management</h3>
+<p><strong>What to assess:</strong> Understanding of employment regulations, compliance reporting accuracy, and ability to identify potential risks.</p>
+<p><strong>IC2 Expectations:</strong>
+- Compliance reporting (EEO, benefits filings, audit requests) completed accurately and on schedule for assigned areas
+- Employment records and documentation maintained in accordance with federal, state, and local regulatory requirements
+- Potential compliance gaps or risks identified during routine work and escalated with relevant context before they become issues
+- A solid working knowledge of key employment regulations and how they translate into operational requirements</p>
+<p><strong>Sample Questions:</strong>
+- Describe your experience with compliance reporting. What types of reports have you prepared and what was your process for ensuring accuracy?
+- Tell me about a time you identified a potential compliance risk or gap. What did you do?
+- How do you stay current with employment regulations that affect HR operations?
+- What steps do you take to ensure employee records meet legal retention and documentation requirements?</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence (specific examples from the interview):</strong></p>
+<pre><code>[Your notes here]
+</code></pre>
+<hr />
+<h3>4. Stakeholder Service &amp; Collaboration</h3>
+<p><strong>What to assess:</strong> Quality of HR inquiry resolution, cross-functional partnership, and emerging support of junior team members.</p>
+<p><strong>IC2 Expectations:</strong>
+- Escalated HR inquiries from employees and managers resolved thoroughly, with clear communication and appropriate follow-up
+- Effective partnerships with HR Centers of Excellence (benefits, talent acquisition, compensation) to coordinate cross-functional processes
+- Process handoffs and dependencies managed proactively, ensuring smooth end-to-end experiences for employees and managers
+- Beginning to support more junior team members with process guidance and knowledge sharing</p>
+<p><strong>Sample Questions:</strong>
+- Tell me about a complex HR inquiry you resolved. What steps did you take to ensure a thorough resolution?
+- Describe a cross-functional process you coordinated with another HR team (benefits, compensation, talent acquisition). What made it work?
+- How do you manage handoffs between different teams to ensure nothing falls through the cracks?
+- Have you had the opportunity to help a more junior team member learn a process? How did you approach it?</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence (specific examples from the interview):</strong></p>
+<pre><code>[Your notes here]
+</code></pre>
+<hr />
+<h3>5. Problem-Solving &amp; Professional Growth</h3>
+<p><strong>What to assess:</strong> Diagnostic ability for process issues, receptiveness to feedback, and initiative in developing new skills.</p>
+<p><strong>IC2 Expectations:</strong>
+- Problem-solving skills with ability to diagnose process breakdowns and identify root causes in moderately complex situations
+- Receptiveness to feedback and demonstrated growth in accuracy, efficiency, and process knowledge
+- Initiative in learning new system capabilities, regulations, and operational best practices
+- Good judgment about priorities and trade-offs when managing competing deadlines</p>
+<p><strong>Sample Questions:</strong>
+- Tell me about a time a routine HR process broke down. How did you diagnose the root cause and fix it?
+- Describe a piece of feedback you received that significantly improved how you work. What changed?
+- What is a new system capability, regulation, or best practice you learned recently? How did you apply it?
+- How do you decide what to prioritize when everything feels urgent?</p>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evidence (specific examples from the interview):</strong></p>
+<pre><code>[Your notes here]
+</code></pre>
+<hr />
+<h2>Overall Assessment</h2>
+<h3>Overall Rating</h3>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>☐ 1</th>
+<th>☐ 2</th>
+<th>☐ 3</th>
+<th>☐ 4</th>
+<th>☐ 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Recommendation</h3>
+<table>
+<thead>
+<tr>
+<th>Recommendation</th>
+<th>Select</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strong Hire</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>Hire</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>No Hire</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>Strong No Hire</strong></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<h3>Key Strengths</h3>
+<pre><code>[What stood out positively?]
+</code></pre>
+<h3>Key Concerns</h3>
+<pre><code>[What concerns do you have?]
+</code></pre>
+<h3>Summary</h3>
+<pre><code>[2-3 sentence summary of your assessment]
+</code></pre>
+<hr />
+<h2>Additional Notes</h2>
+<h3>Questions the Candidate Asked</h3>
+<pre><code>[What questions did they ask? What does this reveal about their seniority?]
+</code></pre>
+<h3>Other Observations</h3>
+<pre><code>[Anything else relevant to the hiring decision]
+</code></pre>
+<hr />
+<h2>Leveling Check</h2>
+<p>Based on this interview, is IC2 the right level?</p>
+<ul>
+<li>☐ <strong>Yes, IC2 is appropriate</strong> — Candidate matches IC2 expectations</li>
+<li>☐ <strong>Consider IC1</strong> — Candidate may need more development; stronger in task execution than independent process management</li>
+<li>☐ <strong>Consider IC3</strong> — Candidate shows systems ownership, process design capability, and cross-functional leadership beyond IC2</li>
+</ul>
+<p><strong>Leveling Notes:</strong></p>
+<pre><code>[If you selected anything other than &quot;Yes,&quot; explain your reasoning]
+</code></pre>
+<hr />
+<p><strong>Scorecard Completed:</strong> ☐ Yes</p>
+<p><strong>Date/Time Submitted:</strong> <strong><em>_</em></strong><strong><em>_</em></strong>_</p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

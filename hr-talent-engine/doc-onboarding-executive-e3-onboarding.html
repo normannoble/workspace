@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: Chief People Officer (E3) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: Chief People Officer (E3)</div>
+<h1>30-60-90 Day Onboarding: Chief People Officer (E3)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> E3 — Chief People Officer
+<strong>Focus:</strong> Establishing enterprise people vision, building executive team credibility, assessing organizational culture and talent capabilities, shaping company strategy from a people perspective
+<strong>Manager's Role:</strong> CEO, providing strategic context, board access, executive team integration, and partnership on the most consequential organizational decisions</p>
+<p>E3 Chief People Officers are the senior-most HR executives with ultimate accountability for people strategy, organizational culture, and the health of the employee experience. Onboarding focuses on deeply understanding the company's strategic position, culture, talent capabilities, and organizational health—then rapidly establishing a credible voice on the executive team and with the board. The goal is to become a trusted peer to the CEO and C-suite while developing a people vision that creates sustainable competitive advantage.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Assess the Enterprise</h3>
+<p><strong>Primary Objectives:</strong>
+- Understand the company's strategic position, competitive dynamics, and how people capabilities enable or constrain business execution
+- Assess the HR function's maturity, leadership bench, and readiness to deliver against the company's ambitions
+- Build executive team credibility and begin establishing trust with the board
+- Evaluate organizational culture, employee experience, and talent health from the most senior perspective</p>
+<h3>Week 1: Executive and Board Immersion</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>CEO deep-dive on company strategy, board context, cultural aspirations, and CPO expectations</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Executive Team</td>
+<td>Meet each C-suite executive individually—understand strategic priorities, people challenges, and partnership expectations</td>
+</tr>
+<tr>
+<td>3</td>
+<td>HR Function</td>
+<td>Assess the full HR organization—leadership team (E1s, E2s, M3s), function structure, program portfolio, and strategic alignment</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Organization</td>
+<td>Review organizational health data—engagement, retention, culture surveys, talent pipeline, and compliance posture</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Governance</td>
+<td>Board materials review, investor perspective on people story, regulatory and compliance landscape, and governance expectations</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] CEO 1:1 (weekly)
+- [ ] 1:1 with each C-suite executive
+- [ ] 1:1 with each E1 and E2 HR leader
+- [ ] Skip-level meetings with M3 Heads of HR
+- [ ] Board chair and relevant committee chairs
+- [ ] General Counsel (employment law, compliance, governance)
+- [ ] Key investors or board members (as appropriate and CEO-guided)
+- [ ] External advisors—compensation consultants, employment counsel, executive coaches</p>
+<h3>Weeks 2-4: Strategic Assessment</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Comprehensive understanding of company strategy, financial position, competitive dynamics, and how talent is a strategic lever
+- [ ] Assessment of HR function maturity across all dimensions—leadership, programs, technology, analytics, and organizational design
+- [ ] Clear view of executive leadership bench across the entire company—not just HR, but organization-wide succession health
+- [ ] Understanding of organizational culture—what's espoused vs. what's practiced, where it enables performance, and where it constrains
+- [ ] Map of board expectations, investor narrative on people, and external employer brand positioning</p>
+<p><strong>Activities:</strong>
+- Review company financials, strategic plans, and board materials to understand the business at the deepest level
+- Assess HR leadership team capability—E1s and E2s ready for growth, succession gaps, leadership culture
+- Review enterprise talent data—performance distribution, high-potential pipeline, retention patterns, diversity metrics
+- Evaluate compensation philosophy, total rewards positioning, and how the company competes for talent
+- Develop initial strategic assessment of the company's people capabilities relative to its strategic ambitions</p>
+<p><strong>Milestones:</strong>
+- [ ] Leadership cadence established with all direct reports and CEO
+- [ ] Can articulate the company's people story—strengths, gaps, and strategic imperatives—with board-level fluency
+- [ ] Executive team views the new CPO as a credible, thoughtful addition
+- [ ] Understanding of the company's talent competitive position and employer brand strength
+- [ ] Initial strategic assessment developed (for CEO discussion and board preparation)</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- What is your assessment of the company's people capabilities relative to strategic ambitions?
+- Where are the most significant talent risks—retention, succession, capability gaps, or culture?
+- How do you evaluate the HR function's readiness to deliver against the company's needs?
+- What executive team dynamics should you be aware of?
+- Initial feedback on executive presence and strategic contributions</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Enterprise-wide understanding of people capabilities, organizational health, and strategic alignment
+- [ ] Executive team trust and credibility established—viewed as a strategic peer
+- [ ] HR leadership team energized and confident in the new CPO
+- [ ] Identified the highest-priority strategic people investments and organizational risks
+- [ ] Operating with C-level executive judgment and strategic authority</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Shape Direction</h3>
+<p><strong>Primary Objectives:</strong>
+- Articulate a people vision and strategy that connects to competitive advantage
+- Begin developing the HR executive leadership team (E1s, E2s) toward greater capability
+- Make strategic contributions to company direction from a people-informed perspective
+- Establish board-level communication and build investor confidence in people strategy</p>
+<h3>Weeks 5-6: Setting Strategic Direction</h3>
+<p><strong>Activities:</strong>
+- Articulate the people vision and strategic priorities for the company—connecting talent, culture, and organizational design to business outcomes
+- Initiate executive development plans for E1 and E2 leaders focused on strategic impact and enterprise capability
+- Make consequential decisions about HR function priorities, organizational structure, and investment allocation
+- Contribute to company strategy discussions as an executive peer—shaping decisions, not just supporting them
+- Present initial people perspective to the board or board committee (if timing aligns)</p>
+<p><strong>Demonstrating Executive Leadership:</strong>
+- [ ] People vision articulated with clarity, business connection, and strategic ambition
+- [ ] E1 and E2 leaders receiving development that builds strategic impact and organizational breadth
+- [ ] Company strategy shaped through CPO contribution—people perspective integrated into major decisions
+- [ ] Executive team partnerships producing strategic alignment beyond functional coordination
+- [ ] Board and investor confidence in people strategy beginning to build</p>
+<h3>Weeks 7-8: Driving Enterprise Impact</h3>
+<p><strong>Activities:</strong>
+- Lead an enterprise-level strategic initiative that demonstrates people strategy impact on business outcomes
+- Establish the company's talent and culture narrative for board, investors, and external audiences
+- Drive organizational design or transformation decisions with sound judgment on structure, capability, and culture
+- Strengthen executive succession planning across the company—not just within HR
+- Shape employer brand and external people positioning through deliberate action</p>
+<p><strong>Growing Impact:</strong>
+- [ ] People strategy gaining executive team alignment and organizational momentum
+- [ ] HR executive leadership team growing in strategic capability and enterprise perspective
+- [ ] Company strategy increasingly reflecting people-informed perspective
+- [ ] Board and investor communications on people matters gaining clarity and confidence
+- [ ] Employer brand and external positioning strengthening through deliberate leadership</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is the people vision and strategy taking shape, and does it align with company direction?
+- What progress is the HR executive leadership team making?
+- How are executive team partnerships and board relationships developing?
+- What organizational or strategic decisions need your support?
+- Feedback on executive leadership impact and strategic authority</p>
+<p><strong>Success Indicators:</strong>
+- [ ] People vision and strategy articulated with executive team alignment
+- [ ] HR executive development underway with visible growth trajectories
+- [ ] Strategic contributions to company direction recognized by executive peers
+- [ ] Board-level communication capability demonstrated or developing
+- [ ] Operating as a true C-suite peer and strategic leader</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Drive Strategic Impact</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate fully at E3 level—ultimate accountability for people strategy, organizational culture, and talent capabilities
+- Shape company strategy as a fully integrated executive team member
+- Demonstrate sustained strategic impact that positions the company competitively through its people
+- Establish long-term trajectory for organizational excellence</p>
+<h3>Weeks 9-10: Full CPO Operation</h3>
+<p><strong>Activities:</strong>
+- Own the company's people strategy with full accountability—talent acquisition, development, compensation, culture, and organizational health
+- Drive strategic planning for people capabilities with 3-5 year horizons aligned with company ambitions
+- Manage the HR executive leadership team—develop E1s and E2s, build succession depth, shape leadership culture
+- Lead organizational transformation and design initiatives with enterprise scope
+- Represent the company's people story to the board, investors, and external audiences with authority</p>
+<p><strong>E3 Expectations Met:</strong>
+- [ ] People vision and strategy creating sustainable competitive advantage—the company wins through its people
+- [ ] Executive team engagement as a true peer—people perspective integrated into all major company decisions
+- [ ] HR leadership team (E1s, E2s, M3s) operating with excellence and developing toward greater capability
+- [ ] Board confidence in people strategy, organizational health, succession planning, and talent risk management
+- [ ] Organizational culture deliberately shaped, consistently reinforced, and connected to business performance</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Develop the enterprise people strategy roadmap for the next 3-5 years
+- Establish executive succession plans across the company, not just within HR
+- Ensure the HR function's success isn't dependent on any single leader—including the CPO
+- Solidify position as a strategic voice on the executive team and trusted advisor to the board
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear people vision with board-level alignment and organizational commitment
+- [ ] Development plan established for your own executive evolution and continued impact
+- [ ] Relationships solidified across the executive team, board, and external networks
+- [ ] Known as a strategic executive who creates competitive advantage through people
+- [ ] Positioned for sustained enterprise impact and industry leadership</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- People strategy and organizational impact evaluation
+- HR function leadership and executive bench assessment
+- Executive team integration and board credibility observed
+- Strategic contributions to company direction
+- Recognition and growth areas</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at CPO level with strategic authority, executive credibility, and board confidence
+- [ ] People strategy ownership clearly established with measurable business connection
+- [ ] Executive development demonstrating enterprise multiplier effect
+- [ ] Strong executive team partnerships and HR positioned as a competitive advantage
+- [ ] Clear on continued trajectory for enterprise impact</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CEO</td>
+<td>Strategic partnership, company direction, organizational leadership</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>E1 and E2 HR leaders</td>
+<td>Executive development, function health, strategic alignment</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>CFO</td>
+<td>People investment ROI, workforce planning, financial alignment, board preparation</td>
+<td>Weekly or biweekly</td>
+</tr>
+<tr>
+<td>CTO/COO</td>
+<td>Cross-functional strategy, organizational design, talent alignment</td>
+<td>Biweekly or monthly</td>
+</tr>
+<tr>
+<td>General Counsel</td>
+<td>Employment law, compliance, governance, sensitive matters</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>Board chair and committee chairs</td>
+<td>Governance, people strategy visibility, organizational health</td>
+<td>As appropriate</td>
+</tr>
+<tr>
+<td>External advisors</td>
+<td>Compensation benchmarking, executive coaching, industry perspective</td>
+<td>First month, ongoing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common E3 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Establishing credibility as a true C-suite peer, not a functional leader</td>
+<td>Lead with business thinking and strategic perspective; contribute to non-HR decisions; demonstrate you understand the whole business</td>
+</tr>
+<tr>
+<td>Inheriting an HR function with uneven maturity across domains</td>
+<td>Assess honestly; stabilize what's urgent; invest in the highest-leverage improvements; build the leadership team's capability to own transformation</td>
+</tr>
+<tr>
+<td>Board expectations unclear or misaligned with organizational reality</td>
+<td>Have direct conversations early; set realistic timelines; build confidence through transparency and sound judgment</td>
+</tr>
+<tr>
+<td>Executive team dynamics and competing priorities on people investment</td>
+<td>Build individual relationships first; understand each executive's perspective; create alignment through shared strategic logic</td>
+</tr>
+<tr>
+<td>Balancing long-term people vision with near-term operational demands</td>
+<td>Delegate operational excellence to E1s and E2s; protect strategic thinking time; sequence changes to build on early momentum</td>
+</tr>
+<tr>
+<td>The weight of ultimate accountability for people and culture</td>
+<td>Build a strong support network—executive coach, peer CPOs, trusted advisors; model the sustainable leadership you expect from the organization</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] HR function organizational structure and executive profiles prepared</li>
+<li>[ ] Board materials, people metrics, and governance context prepared</li>
+<li>[ ] Executive team introductions scheduled</li>
+<li>[ ] Company strategy, financial context, and organizational health data assembled</li>
+<li>[ ] Board and investor context on people narrative documented</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] CEO deep-dive completed on strategy, culture, and expectations</li>
+<li>[ ] Executive team introductions completed</li>
+<li>[ ] HR leadership team introductions and 1:1s completed</li>
+<li>[ ] Board and governance context transferred</li>
+<li>[ ] Leadership cadence established</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] People strategy developing with executive and board alignment</li>
+<li>[ ] HR executive team development progressing</li>
+<li>[ ] Executive team integration deepening—CPO as a true peer</li>
+<li>[ ] Board confidence in people strategy building</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: E3 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

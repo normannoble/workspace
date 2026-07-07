@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IC Track Offboarding — Human Resources &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html" class="active">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="offboarding.html">Offboarding</a> &rsaquo; IC Track Offboarding — Human Resources</div>
+<h1>IC Track Offboarding — Human Resources</h1>
+<h2>Overview</h2>
+<p><strong>Track:</strong> Individual Contributor
+<strong>Function:</strong> Human Resources
+<strong>Levels Covered:</strong> IC1 through IC4 across all five disciplines (Talent Acquisition, HR Operations, HRBP, Learning &amp; Development, Compensation &amp; Benefits)</p>
+<p>Offboarding an individual contributor in HR centers on preserving people knowledge — the processes they own, the stakeholder relationships they maintain, the compliance context they carry, and the institutional understanding of how the organization's people systems work together. Unlike engineering where the primary risk is losing technical context, HR IC departures create risk around relationship continuity, compliance gaps, and loss of the nuanced organizational knowledge that enables effective people work.</p>
+<p>The complexity of IC offboarding in HR scales with both level and discipline. An IC1 TA Coordinator departure is a workflow reassignment exercise. An IC4 Principal Recruiter or Senior HRBP departure is a strategic knowledge preservation effort that affects executive relationships, talent pipelines, and organizational intelligence. Because HR professionals often hold sensitive employee information and maintain trust-based relationships across the company, offboarding requires particular care around confidentiality, relationship transitions, and maintaining employee confidence in the HR function.</p>
+<p>HR operates across five disciplines, and offboarding considerations differ by discipline:</p>
+<ul>
+<li><strong>Talent Acquisition:</strong> Candidate pipeline continuity, hiring manager relationships, active requisition handoff, sourcing strategies, and talent market intelligence</li>
+<li><strong>HR Operations:</strong> HRIS system knowledge, compliance program ownership, process documentation, vendor relationships, and audit readiness</li>
+<li><strong>HRBP:</strong> Business leader relationships, employee relations case context, organizational health knowledge, and performance management continuity</li>
+<li><strong>Learning &amp; Development:</strong> Program ownership, facilitator expertise, vendor/platform knowledge, curriculum design context, and in-flight program continuity</li>
+<li><strong>Compensation &amp; Benefits:</strong> Pay equity analysis context, market data subscriptions and methodology, compensation structure knowledge, compliance documentation, and vendor relationships</li>
+</ul>
+<hr />
+<h2>Departure Type Handling</h2>
+<h3>Voluntary — Resignation</h3>
+<p><strong>Notice periods by level:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Standard Notice</th>
+<th>Recommended Minimum</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IC1</td>
+<td>2 weeks</td>
+<td>2 weeks</td>
+<td>Straightforward task handoff; well-defined coordination workflows</td>
+</tr>
+<tr>
+<td>IC2</td>
+<td>2 weeks</td>
+<td>2 weeks</td>
+<td>Scoped work with some domain context to transfer</td>
+</tr>
+<tr>
+<td>IC3</td>
+<td>2-4 weeks</td>
+<td>3 weeks</td>
+<td>Significant domain expertise, stakeholder relationships, and program ownership to transfer</td>
+</tr>
+<tr>
+<td>IC4</td>
+<td>4 weeks</td>
+<td>4 weeks</td>
+<td>Cross-functional context, strategic knowledge, executive relationships, and organizational intelligence</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Priorities during notice period:</strong>
+1. Identify all programs, processes, stakeholder relationships, and compliance areas the departing HR professional owns or is the primary expert on
+2. Create knowledge transfer plan matched to level and discipline (see Knowledge Transfer Plan below)
+3. Reassign active programs, employee relations cases, and stakeholder coverage
+4. Update documentation for any undocumented processes, compliance procedures, or system configurations
+5. For IC3-IC4: transition key stakeholder relationships with personal introductions to successors
+6. For IC4: negotiate advisory arrangement if knowledge transfer cannot complete within notice period</p>
+<h3>Voluntary — Retirement</h3>
+<p>Retirement offers extended knowledge transfer opportunities that are particularly valuable in HR, where institutional memory and relationship context accumulate over years.</p>
+<ul>
+<li><strong>Extended transition:</strong> For IC3+, negotiate a 2-3 month transition period if possible; for IC4, consider 3-6 months given the breadth of organizational knowledge</li>
+<li><strong>Advisory arrangements:</strong> IC4 retirees may be willing to serve as advisors post-departure — particularly valuable for compensation methodology context, compliance history, or HRBP organizational knowledge</li>
+<li><strong>Knowledge capture:</strong> Use the extended timeline for documented process walkthroughs, recorded training sessions on complex programs, and stakeholder relationship transition</li>
+<li><strong>Celebration:</strong> Acknowledge the HR professional's contributions — particularly meaningful in a function where the work often happens behind the scenes and may not receive the same visibility as revenue-generating roles</li>
+</ul>
+<h3>Involuntary — Performance-Based</h3>
+<p>Performance-based terminations for HR ICs follow the underperformance management process (FDP then PIP). By the time offboarding begins, knowledge transfer should have been partially anticipated.</p>
+<ul>
+<li><strong>Pre-termination preparation:</strong> During the PIP period, the manager should have already begun reducing single-point-of-failure risk — documenting processes, cross-training others, and ensuring compliance programs have backup coverage</li>
+<li><strong>Sensitive information:</strong> HR professionals may have access to confidential employee information, pending investigations, or sensitive organizational data. Ensure all case files, investigation notes, and confidential materials are properly transferred or secured</li>
+<li><strong>Active cases:</strong> Any open employee relations cases, active investigations, or pending compliance matters must be immediately reassigned with full context</li>
+<li><strong>Access revocation:</strong> HR professionals often have elevated HRIS access, employee data visibility, and system permissions. Coordinate revocation carefully to ensure no gap in system administration or compliance monitoring</li>
+<li>See Underperformance Management Guide</li>
+</ul>
+<h3>Involuntary — Layoff</h3>
+<p>Layoffs affecting HR ICs require particular sensitivity given that the remaining HR team will be supporting the broader organization through the same event.</p>
+<ul>
+<li><strong>Batch coordination:</strong> If multiple HR ICs are affected, map all their combined coverage areas before notification to ensure no compliance, program, or stakeholder gaps</li>
+<li><strong>Remaining team morale:</strong> HR professionals who survive a layoff and must then support the rest of the organization through the same layoff face an especially heavy emotional burden. Acknowledge this directly and provide support</li>
+<li><strong>Severance and support:</strong> Offer strong references and networking support — HR professionals have extensive professional networks, and how you treat departing colleagues will be widely known in the HR community</li>
+<li><strong>Compliance continuity:</strong> Ensure all compliance programs, audit schedules, and regulatory deadlines have clear ownership before any departures take effect</li>
+<li><strong>Knowledge gaps:</strong> For IC3+ departures, accept that some organizational knowledge will be lost and prioritize the most critical stakeholder relationships and compliance areas for whatever transition time is available</li>
+</ul>
+<hr />
+<h2>Knowledge Transfer Plan</h2>
+<h3>IC1 — Entry-Level HR Professional</h3>
+<p><em>Applies across disciplines: TA Coordinator, HR Operations Coordinator, L&amp;D Coordinator</em></p>
+<p><strong>Key knowledge areas:</strong>
+- Active task status and in-progress work (scheduling queues, data entry backlogs, coordination tasks)
+- Process notes and workflow documentation they created or maintained
+- System access and login credentials for shared accounts or platforms
+- Vendor contact information and ongoing service requests
+- Onboarding experience feedback — useful for improving the experience for the next IC1</p>
+<p><strong>Transfer method:</strong> Single handoff meeting with manager or buddy; written status update on all active tasks; walkthrough of any systems or tools they administered</p>
+<p><strong>Estimated transfer time:</strong> 1-3 days</p>
+<p><strong>Level-specific considerations:</strong>
+- IC1s typically work on well-defined tasks with clear process documentation — the handoff is straightforward
+- Their most valuable departure artifact is often their onboarding experience and process improvement suggestions — capture what was confusing and what documentation was missing
+- Reassign active tasks and update any shared inboxes, ticketing queues, or scheduling systems they managed
+- Ensure no shared credentials are lost — IC1s may be the day-to-day administrators of platforms managed at a higher level</p>
+<h3>IC2 — Developing HR Professional</h3>
+<p><em>Applies across disciplines: Recruiter, HR Operations Specialist, Junior HRBP, L&amp;D Specialist, Compensation Analyst</em></p>
+<p><strong>Key knowledge areas:</strong>
+- Active programs and projects in progress, including status and stakeholder context
+- Areas of the function where they have developed informal expertise or are the go-to person
+- Stakeholder relationships they manage (hiring managers for recruiters, business unit contacts for HRBPs, vendor contacts for HR Ops)
+- Process improvements or tools they built for personal or team productivity
+- Any compliance monitoring or reporting responsibilities they handle regularly</p>
+<p><strong>Transfer method:</strong> Handoff meetings with manager and receiving colleague(s); written documentation of in-progress work; walkthrough of systems, reports, or tools they manage</p>
+<p><strong>Estimated transfer time:</strong> 3-5 days</p>
+<p><strong>Level-specific considerations:</strong>
+- IC2s may have developed informal expertise in specific areas — a recruiter who became the expert on engineering hiring, or an HR Ops specialist who is the only person who understands a particular system integration
+- Review their recent work to understand where they have built up context that others lack
+- Check for "only they know how this works" situations, particularly around system configurations, report schedules, or vendor relationships
+- For recruiters: ensure all active candidates and requisitions are transitioned with context, not just reassigned</p>
+<h3>IC3 — Senior HR Professional</h3>
+<p><em>Applies across disciplines: Senior Recruiter, Senior HR Operations Specialist, HR Business Partner, Senior L&amp;D Specialist, Senior Compensation Analyst</em></p>
+<p><strong>Key knowledge areas:</strong>
+- <strong>Program ownership:</strong> Significant programs, processes, or functional areas they own end-to-end
+- <strong>Stakeholder relationships:</strong> Hiring managers, business leaders, employee relations contacts, and cross-functional partners they work with directly
+- <strong>Domain expertise:</strong> Deep discipline-specific knowledge — sourcing strategies and talent market intelligence (TA), HRIS configurations and compliance programs (HR Ops), organizational health context and employee relations history (HRBP), curriculum design and facilitation methodology (L&amp;D), compensation structures and pay equity analysis context (Comp &amp; Benefits)
+- <strong>Mentorship:</strong> Junior HR professionals they mentor and the development context for each mentee
+- <strong>Cross-functional context:</strong> How their work connects to other HR disciplines and to business outcomes
+- <strong>Compliance context:</strong> Regulatory requirements, audit histories, and compliance risks they track within their domain
+- <strong>Undocumented knowledge:</strong> Process nuances, historical context for decisions, stakeholder preferences, and organizational dynamics they understand but haven't written down</p>
+<p><strong>Transfer method:</strong> Structured handoff sessions (2-3 per week) with designated knowledge recipients; written documentation of programs, processes, and key decisions; stakeholder transition meetings with personal introductions; paired work sessions on active programs</p>
+<p><strong>Estimated transfer time:</strong> 1-3 weeks</p>
+<p><strong>Level-specific considerations:</strong>
+- IC3 departures create the most common "knowledge gap" risk in HR — they are senior enough to carry significant institutional knowledge and stakeholder relationships but may not have documented everything at a strategic level
+- <strong>TA:</strong> Transition active requisitions and candidate pipelines with full context; introduce replacement recruiter to key hiring managers personally; document sourcing strategies for recurring hard-to-fill roles
+- <strong>HR Ops:</strong> Document all system configurations, integration details, and compliance monitoring procedures; ensure audit schedules and regulatory deadlines are mapped and reassigned; transfer vendor relationships with context
+- <strong>HRBP:</strong> Transition business leader relationships personally — this is the most critical handoff; document organizational health context, active employee relations situations, and performance management cases for each client group; ensure no employee cases fall through gaps
+- <strong>L&amp;D:</strong> Transfer program ownership with curriculum documentation, facilitation guides, and vendor/platform access; brief replacements on in-flight program cohorts and upcoming delivery schedules
+- <strong>Comp &amp; Benefits:</strong> Document compensation methodology, market data sources and matching logic, and any in-progress pay equity analyses; ensure compensation cycle timelines and deliverables are clear; transfer survey platform access and vendor relationships
+- Transition mentees to new mentors before departure with context on each mentee's development goals and progress</p>
+<h3>IC4 — Principal/Staff HR Professional</h3>
+<p><em>Applies across disciplines: Principal Recruiter, Principal HR Operations Specialist, Senior HRBP, Principal L&amp;D Specialist, Principal Compensation Analyst</em></p>
+<p><strong>Key knowledge areas:</strong>
+- <strong>Strategic knowledge:</strong> The "why" behind the function's approach in their area of influence — not just what programs exist but the strategic reasoning, trade-offs, and organizational context that shaped them
+- <strong>Cross-functional context:</strong> How they navigate cross-team and cross-discipline initiatives, who the key decision-makers are, what organizational dynamics affect HR program adoption
+- <strong>Executive relationships:</strong> Senior leaders and executives they advise, including context on each leader's preferences, challenges, and how to work with them effectively
+- <strong>Standards and practices:</strong> Practices they established through influence, not just documentation — quality standards, evaluation methods, design approaches
+- <strong>Mentorship of IC3s:</strong> Development plans, growth trajectories, and coaching context for each mentee
+- <strong>In-flight strategic initiatives:</strong> Program redesigns, policy proposals, process transformations, or strategic projects they are leading
+- <strong>External relationships:</strong> Vendor executives, industry contacts, conference connections, professional community involvement
+- <strong>Institutional memory:</strong> Why major HR decisions were made, what alternatives were considered, what the organization learned from past approaches</p>
+<p><strong>Transfer method:</strong> Dedicated knowledge transfer sessions with multiple recipients (different people for different domains); written strategy documents for their areas of influence; stakeholder transition meetings with executive sponsors; handoff of in-flight initiatives to designated successors; recorded deep-dives on complex programs or systems</p>
+<p><strong>Estimated transfer time:</strong> 2-4 weeks</p>
+<p><strong>Level-specific considerations:</strong>
+- IC4 departures require a distribution strategy — no single person absorbs all of an IC4's knowledge and influence; identify 2-4 recipients for different knowledge domains
+- <strong>TA:</strong> Transition executive search relationships and talent market intelligence; document recruiting strategies for the most critical talent segments; hand off strategic sourcing playbooks and executive pipeline relationships
+- <strong>HR Ops:</strong> Document the operating model design rationale and system architecture decisions; transition vendor executive relationships; ensure compliance strategy and risk assessment context transfers to senior leadership
+- <strong>HRBP:</strong> Transition executive advisory relationships personally — this may take multiple meetings per stakeholder; document organizational transformation context, culture dynamics, and political landscape for each client group; ensure strategic workforce planning context and succession planning intelligence transfers
+- <strong>L&amp;D:</strong> Document the learning strategy rationale and program portfolio design logic; transition senior stakeholder relationships and executive sponsor partnerships; hand off strategic initiatives and organizational capability assessments
+- <strong>Comp &amp; Benefits:</strong> Document compensation philosophy rationale, total rewards strategy, and market positioning decisions; transition board-level compensation reporting context; ensure pay equity methodology and analytical frameworks transfer with full documentation
+- Introduce successors to cross-functional stakeholders and executive partners personally during the notice period
+- Consider a "retrospective document" capturing what went well, what they would change, and what the biggest risks are going forward
+- Negotiate an advisory arrangement (2-4 hours/month for 3 months) for questions that will inevitably arise post-departure</p>
+<h3>Knowledge Transfer Checklist</h3>
+<p>HR-specific items that apply across all IC levels (scope increases with level):</p>
+<ul>
+<li>[ ] Active programs and projects documented with status, context, next steps, and stakeholder expectations</li>
+<li>[ ] Stakeholder relationships identified and personally transitioned to successors (IC3+)</li>
+<li>[ ] HRIS access, system permissions, and shared credentials transferred (not just shared — transferred with context)</li>
+<li>[ ] Compliance monitoring responsibilities reassigned with deadlines and audit schedules</li>
+<li>[ ] Active employee relations cases or sensitive matters securely transitioned with full documentation (HRBP, HR Ops)</li>
+<li>[ ] Candidate pipelines and active requisitions transferred with context (TA)</li>
+<li>[ ] Vendor relationships and contract details documented and transitioned</li>
+<li>[ ] Process documentation reviewed and updated for accuracy and completeness</li>
+<li>[ ] Report schedules, recurring deliverables, and cyclical tasks mapped and reassigned</li>
+<li>[ ] Mentorship relationships transitioned to new mentors with development context</li>
+<li>[ ] Confidential files, investigation records, and sensitive documentation properly secured or transferred per policy</li>
+<li>[ ] Shared inboxes, group email aliases, and distribution lists updated</li>
+</ul>
+<h3>Documentation Requirements</h3>
+<p>The departing HR professional should create or update the following before their last day:</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Applies To</th>
+<th>Deadline</th>
+<th>Recipient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active program/project status with context and next steps</td>
+<td>All levels</td>
+<td>Week 1 of notice</td>
+<td>Manager and program successor</td>
+</tr>
+<tr>
+<td>Process documentation for owned workflows</td>
+<td>IC2+</td>
+<td>Mid-notice period</td>
+<td>Team and knowledge base</td>
+</tr>
+<tr>
+<td>Stakeholder relationship map with context and transition notes</td>
+<td>IC3+</td>
+<td>Mid-notice period</td>
+<td>Manager and successor</td>
+</tr>
+<tr>
+<td>Compliance calendar and regulatory tracking updates</td>
+<td>HR Ops, Comp (IC3+)</td>
+<td>Week 1 of notice</td>
+<td>Manager and compliance lead</td>
+</tr>
+<tr>
+<td>Strategic rationale documents for major programs/decisions</td>
+<td>IC4</td>
+<td>Throughout notice period</td>
+<td>Manager and senior leadership</td>
+</tr>
+<tr>
+<td>Active cases/investigations summary (confidential)</td>
+<td>HRBP, HR Ops</td>
+<td>Day 1 of notice</td>
+<td>Manager (confidential)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Stakeholder Communication Plan</h2>
+<h3>Communication Sequence</h3>
+<table>
+<thead>
+<tr>
+<th>Audience</th>
+<th>When</th>
+<th>Who Communicates</th>
+<th>Key Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Departing HR professional's manager</td>
+<td>Day 0</td>
+<td>Departing employee</td>
+<td>Resignation / departure notification</td>
+</tr>
+<tr>
+<td>Skip-level manager / Head of HR</td>
+<td>Day 0-1</td>
+<td>Direct manager</td>
+<td>Departure details, initial coverage plan</td>
+</tr>
+<tr>
+<td>HR leadership</td>
+<td>Day 0-1</td>
+<td>Direct manager</td>
+<td>Initiate formal offboarding, assess impact</td>
+</tr>
+<tr>
+<td>Immediate HR team</td>
+<td>Days 1-2</td>
+<td>Direct manager (with departing employee if voluntary)</td>
+<td>Departure announcement, workload redistribution plan</td>
+</tr>
+<tr>
+<td>Key business stakeholders (IC3+)</td>
+<td>Days 2-3</td>
+<td>Direct manager and departing employee jointly</td>
+<td>Transition plan, successor introduction, continuity assurance</td>
+</tr>
+<tr>
+<td>Cross-functional partners</td>
+<td>Days 2-5</td>
+<td>Direct manager or departing employee</td>
+<td>Handoff contacts, timeline for transition</td>
+</tr>
+<tr>
+<td>Broader HR function (IC4)</td>
+<td>Days 3-5</td>
+<td>Senior HR leadership</td>
+<td>Departure announcement, strategic continuity message</td>
+</tr>
+</tbody>
+</table>
+<h3>Level-Specific Communication Notes</h3>
+<p><strong>IC1-IC2:</strong> Communication is limited to the immediate HR team and any business stakeholders who interact with them regularly (e.g., hiring managers for a TA Coordinator, IT partners for an HR Ops Specialist). No broader announcement needed.</p>
+<p><strong>IC3:</strong> Communication extends to all business stakeholders they partner with. The focus is on "here is who to contact now for X" — naming the specific people taking over specific areas. For HRBPs, this is especially critical as business leaders need immediate clarity on their HR point of contact.</p>
+<p><strong>IC4:</strong> Communication reaches the broader HR function and senior business leadership. The message should address strategic continuity — programs and initiatives this person championed will continue (and here's who is leading them). For Principal Recruiters, ensure executive hiring stakeholders understand the transition plan.</p>
+<hr />
+<h2>Exit Interview Focus Areas</h2>
+<h3>Standard Questions (All IC Levels)</h3>
+<ul>
+<li>What aspects of working in HR at this organization worked well for you? What did not?</li>
+<li>How effective were the tools, systems, and processes you used to deliver HR services?</li>
+<li>Did you feel the HR function was valued as a strategic partner by the business, or primarily seen as a support/compliance function?</li>
+<li>How well did the different HR disciplines collaborate and share information?</li>
+<li>Were there process improvements or investments the HR function should have made but did not?</li>
+<li>How effective was your manager at supporting your professional growth and removing blockers?</li>
+<li>Would you recommend this HR organization to a peer? Why or why not?</li>
+</ul>
+<h3>Level-Specific Questions</h3>
+<p><strong>IC1-IC2:</strong>
+- How effective was onboarding in preparing you for your role within the HR function?
+- Did you receive enough mentorship and exposure to different areas of HR?
+- Were expectations clear and achievable given the tools and support available?
+- What would have made you stay longer and continue growing within the function?</p>
+<p><strong>IC3:</strong>
+- Did you feel you had enough ownership and autonomy over your programs and stakeholder relationships?
+- Were there barriers to implementing the process improvements or program enhancements you identified?
+- How well did the organization support your growth toward Staff/Principal-level impact?
+- Did you feel your mentorship of junior HR professionals was recognized and valued?</p>
+<p><strong>IC4:</strong>
+- Did you feel you had sufficient influence over HR strategy and direction without formal authority?
+- Were there organizational barriers that prevented you from having the cross-functional impact you wanted?
+- How effective was the HR function at executing on strategic initiatives that span disciplines?
+- What strategic risks or opportunities do you see that the HR function should address?
+- Are there external relationships or industry commitments that need attention after your departure?</p>
+<hr />
+<h2>Manager Checklist — By Phase</h2>
+<h3>Notification Phase (Day 0-1)</h3>
+<ul>
+<li>[ ] Acknowledge the departure professionally; schedule a transition planning meeting within 24 hours</li>
+<li>[ ] Notify HR leadership and initiate formal offboarding process</li>
+<li>[ ] Notify skip-level manager with initial assessment of impact and coverage plan</li>
+<li>[ ] Identify all programs, stakeholder relationships, and compliance areas the departing professional owns</li>
+<li>[ ] Review any active employee relations cases, investigations, or sensitive matters that need immediate reassignment</li>
+<li>[ ] Assess confidential information access and plan for secure transition of sensitive materials</li>
+<li>[ ] For IC4: brief senior HR leadership on the departure and begin communication planning</li>
+</ul>
+<h3>Transition Phase (Notice Period)</h3>
+<ul>
+<li>[ ] Create level-appropriate and discipline-appropriate knowledge transfer plan</li>
+<li>[ ] Assign knowledge transfer recipients for each area of ownership</li>
+<li>[ ] Schedule structured handoff sessions and track completion</li>
+<li>[ ] Reassign active programs, stakeholder coverage, and compliance responsibilities</li>
+<li>[ ] Ensure process documentation is created or updated for all owned workflows</li>
+<li>[ ] Communicate departure to team and stakeholders per communication plan</li>
+<li>[ ] For IC3+: facilitate personal introductions between successors and key stakeholders</li>
+<li>[ ] For IC3+: transition mentorship relationships to new mentors</li>
+<li>[ ] For IC4: introduce successors to executive stakeholders and cross-functional partners</li>
+<li>[ ] For IC4: coordinate transition of external relationships and advisory arrangement</li>
+<li>[ ] Schedule exit interview with HR leadership (not the departing employee's direct manager)</li>
+<li>[ ] Plan team acknowledgment (if appropriate for the departure type)</li>
+<li>[ ] Begin backfill planning if approved</li>
+</ul>
+<h3>Final Day</h3>
+<ul>
+<li>[ ] Conduct final 1:1 — acknowledge contributions, confirm all handoffs are complete</li>
+<li>[ ] Verify all knowledge transfer checklist items are complete</li>
+<li>[ ] Confirm all confidential files, case records, and sensitive materials are properly secured or transferred</li>
+<li>[ ] Collect company equipment (laptop, badges, keys)</li>
+<li>[ ] Confirm IT/security access revocation is scheduled — pay particular attention to HRIS access, employee data systems, and elevated HR permissions</li>
+<li>[ ] Verify personal files have been removed from company devices and accounts</li>
+<li>[ ] Ensure team knows the workload redistribution plan and who owns what going forward</li>
+</ul>
+<h3>Post-Departure (Weeks 1-4)</h3>
+<ul>
+<li>[ ] Check in with team members on workload, morale, and any emerging knowledge gaps</li>
+<li>[ ] Monitor programs and stakeholder relationships for issues in the first 2 weeks</li>
+<li>[ ] Verify compliance monitoring and reporting continues without gaps</li>
+<li>[ ] Address knowledge gaps that surface — check documentation, reach out to advisory contact if arranged</li>
+<li>[ ] Initiate hiring process for backfill if approved</li>
+<li>[ ] Review exit interview feedback and identify actionable items</li>
+<li>[ ] For IC4: follow up with executive stakeholders and cross-functional partners to confirm transition is working</li>
+<li>[ ] Update team documentation and processes based on lessons learned from the departure</li>
+</ul>
+<hr />
+<h2>Cross-References</h2>
+<h3>Job Descriptions by Discipline</h3>
+<ul>
+<li><strong>Talent Acquisition:</strong> IC1 | IC2 | IC3 | IC4</li>
+<li><strong>HR Operations:</strong> IC1 | IC2 | IC3 | IC4</li>
+<li><strong>HRBP:</strong> IC2 | IC3 | IC4</li>
+<li><strong>Learning &amp; Development:</strong> IC1 | IC2 | IC3 | IC4</li>
+<li><strong>Compensation &amp; Benefits:</strong> IC2 | IC3 | IC4</li>
+</ul>
+<h3>Framework and Process</h3>
+<ul>
+<li>Offboarding Framework — Universal offboarding process and philosophy</li>
+<li>Underperformance Management Guide — Process leading to performance-based offboarding</li>
+<li>Offboarding Plan Template — Generic template for creating offboarding plans</li>
+</ul>
+<h3>Onboarding (Lifecycle Counterpart)</h3>
+<ul>
+<li>IC Onboarding Plans — The lifecycle counterpart to IC offboarding</li>
+</ul>
+<h3>Career Development</h3>
+<ul>
+<li>IC Career Progression Overview</li>
+</ul>
+<hr />
+<p><em>Last Updated: March 2026</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

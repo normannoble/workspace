@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IC3 to IC4 Readiness Assessment &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html" class="active">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="career-development.html">Career Development</a> &rsaquo; IC3 to IC4 Readiness Assessment</div>
+<h1>IC3 to IC4 Readiness Assessment</h1>
+<h2>Senior Compensation Analyst to Principal Compensation Analyst</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Employee Name</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Date</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Time at IC3</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>How to Use This Assessment</h2>
+<p>This assessment evaluates readiness for Principal Compensation Analyst (IC4). For each competency:</p>
+<ul>
+<li><strong>Employee self-assesses</strong> with specific examples of IC4-level work</li>
+<li><strong>Manager assesses</strong> based on observed behavior and impact</li>
+<li><strong>Discuss gaps</strong> and identify development actions</li>
+</ul>
+<h2>Rating Scale</h2>
+<table>
+<thead>
+<tr>
+<th>Rating</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 - Not Yet</strong></td>
+<td>Still operating at IC3 level; needs significant development</td>
+</tr>
+<tr>
+<td><strong>2 - Emerging</strong></td>
+<td>Shows IC4 behaviors inconsistently; needs more practice</td>
+</tr>
+<tr>
+<td><strong>3 - Ready</strong></td>
+<td>Consistently demonstrates IC4-level performance</td>
+</tr>
+</tbody>
+</table>
+<p><em>Promotion readiness requires "3 - Ready" in most areas, with no areas at "1 - Not Yet."</em></p>
+<h2>1. Enterprise Compensation Strategy &amp; Design</h2>
+<p><strong>IC4 expectation:</strong> Defines compensation philosophy and total rewards framework, architects compensation structures that scale across business units and geographies, and designs enterprise programs for strategic business impact.</p>
+<h3>1a. Compensation Philosophy &amp; Framework</h3>
+<p><em>Has the employee defined or significantly shaped compensation philosophy or total rewards strategy at the enterprise level?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>1b. Scalable Architecture Design</h3>
+<p><em>Has the employee designed compensation architectures (salary structures, job families, career frameworks) that work across multiple business units, geographies, or growth stages?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>1c. Executive Compensation &amp; Governance</h3>
+<p><em>Does the employee have experience designing executive compensation programs that balance market competitiveness, shareholder alignment, and governance requirements?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h2>2. Strategic Market Intelligence &amp; Board Advisory</h2>
+<p><strong>IC4 expectation:</strong> Provides strategic foresight on compensation trends and talent market disruptions, delivers board-ready analyses, and shapes how leadership thinks about compensation as a strategic lever.</p>
+<h3>2a. Strategic Foresight</h3>
+<p><em>Does the employee provide market intelligence that anticipates competitive shifts and talent market disruptions before they impact the organization?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>2b. Board-Ready Communication</h3>
+<p><em>Can the employee prepare and present board-level analyses that distill complex compensation data into strategic recommendations for executive and board audiences?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>2c. Thought Leadership &amp; Influence</h3>
+<p><em>Does the employee shape how the broader HR function and leadership team thinks about compensation—positioning it as a strategic lever rather than a cost center?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Enterprise Pay Equity &amp; M&amp;A Due Diligence</h2>
+<p><strong>IC4 expectation:</strong> Leads enterprise pay equity strategy embedded in organizational culture, leads compensation workstreams in M&amp;A transactions, and manages regulatory strategy across jurisdictions.</p>
+<h3>3a. Enterprise Pay Equity Strategy</h3>
+<p><em>Has the employee led pay equity initiatives at the enterprise level that moved beyond compliance to become embedded in organizational culture?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>3b. M&amp;A Compensation Due Diligence</h3>
+<p><em>Has the employee led compensation workstreams in M&amp;A transactions—identifying integration risks, modeling harmonization costs, and planning integration?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>3c. Multi-Jurisdiction Regulatory Strategy</h3>
+<p><em>Does the employee navigate pay equity and compensation compliance across multiple jurisdictions, anticipating legislative trends and positioning the organization proactively?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Executive Advisory &amp; Cross-Functional Influence</h2>
+<p><strong>IC4 expectation:</strong> Advises executive leadership and the board as a strategic partner, navigates complex competing stakeholder interests, elevates the compensation function, and influences decisions beyond traditional compensation.</p>
+<h3>4a. Executive &amp; Board Advisory</h3>
+<p><em>Does the employee advise C-suite executives and board members on compensation matters with credibility and confidence, translating complex concepts into strategic business language?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>4b. Function Elevation</h3>
+<p><em>Has the employee elevated the compensation function's capability through frameworks, tools, methodology, or knowledge transfer that increased the team's sophistication?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h3>4c. Cross-Functional Influence</h3>
+<p><em>Does the employee influence decisions in workforce planning, organizational design, or talent strategy—contributing compensation expertise to decisions that extend beyond traditional compensation boundaries?</em></p>
+<table>
+<thead>
+<tr>
+<th>Self-Assessment: 1 / 2 / 3</th>
+<th>Manager Assessment: 1 / 2 / 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Examples / Evidence:</td>
+<td>Observations:</td>
+</tr>
+</tbody>
+</table>
+<h2>Summary &amp; Recommendation</h2>
+<h3>Rating Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Competency Area</th>
+<th>Self</th>
+<th>Manager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1a. Compensation Philosophy &amp; Framework</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1b. Scalable Architecture Design</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1c. Executive Compensation &amp; Governance</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2a. Strategic Foresight</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2b. Board-Ready Communication</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2c. Thought Leadership &amp; Influence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3a. Enterprise Pay Equity Strategy</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3b. M&amp;A Compensation Due Diligence</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3c. Multi-Jurisdiction Regulatory Strategy</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4a. Executive &amp; Board Advisory</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4b. Function Elevation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4c. Cross-Functional Influence</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Overall Readiness Assessment</h3>
+<ul>
+<li>[ ] Ready for promotion to IC4</li>
+<li>[ ] On track — continue development (estimated timeline: <strong><em>_</em></strong>_____)</li>
+<li>[ ] Needs focused development in specific areas before reassessment</li>
+</ul>
+<h3>Key Development Areas</h3>
+<hr />
+<h3>Agreed Development Actions</h3>
+<hr />
+<h3>Next Review Date</h3>
+<hr />
+<h3>Signatures</h3>
+<table>
+<thead>
+<tr>
+<th>Employee:</th>
+<th>Manager:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date: <strong><em>_</em></strong><strong><em>_</em></strong>_</td>
+<td>Date: <strong><em>_</em></strong><strong><em>_</em></strong>_</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

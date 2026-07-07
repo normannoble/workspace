@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progression Guide: M1 to M2 &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html" class="active">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="career-development.html">Career Development</a> &rsaquo; Progression Guide: M1 to M2</div>
+<h1>Progression Guide: M1 to M2</h1>
+<h2>HR Manager to Senior HR Manager</h2>
+<h2>Overview</h2>
+<p>The transition from M1 (HR Manager) to M2 (Senior HR Manager) represents the shift from learning management fundamentals to operating independently with confidence across the HR function. This is the management equivalent of moving from "developing your craft" to "mastering your craft."</p>
+<p>At M1, you're building foundational management skills with guidance from senior HR leaders, typically leading a small team within a single HR discipline. At M2, you handle complex people situations independently, make sound decisions without validation, coordinate across multiple HR disciplines, and create systems that help the HR function scale. Your manager trusts you to operate autonomously.</p>
+<p>This transition typically takes 3-5 years at M1 and requires demonstrating sustained independent effectiveness, not just time in role.</p>
+<h2>The Core Shift</h2>
+<table>
+<thead>
+<tr>
+<th>M1 (HR Manager)</th>
+<th>M2 (Senior HR Manager)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small team (3-6 people), usually within a single discipline</td>
+<td>Larger team (8-15) or multiple teams spanning disciplines</td>
+</tr>
+<tr>
+<td>Learning management fundamentals with guidance</td>
+<td>Operating independently with confidence</td>
+</tr>
+<tr>
+<td>Handles straightforward situations, escalates complex ones</td>
+<td>Handles complex situations without oversight</td>
+</tr>
+<tr>
+<td>Seeks guidance on difficult decisions</td>
+<td>Makes sound decisions confidently</td>
+</tr>
+<tr>
+<td>Translates function goals into team objectives</td>
+<td>Shapes priorities and aligns HR strategy with business needs</td>
+</tr>
+<tr>
+<td>Domain credibility in one HR discipline</td>
+<td>Cross-discipline fluency across the HR function</td>
+</tr>
+<tr>
+<td>Contributes directly to HR programs when needed</td>
+<td>Owns significant HR programs end-to-end</td>
+</tr>
+<tr>
+<td>Building trust with team</td>
+<td>Building high-performing team culture across disciplines</td>
+</tr>
+</tbody>
+</table>
+<p><em>The fundamental question changes from </em><em>"Am I learning to be an effective HR manager?"</em><em>
+to </em><em>"Am I operating effectively without oversight across multiple HR disciplines?"</em>**</p>
+<h2>Key Capabilities to Develop</h2>
+<h3>1. Independent People Management</h3>
+<p>At M1, you handle straightforward situations and escalate complex ones. At M2, you handle the full range of people situations--performance issues, conflicts, retention risks, terminations--with confidence and sound judgment, including the unique challenge of managing HR professionals who are themselves people experts.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>You navigate difficult performance conversations without needing coaching on approach</li>
+<li>You make compensation, promotion, and termination decisions confidently within the HR function</li>
+<li>You resolve interpersonal conflicts before they escalate or require senior intervention</li>
+<li>You retain key HR talent through proactive engagement, understanding what motivates HR professionals at different career stages</li>
+<li>Your people decisions prove sound over time--few surprises or reversals</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Ask your manager to let you lead on increasingly complex situations with coaching, not rescue</li>
+<li>Document your decision-making process for difficult calls--review outcomes 6 months later</li>
+<li>Build a peer network of other HR managers to discuss challenging situations, particularly those unique to managing HR professionals</li>
+<li>Study difficult management scenarios--build mental models before you face them</li>
+<li>Practice delivering hard messages and get feedback on your approach, drawing on the interpersonal skills central to HR work</li>
+</ul>
+<h3>2. Cross-Discipline Coordination and Program Ownership</h3>
+<p>At M1, you operate within a single HR discipline. At M2, you understand how disciplines interconnect--recruiting feeding into onboarding, onboarding connecting to L&amp;D, HRBP insights informing compensation strategy--and you own significant programs end-to-end.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>You own major HR programs or functional areas with clear accountability and measurable outcomes</li>
+<li>Cross-discipline handoffs work smoothly under your coordination--no balls dropped between recruiting, onboarding, HRBP, L&amp;D, and compensation</li>
+<li>You optimize for overall HR function effectiveness rather than any single discipline's priorities</li>
+<li>Business cycles--performance reviews, compensation planning, open enrollment, hiring surges--are managed smoothly with appropriate resourcing</li>
+<li>HR process improvements you drive measurably increase efficiency, employee experience, or compliance</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Volunteer to lead cross-discipline initiatives or projects that span multiple HR areas</li>
+<li>Build deep understanding of disciplines adjacent to your own--shadow colleagues, attend their planning sessions</li>
+<li>Map the dependencies between HR disciplines and identify where handoffs break down</li>
+<li>Take ownership of a recurring HR cycle end-to-end and improve it each iteration</li>
+<li>Develop fluency with HR analytics and data so you can measure and demonstrate program impact</li>
+</ul>
+<h3>3. Building High-Performing HR Teams</h3>
+<p>At M1, you're focused on team delivery and basic health. At M2, you deliberately build culture, drive engagement, and create conditions for sustained excellence across your HR teams.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Your team has a distinct, positive culture that people can articulate--one that models the standards HR promotes across the company</li>
+<li>Engagement is consistently high--people want to stay and grow on your teams</li>
+<li>Team members and M1 managers are developing meaningfully, with visible career progression</li>
+<li>Other teams want to work with yours; you have a reputation for HR team excellence</li>
+<li>Attrition is low and intentional--people leave for the right reasons</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Be intentional about culture--what do you want your HR teams to be known for?</li>
+<li>Create development plans for each team member and M1 manager and actually execute them</li>
+<li>Invest in developing M1 managers' leadership judgment, not just their HR domain skills</li>
+<li>Measure engagement and act on what you learn--particularly around the emotional demands of HR work</li>
+<li>Build hiring practices that select for culture contribution and cross-discipline potential, not just technical HR skills</li>
+</ul>
+<h3>4. Strategic Alignment and Stakeholder Partnership</h3>
+<p>At M1, you translate HR function goals to your team. At M2, you actively shape priorities, build strong partnerships with business leaders, and ensure your team's work is aligned with what matters most to the organization.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Your team's priorities clearly connect to company strategy--no one is confused about "why"</li>
+<li>Business leaders trust you--they know your HR teams will deliver and communicate proactively</li>
+<li>You navigate competing priorities between organizational needs and HR capacity effectively</li>
+<li>Cross-functional partners in Finance, Legal, and IT see you as collaborative and effective</li>
+<li>You represent the HR function credibly in leadership forums, articulating priorities and impact with clarity</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Understand the business deeply--what matters to your stakeholders and why?</li>
+<li>Communicate proactively--don't wait to be asked about status, risks, or capacity constraints</li>
+<li>When conflicts arise between business needs and HR capacity, seek win-win solutions before escalating</li>
+<li>Build relationships with key stakeholders outside of transactional interactions</li>
+<li>Practice articulating HR impact in business terms--connect people programs to outcomes leaders care about</li>
+</ul>
+<h2>Common Pitfalls</h2>
+<h3>Waiting to be told you're ready</h3>
+<p>M2 readiness is demonstrated, not granted. If you're waiting for your manager to tell you you're operating at M2 level, you're probably not. Take on M2-level challenges proactively.</p>
+<h3>Still escalating too much</h3>
+<p>The biggest signal of M2 readiness is handling complex situations independently. If you're still bringing every difficult conversation or decision to your manager, you're not demonstrating M2 capability.</p>
+<h3>Staying siloed in one discipline</h3>
+<p>M2 requires cross-discipline fluency. If you're still operating exclusively within your original HR discipline and not building understanding of how the broader HR function works together, you're missing a key dimension of the role.</p>
+<h3>Focusing on scale before effectiveness</h3>
+<p>Managing more people doesn't make you M2. Managing people well--handling complexity, building culture, creating systems, coordinating across disciplines--does. Don't seek scale before you've mastered effectiveness.</p>
+<h3>Neglecting your own development</h3>
+<p>At M1, others are investing in developing you. At M2, you're more self-directed. If you're not actively working on your growth, you'll plateau. Seek feedback, find mentors, keep learning.</p>
+<h2>How to Demonstrate Readiness</h2>
+<p>Promotion to M2 requires sustained demonstration of independent, effective management over 6-12+ months. Here's how to build your case:</p>
+<h3>Build a Track Record</h3>
+<ul>
+<li>Document complex people situations you've handled successfully without significant guidance</li>
+<li>Track team health metrics--engagement, retention, development outcomes across your teams</li>
+<li>Gather feedback from business stakeholders about your effectiveness and reliability</li>
+<li>Note systems, processes, and cross-discipline improvements you've created that improved HR function operations</li>
+<li>Show evidence of programs you've owned end-to-end with measurable outcomes</li>
+</ul>
+<h2>Self-Assessment Questions</h2>
+<ol>
+<li>Do I handle complex people situations (PIPs, conflicts, retention) without significant manager oversight?</li>
+<li>Do I make sound people decisions confidently--hiring, compensation, promotions, terminations?</li>
+<li>Does my team have a strong culture with high engagement and low regrettable attrition?</li>
+<li>Have I created systems and practices that help the HR function scale?</li>
+<li>Do I coordinate effectively across multiple HR disciplines, optimizing for overall function effectiveness?</li>
+<li>Do business stakeholders trust me to deliver and communicate proactively?</li>
+<li>Am I developing M1 managers into more effective people leaders?</li>
+</ol>
+<p>If you can answer "yes" to most of these consistently over 6-12+ months, you're likely ready for M2.</p>
+<h2>Typical Timeline</h2>
+<p>Most HR managers progress from M1 to M2 in <strong>3-5 years</strong>. This timeframe allows for:</p>
+<ul>
+<li>Experiencing the full cycle of HR management activities (hiring, reviews, difficult conversations, business cycles)</li>
+<li>Building judgment through handling varied situations across HR disciplines</li>
+<li>Demonstrating sustained effectiveness, not just occasional success</li>
+<li>Creating a track record that proves independent capability across the function</li>
+</ul>
+<p><strong>Remember:</strong> M2 is about operating effectively and independently across the HR function, not just managing more people. You need to demonstrate sustained impact at the M2 level, not just potential. Plateauing at M1 is normal and can be fulfilling--many managers have successful, satisfying careers leading single HR teams. Pursue M2 only if the work genuinely interests you and aligns with your strengths.</p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chief People Officer &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html" class="active">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="job-descriptions.html">Job Descriptions</a> &rsaquo; Chief People Officer</div>
+<h1>Chief People Officer</h1>
+<p><strong>Level:</strong> E3 (Chief People Officer)</p>
+<h2>Role Overview</h2>
+<p>The Chief People Officer is the senior-most HR executive, with ultimate accountability for the company's people strategy, organizational culture, talent capabilities, and the health of the employee experience. The CPO serves on the executive team as a peer to the CEO, CFO, CTO, and other C-level leaders, and represents the company's people strategy to the board of directors, investors, customers, and the broader industry.</p>
+<p>This role requires balancing multiple dimensions: setting the vision for how the company wins through people while enabling day-to-day execution, building long-term organizational capability while delivering near-term talent outcomes, and maintaining strategic perspective while staying grounded in the realities of employee experience. The CPO is both architect of the company's people future and steward of its current culture and organizational health.</p>
+<p>As a hired executive, the CPO brings external perspective and professional excellence to the role—building on the company's foundation while introducing practices, standards, and capabilities that position it for sustainable growth. The CPO develops the executive leadership bench within HR, ensuring the function's success isn't dependent on any single leader, and shapes company strategy from the vantage point of people and organizational effectiveness.</p>
+<hr />
+<h2>Success Outcomes</h2>
+<p>Success in this role means achieving the following outcomes:</p>
+<h3>People Vision &amp; Strategy</h3>
+<ul>
+<li>A people vision and strategy that creates sustainable competitive advantage—the company wins in its markets in part because of how it attracts, develops, and retains talent</li>
+<li>People investments that prove sound over 3-5+ year horizons—bets on leadership development, culture, compensation philosophy, and organizational design that pay off and build cumulative advantage</li>
+<li>Strategic alignment between people capabilities and business strategy, with talent and culture enabling (not constraining) company direction</li>
+<li>Innovation balanced with organizational stability—the company evolves its people practices to stay ahead of workforce trends while maintaining the cultural foundation that drives performance</li>
+</ul>
+<h3>Executive Leadership</h3>
+<ul>
+<li>A seat at the table as a true peer on the executive team—people perspective integrated into all major company decisions, from strategy and M&amp;A to product and market expansion</li>
+<li>Board-level communication that builds confidence in people strategy, organizational health, succession planning, and talent risk management</li>
+<li>Investor relations supported effectively—the people story articulated compellingly as part of the company narrative, with metrics that demonstrate organizational strength</li>
+<li>Cross-functional executive partnerships that drive company outcomes, with the people function as a strategic enabler across all parts of the business</li>
+</ul>
+<h3>Organizational Excellence</h3>
+<ul>
+<li>An HR function that is a source of competitive advantage—attracts exceptional HR talent, delivers reliably, and continuously raises the bar on people practices</li>
+<li>HR leadership team (E1s, E2s, M3s) that operates with excellence and continues developing toward greater capability</li>
+<li>Succession planning at all senior levels across the company—the organization's success doesn't depend on any single leader, including the CPO</li>
+<li>Culture and values across the company that are actively stewarded, authentically lived, and create a destination workplace</li>
+</ul>
+<h3>Talent &amp; Culture Stewardship</h3>
+<ul>
+<li>A talent strategy that ensures the company has the people it needs to execute its strategy today and build capability for the future</li>
+<li>An organizational culture that is deliberately shaped, consistently reinforced, and demonstrably connected to business performance</li>
+<li>Diversity, equity, and inclusion embedded as organizational capabilities that drive better outcomes, not just compliance checkboxes</li>
+<li>Employee experience that attracts and retains exceptional talent at all levels—the company's reputation as an employer is a genuine competitive asset</li>
+</ul>
+<h3>Risk Management &amp; Governance</h3>
+<ul>
+<li>People risks identified, quantified, and managed appropriately—retention of key talent, succession gaps, compliance exposure, and organizational health indicators</li>
+<li>Governance structures that enable organizational agility while maintaining appropriate controls on people practices, compensation, and employment law compliance</li>
+<li>Regulatory and compliance requirements met across all jurisdictions without creating unnecessary friction or slowing the business</li>
+<li>Crisis management capability—the organization responds effectively to sensitive people situations, public scrutiny, and workforce disruptions</li>
+</ul>
+<h3>External Leadership &amp; Reputation</h3>
+<ul>
+<li>The company recognized for people excellence—employer brand attracts talent, builds customer trust, and creates partnership opportunities</li>
+<li>Thought leadership that positions the company and CPO as voices in the industry on talent, culture, and the future of work</li>
+<li>Customer, partner, and candidate relationships strengthened through the company's reputation for how it treats and develops its people</li>
+<li>Industry relationships that create strategic value—benchmarking insights, talent market intelligence, and partnerships that advance the company's people capabilities</li>
+</ul>
+<h3>Strategic Initiatives</h3>
+<ul>
+<li>M&amp;A due diligence supported effectively—people and culture aspects of acquisitions evaluated thoroughly, with realistic integration plans that preserve value</li>
+<li>Organizational design decisions made with sound judgment, balancing speed, cost, capability, and cultural fit</li>
+<li>Workforce planning and transformation managed strategically—the company can scale, restructure, and evolve its workforce in alignment with business needs</li>
+<li>New people capabilities developed or acquired that enable business growth and position the company for its next stage</li>
+</ul>
+<hr />
+<h2>Required Skills</h2>
+<h3>Executive Leadership</h3>
+<ul>
+<li>C-level executive presence—operates as a peer to CEO, CFO, CTO, and other executives with full credibility</li>
+<li>Board communication—presents people strategy, organizational health, talent risk, and culture metrics credibly to board and investors</li>
+<li>Strategic thinking at company level—shapes company direction from a people perspective, not just HR direction</li>
+<li>Business acumen—deep understanding of business model, economics, competitive dynamics, and how people strategy creates enterprise value</li>
+</ul>
+<h3>Organizational Leadership</h3>
+<ul>
+<li>Developing executive leaders—grows E1s and E2s toward CPO-level capability and develops the broader senior leadership bench across the company</li>
+<li>Organizational design at scale—structures the HR function and influences company-wide organizational design for current and future needs</li>
+<li>Culture leadership—defines, embodies, and actively stewards the values and practices of the entire organization</li>
+<li>Talent strategy at executive level—attracts, develops, and retains exceptional leaders across all functions, not just within HR</li>
+</ul>
+<h3>HR Domain Leadership</h3>
+<ul>
+<li>Enterprise people vision—sees how all dimensions of the employee experience connect and creates integrated strategy across the full talent lifecycle</li>
+<li>Compensation and total rewards philosophy—sets strategic direction on how the company pays, rewards, and recognizes its people</li>
+<li>Organizational effectiveness expertise—understands how structure, process, culture, and talent interact to drive or inhibit business performance</li>
+<li>Ability to engage deeply on critical people matters—employment law, sensitive investigations, executive compensation, workforce transformation—while maintaining strategic altitude</li>
+</ul>
+<h3>External Leadership</h3>
+<ul>
+<li>Industry presence—recognized as a people and culture leader beyond the company</li>
+<li>Candidate and employee engagement—represents the company's values and culture credibly as the face of the employer brand</li>
+<li>Investor communication—articulates people strategy as part of the company narrative with confidence and specificity</li>
+<li>Thought leadership—contributes to industry discourse on talent, culture, and the future of work through speaking, writing, or community involvement</li>
+</ul>
+<h3>Governance &amp; Risk</h3>
+<ul>
+<li>Risk management—identifies, quantifies, and manages people risks appropriately across retention, compliance, organizational health, and culture</li>
+<li>Employment law awareness—ensures the company's practices are legally sound across all jurisdictions without creating unnecessary conservatism</li>
+<li>Compliance leadership—ensures regulatory requirements are met as a floor, not a ceiling, with practices that go beyond compliance to create genuine organizational strength</li>
+<li>Crisis leadership—leads effectively through sensitive people situations, public scrutiny, and workforce disruptions</li>
+</ul>
+<h3>Core Competencies</h3>
+<ul>
+<li>Judgment at the highest stakes—makes sound decisions with major consequences and incomplete information, particularly on matters affecting people's careers and livelihoods</li>
+<li>Influence at executive and board level—builds alignment among powerful stakeholders with different perspectives on people investment, culture, and organizational priorities</li>
+<li>Resilience under pressure—maintains effectiveness and supports the organization through significant challenges including workforce reductions, cultural crises, and leadership transitions</li>
+<li>Balance of empathy and accountability—drives organizational performance while genuinely caring about employee experience and well-being</li>
+</ul>
+<hr />
+<h2>Required Experience</h2>
+<h3>Years of Experience</h3>
+<ul>
+<li>18-25+ years of professional experience in Human Resources</li>
+<li>10+ years in senior or executive HR leadership, including significant time at Director or Senior Director level</li>
+</ul>
+<h3>Demonstrated Track Record</h3>
+<ul>
+<li>Led HR functions of significant scale supporting 500+ employees with sustained business impact over multiple years</li>
+<li>Developed executive-level HR leaders (E1s, E2s) who became effective senior people executives</li>
+<li>Delivered strategic people outcomes that created measurable competitive advantage—demonstrable impact on talent acquisition, retention, engagement, and business performance</li>
+<li>Successfully navigated major organizational and cultural transformations—M&amp;A integration, rapid scaling, restructuring, or cultural reinvention</li>
+<li>Built HR organizations recognized for excellence—attracted strong HR talent, delivered results, and earned recognition from business leaders as a strategic function</li>
+</ul>
+<h3>Executive Experience</h3>
+<ul>
+<li>Operated as a member of an executive team, contributing to company strategy beyond the people function</li>
+<li>Board-level communication experience—presented to boards, handled board questions on people matters, and built board confidence in talent and organizational strategy</li>
+<li>Investor relations experience—contributed to fundraising narratives, investor updates, or public company communications with credible people and culture storytelling</li>
+<li>M&amp;A experience—led people and culture due diligence, integration planning, or post-acquisition cultural alignment</li>
+<li>Prior CPO, CHRO, or VP of People experience strongly preferred</li>
+</ul>
+<h3>HR Domain Background</h3>
+<ul>
+<li>Broad and deep expertise spanning the full HR discipline—able to set strategic direction across talent acquisition, learning &amp; development, compensation &amp; benefits, employee relations, people operations, organizational development, and DEI</li>
+<li>Experience building people strategies that scaled across company stages, geographies, and business models</li>
+<li>Strong command of people analytics, workforce planning, and executive-level reporting on organizational health metrics</li>
+<li>Understanding of global employment practices and regulatory complexity across multiple jurisdictions</li>
+</ul>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

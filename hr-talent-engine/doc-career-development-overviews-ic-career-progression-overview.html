@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Career Progression &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html" class="active">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="career-development.html">Career Development</a> &rsaquo; HR Career Progression</div>
+<h1>HR Career Progression</h1>
+<p><em>Individual Contributor Track Overview — Multi-Discipline</em></p>
+<h2>Introduction</h2>
+<p>This document outlines career progression on the Individual Contributor (IC) track for HR professionals across all five disciplines: Talent Acquisition, HR Operations, HR Business Partnership, Learning &amp; Development, and Compensation &amp; Benefits. Whether you're just starting your career or are a seasoned HR professional, this guide will help you understand what success looks like at each level, how promotions work, and what it takes to grow.</p>
+<p>Our approach to leveling is <strong>outcome-based</strong>, not task-based. Each level describes what success looks like—the desired end states—rather than a checklist of activities. This means you're evaluated on impact and outcomes, not just what you do day-to-day.</p>
+<p>Because HR encompasses multiple disciplines with different entry points and career shapes, this overview presents all five disciplines side by side so you can understand both the common progression themes and the discipline-specific differences.</p>
+<h2>Core Philosophy</h2>
+<p><strong>Levels describe scope, impact, and autonomy—not years of experience.</strong> As you progress, the fundamental question changes:</p>
+<ul>
+<li>IC1-IC2: "Am I learning and delivering reliably?"</li>
+<li>IC3: "Am I making my team more effective?"</li>
+<li>IC4: "Am I shaping how the organization solves problems?"</li>
+</ul>
+<p><strong>Plateauing is normal and healthy.</strong> Most HR professionals have successful, fulfilling careers at IC3 or IC4. Not everyone needs to reach the top level, and the happiest professionals are those who find fulfillment in their work, regardless of title.</p>
+<p><strong>Not all disciplines start at the same level.</strong> HRBP and Compensation &amp; Benefits require foundational experience before entry, so their tracks begin at IC2. This reflects the business acumen and professional judgment needed from day one in those disciplines, not a lesser career path.</p>
+<h2>The IC Levels at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Talent Acquisition</th>
+<th>HR Operations</th>
+<th>HRBP</th>
+<th>L&amp;D</th>
+<th>Comp &amp; Benefits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IC1</td>
+<td>TA Coordinator</td>
+<td>HR Ops Coordinator</td>
+<td>—</td>
+<td>L&amp;D Coordinator</td>
+<td>—</td>
+</tr>
+<tr>
+<td>IC2</td>
+<td>Recruiter</td>
+<td>HR Ops Specialist</td>
+<td>Junior HRBP</td>
+<td>L&amp;D Specialist</td>
+<td>Compensation Analyst</td>
+</tr>
+<tr>
+<td>IC3</td>
+<td>Senior Recruiter</td>
+<td>Sr. HR Ops Specialist</td>
+<td>HR Business Partner</td>
+<td>Sr. L&amp;D Specialist</td>
+<td>Sr. Compensation Analyst</td>
+</tr>
+<tr>
+<td>IC4</td>
+<td>Principal Recruiter</td>
+<td>Principal HR Ops Specialist</td>
+<td>Senior HRBP</td>
+<td>Principal L&amp;D Specialist</td>
+<td>Principal Compensation Analyst</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>IC1: Learning with Guidance</h2>
+<p><em>Available in: Talent Acquisition, HR Operations, L&amp;D</em></p>
+<p>IC1 roles are early-career positions focused on learning fundamentals and building a foundation for long-term growth. Success at this level is defined by consistent improvement, not perfection.</p>
+<h3>What Success Looks Like Across Disciplines</h3>
+<table>
+<thead>
+<tr>
+<th>Talent Acquisition (TA Coordinator)</th>
+<th>HR Operations (HR Ops Coordinator)</th>
+<th>L&amp;D (L&amp;D Coordinator)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interviews scheduled accurately with logistics confirmed and candidates informed well in advance</td>
+<td>Employee records and HRIS data maintained with high accuracy through careful data entry</td>
+<td>Training sessions well-organized with logistics handled—rooms booked, materials prepared, technology tested</td>
+</tr>
+<tr>
+<td>ATS records kept current with candidate stages updated, notes captured, and data hygiene standards met</td>
+<td>Basic HRIS transactions (new hires, terminations, status changes) processed correctly and on time</td>
+<td>LMS records accurate and audit-ready—enrollments processed, completions recorded, discrepancies resolved</td>
+</tr>
+<tr>
+<td>Candidate communications sent on time with appropriate tone, reflecting a respectful process</td>
+<td>Compliance documents collected, verified, and filed following established procedures</td>
+<td>Participant communications—invitations, reminders, pre-work—sent consistently and clearly</td>
+</tr>
+<tr>
+<td>Thoughtful questions asked that demonstrate engagement with the recruiting process</td>
+<td>Growing understanding of how individual tasks contribute to broader HR operational outcomes</td>
+<td>Post-training evaluations collected and compiled into summary reports for the team</td>
+</tr>
+<tr>
+<td>Growing ability to anticipate recruiter needs and identify scheduling conflicts before they escalate</td>
+<td>Sensitive employee information handled with appropriate care, following data privacy protocols</td>
+<td>A developing understanding of adult learning principles that informs how coordination work is approached</td>
+</tr>
+</tbody>
+</table>
+<h3>Typical Experience</h3>
+<p>0-2 years of professional experience. Recent graduates, career changers, or early-career professionals with foundational training and strong organizational skills.</p>
+<hr />
+<h2>IC2: Delivering Independently</h2>
+<p><em>Available in: All five disciplines</em></p>
+<p>IC2 roles are solid contributors who independently deliver well-scoped work. This is the entry point for HRBP and Compensation &amp; Benefits, which require foundational HR or analytical experience from day one.</p>
+<h3>What Success Looks Like Across Disciplines</h3>
+<table>
+<thead>
+<tr>
+<th>Discipline</th>
+<th>Title</th>
+<th>Key Outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Talent Acquisition</strong></td>
+<td>Recruiter</td>
+<td>Requisitions filled with qualified candidates within target timelines; active pipelines maintained through sourcing, referrals, and inbound; hiring managers receive consistent, reliable support with timely submittals and clear communication; candidate experience that is responsive and organized at every stage</td>
+</tr>
+<tr>
+<td><strong>HR Operations</strong></td>
+<td>HR Ops Specialist</td>
+<td>HRIS administered effectively with transactions processed accurately and within SLAs; employee lifecycle processes managed end-to-end with consistent quality; compliance reporting completed accurately and on schedule; opportunities to streamline processes identified and raised with proposed solutions</td>
+</tr>
+<tr>
+<td><strong>HRBP</strong></td>
+<td>Junior HRBP</td>
+<td>Frontline managers view the Junior HRBP as a reliable first point of contact for day-to-day people questions; routine employee relations cases handled independently with proper documentation; talent review logistics and data preparation executed accurately and on time; HR programs deployed within assigned groups with high participation</td>
+</tr>
+<tr>
+<td><strong>L&amp;D</strong></td>
+<td>L&amp;D Specialist</td>
+<td>Training programs designed and delivered with solid instructional design principles and clear learning objectives; e-learning modules developed that are engaging and accessible; post-training evaluations consistently collected and analyzed; program content maintained based on feedback and changing requirements</td>
+</tr>
+<tr>
+<td><strong>Comp &amp; Benefits</strong></td>
+<td>Compensation Analyst</td>
+<td>Job evaluations and classifications completed accurately using established methodology; market pricing analyses completed with jobs accurately matched to benchmarks; pay equity data sets prepared accurately for statistical analysis; compensation inquiries from HRBPs and managers answered with timely, data-driven responses</td>
+</tr>
+</tbody>
+</table>
+<h3>Key Shift from IC1</h3>
+<p>The fundamental question changes from "Am I learning and improving?" to "Am I reliably delivering quality work?" You move from completing assigned tasks to owning deliverables end-to-end. For HRBP and Compensation &amp; Benefits professionals entering at IC2, the expectation is independent delivery from the start, supported by a foundation of prior HR or analytical experience.</p>
+<h3>Typical Experience</h3>
+<p>2-5 years of professional experience. Progression from IC1 typically takes 1-2 years.</p>
+<hr />
+<h2>IC3: Leading and Multiplying</h2>
+<p><em>Available in: All five disciplines</em></p>
+<p>IC3 is the anchor level across HR—the most significant career transition. You move from "getting things done" to "making others more effective." IC3 professionals are self-directed contributors who lead project-level work, set standards, mentor others, and serve as trusted advisors in their discipline.</p>
+<h3>What Success Looks Like Across Disciplines</h3>
+<table>
+<thead>
+<tr>
+<th>Discipline</th>
+<th>Title</th>
+<th>Key Outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Talent Acquisition</strong></td>
+<td>Senior Recruiter</td>
+<td>Critical roles filled with candidates who pass probation and stay beyond their first year; diverse candidate pipelines built proactively for recurring and hard-to-fill roles; hiring managers view the recruiter as a strategic partner, not an order-taker; interview panels trained, calibrated, and consistently applying structured evaluation</td>
+</tr>
+<tr>
+<td><strong>HR Operations</strong></td>
+<td>Sr. HR Ops Specialist</td>
+<td>HRIS platforms accurately configured and trusted as the system of record; workflow improvements that measurably reduce cycle times and errors; compliance programs that pass audits without material findings; a reputation as a trusted advisor on HR systems whose input is sought for new programs</td>
+</tr>
+<tr>
+<td><strong>HRBP</strong></td>
+<td>HR Business Partner</td>
+<td>Business leaders actively seek HRBP counsel on organizational decisions including structure, talent planning, and change management; people strategies aligned with business objectives that translate into actionable plans; succession plans for critical roles with identified successors and development timelines; organizational health continuously monitored through engagement data and turnover trends</td>
+</tr>
+<tr>
+<td><strong>L&amp;D</strong></td>
+<td>Sr. L&amp;D Specialist</td>
+<td>Learning programs grounded in identified business needs and validated through needs analysis; evaluation frameworks measuring beyond satisfaction to behavior change and business impact; business leaders and HRBPs view L&amp;D as a strategic partner for solving performance challenges; a learning ecosystem including formal programs, peer learning, and knowledge repositories</td>
+</tr>
+<tr>
+<td><strong>Comp &amp; Benefits</strong></td>
+<td>Sr. Compensation Analyst</td>
+<td>Compensation structures that are internally equitable, externally competitive, and clearly understood; annual compensation cycles executed smoothly with consistent guideline application; regular pay equity analyses identifying disparities with actionable remediation plans; HRBPs and leaders who trust compensation data and use it for informed talent decisions</td>
+</tr>
+</tbody>
+</table>
+<h3>Key Shift from IC2</h3>
+<p>The fundamental question changes from "Am I delivering reliably?" to "Am I making my team more effective?" Your impact expands from your own output to enabling others. You move from following standards to defining and improving them, and from executing work to advising stakeholders on the right approach.</p>
+<h3>Typical Experience</h3>
+<p>4-8 years of professional experience. Progression from IC2 typically takes 2-4 years. This is often the longest single-level tenure because IC3 requires developing genuinely new capabilities.</p>
+<hr />
+<h2>IC4: Organizational Impact</h2>
+<p><em>Available in: All five disciplines</em></p>
+<p>IC4 professionals are leaders who shape direction across multiple teams and drive initiatives with organization-wide impact. This role operates at the intersection of deep domain expertise and strategic thinking. IC4 is a rare and highly impactful level—it is not a natural extension of IC3 but requires developing an entirely different set of capabilities.</p>
+<h3>What Success Looks Like Across Disciplines</h3>
+<table>
+<thead>
+<tr>
+<th>Discipline</th>
+<th>Title</th>
+<th>Key Outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Talent Acquisition</strong></td>
+<td>Principal Recruiter</td>
+<td>The organization's most critical hiring challenges solved with strategies others couldn't execute—executive searches, niche roles, M&amp;A talent integration; recruiting approaches articulated as repeatable playbooks adopted across the TA function; talent market intelligence shared at the leadership level, informing workforce planning and compensation strategy; senior leaders view the Principal Recruiter as a strategic advisor on talent and organizational design</td>
+</tr>
+<tr>
+<td><strong>HR Operations</strong></td>
+<td>Principal HR Ops Specialist</td>
+<td>HR technology strategy clearly articulated and guiding system decisions across the organization; major HRIS implementations or migrations led successfully—on time, within budget, with strong adoption; the HR operating model designed to scale with growth, balancing standardization with flexibility; organization-wide compliance frameworks designed that prevent issues systematically</td>
+</tr>
+<tr>
+<td><strong>HRBP</strong></td>
+<td>Senior HRBP</td>
+<td>VP/SVP-level leaders treat the Senior HRBP as an indispensable strategic advisor, involving them in business planning and strategic pivots; organizational design at scale executed with minimal disruption and outcomes that hold over time; the most complex employee relations situations handled with judgment that protects the organization while treating individuals fairly; enterprise HR strategy influenced through deep business insight</td>
+</tr>
+<tr>
+<td><strong>L&amp;D</strong></td>
+<td>Principal L&amp;D Specialist</td>
+<td>Enterprise learning strategy clearly articulated and guiding investment decisions across the organization; leadership development programs that demonstrably prepare leaders for increased scope, visible in promotion readiness and bench strength; quality standards raised across the L&amp;D function through influence and exemplary work; evaluation frameworks that credibly demonstrate business impact for major learning investments</td>
+</tr>
+<tr>
+<td><strong>Comp &amp; Benefits</strong></td>
+<td>Principal Compensation Analyst</td>
+<td>Enterprise compensation philosophy coherent across business units, geographies, and populations; executive compensation programs competitive, aligned with shareholder interests, and defensible to the board; pay equity strategy that moves beyond audits to systemic root-cause analysis and prevention; compensation strategy articulated clearly to the board, C-suite, and people leadership</td>
+</tr>
+</tbody>
+</table>
+<h3>Key Shift from IC3</h3>
+<p>The fundamental question changes from "Am I making my team more effective?" to "Am I shaping how the organization solves problems?" This is not a natural progression—it requires developing an entirely different set of capabilities around strategic thinking, cross-team influence, and creating leverage at scale. You move from being a trusted expert within your discipline to shaping how the organization approaches your domain.</p>
+<h3>Typical Experience</h3>
+<p>8-12+ years of professional experience. Progression from IC3 typically takes 3-5 years. Many excellent IC3 professionals choose not to pursue IC4, and that's a completely valid career choice. IC4 positions are limited—organizations typically have fewer Principal/Senior roles than Senior roles.</p>
+<hr />
+<h2>How Promotions Work</h2>
+<h3>Core Principles</h3>
+<p><strong>Promotions are earned, not given based on time.</strong> Time at level is necessary but not sufficient. You must demonstrate sustained performance at the next level—promotions recognize impact already being delivered, not potential.</p>
+<p><strong>Promotion criteria are cumulative.</strong> You must continue meeting all criteria from previous levels. Higher levels build on the foundation of previous levels.</p>
+<h3>What We Look For</h3>
+<ul>
+<li><strong>Current Level Mastery:</strong> Consistently operating at the top end of your current level</li>
+<li><strong>Next Level Performance:</strong> Already demonstrating success outcomes of the next level for 6-12+ months</li>
+<li><strong>Readiness for Continued Growth:</strong> Trajectory suggests continued growth beyond the next level</li>
+</ul>
+<h3>Typical Timelines</h3>
+<table>
+<thead>
+<tr>
+<th>Transition</th>
+<th>Typical Time</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IC1 → IC2</td>
+<td>1-2 years</td>
+<td>Learning fundamentals</td>
+</tr>
+<tr>
+<td>IC2 → IC3</td>
+<td>2-4 years</td>
+<td>Building deep competence</td>
+</tr>
+<tr>
+<td>IC3 → IC4</td>
+<td>3-5 years</td>
+<td>Demonstrating org impact</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: These are guidelines, not guarantees. Faster progressions are possible with exceptional performance; slower progressions are also normal.</em></p>
+<hr />
+<h2>Moving Between Disciplines</h2>
+<p>One of the strengths of an HR career is the ability to move between disciplines, especially at shared levels:</p>
+<ul>
+<li><strong>IC1 → IC1 (lateral):</strong> Moving between TA Coordination, HR Ops Coordination, and L&amp;D Coordination is relatively straightforward and can broaden your foundation.</li>
+<li><strong>IC2 → IC2 (lateral):</strong> Moving between disciplines at IC2 is possible with some ramp-up time. Your core professional skills transfer; discipline-specific knowledge takes 3-6 months to develop.</li>
+<li><strong>IC3 → IC3 (lateral):</strong> Harder but possible. Deep expertise in one discipline doesn't automatically transfer, but strong IC3 professionals often bring transferable skills in stakeholder management, process improvement, and mentorship.</li>
+<li><strong>IC → Management:</strong> IC2-IC3 is the most common entry point to the M1 HR Manager role. See the Management Career Progression Overview for details.</li>
+</ul>
+<hr />
+<h2>Common Career Patterns</h2>
+<h3>Healthy Distribution</h3>
+<p>In a healthy HR organization, the level distribution looks something like this:</p>
+<ul>
+<li><strong>IC1-IC2:</strong> 40-50% (entry and growing professionals)</li>
+<li><strong>IC3:</strong> 35-40% (senior professionals—largest group)</li>
+<li><strong>IC4:</strong> 10-15% (principal level—select few)</li>
+</ul>
+<h3>Key Messages</h3>
+<ul>
+<li><strong>Plateauing at IC3 or IC4 represents strong career success.</strong> Not everyone needs to reach the top level.</li>
+<li><strong>Career satisfaction comes from mastery and impact, not just titles.</strong> The happiest HR professionals find fulfillment in their work.</li>
+<li><strong>Compensation can grow within levels.</strong> Sustained excellence at your current level is recognized and rewarded.</li>
+<li><strong>Different levels require different skills.</strong> Moving up isn't just about "getting better"—it's about developing genuinely new capabilities.</li>
+<li><strong>Cross-discipline experience is valued.</strong> Breadth across HR disciplines strengthens your career whether you stay on the IC track or move into management.</li>
+</ul>
+<hr />
+<h2>Your Career Development</h2>
+<h3>Taking Ownership</h3>
+<p>Your career development is primarily your responsibility. While your manager will support you, you should take initiative to:</p>
+<ul>
+<li>Understand what success looks like at your current level and the next</li>
+<li>Seek feedback proactively and act on it</li>
+<li>Look for opportunities to demonstrate next-level capabilities</li>
+<li>Have honest conversations with your manager about your career goals</li>
+<li>Document your impact and contributions</li>
+</ul>
+<h3>Questions to Reflect On</h3>
+<ul>
+<li>Am I consistently demonstrating success at my current level?</li>
+<li>What capabilities do I need to develop to reach the next level?</li>
+<li>What opportunities can I seek to develop those capabilities?</li>
+<li>Is the work at the next level genuinely interesting to me?</li>
+<li>Would cross-discipline experience strengthen my career trajectory?</li>
+<li>What does long-term career fulfillment look like for me?</li>
+</ul>
+<hr />
+<h2>Related Resources</h2>
+<p>For more detailed guidance on specific transitions, refer to:</p>
+<ul>
+<li><strong>Job Descriptions</strong> for your current and target level (detailed success outcomes)</li>
+<li><strong>Progression Guides</strong> for specific level transitions (what to develop and how)</li>
+<li><strong>Readiness Assessments</strong> for structured evaluation of your readiness</li>
+<li><strong>Your Manager</strong> for personalized guidance and feedback</li>
+</ul>
+<p><strong>Remember:</strong> A successful HR career isn't about racing to the top—it's about finding work that challenges you, developing expertise that matters, and making a meaningful contribution. Whatever level you're at, focus on doing excellent work and growing in ways that align with your interests and strengths.</p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

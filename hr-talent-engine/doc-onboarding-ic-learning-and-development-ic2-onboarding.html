@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: L&D Specialist (IC2) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: L&D Specialist (IC2)</div>
+<h1>30-60-90 Day Onboarding: L&amp;D Specialist (IC2)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> IC2 — L&amp;D Specialist
+<strong>Focus:</strong> Building instructional design competence, delivering standard training programs, owning assigned program areas
+<strong>Manager's Role:</strong> Structured mentor, regular feedback provider, progressive autonomy granter</p>
+<p>IC2 L&amp;D Specialists are capable professionals who independently design and deliver standard training programs. Onboarding focuses on understanding the organization's learning ecosystem, building fluency with existing programs and tools, and progressively taking ownership of defined program areas. The goal is to establish reliable program delivery capability while developing the needs analysis and stakeholder consulting skills that define senior L&amp;D work.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Build the Foundation</h3>
+<p><strong>Primary Objectives:</strong>
+- Understand the organization's learning strategy, program portfolio, and design standards
+- Learn existing programs, content, and tools in assigned areas
+- Build relationships with L&amp;D team members, facilitators, and key stakeholders
+- Develop working proficiency in authoring tools, LMS, and evaluation processes</p>
+<h3>Week 1: Orientation &amp; Program Landscape</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>Team intros, L&amp;D strategy overview, role expectations, tools access</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Program Portfolio</td>
+<td>Review existing programs—onboarding, skills training, compliance, management development</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tools &amp; Platforms</td>
+<td>LMS walkthrough, authoring tools setup (Articulate/Captivate), content library orientation</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Design Standards</td>
+<td>Review instructional design guidelines, templates, branding standards, evaluation frameworks</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Stakeholder Intros</td>
+<td>Meet HRBPs, department leads, subject matter experts, and key program sponsors</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] 1:1 with each L&amp;D team member
+- [ ] Key subject matter experts for assigned program areas
+- [ ] HRBPs who commission or sponsor learning programs
+- [ ] Department leads who are primary program consumers
+- [ ] LMS administrator and content librarian</p>
+<h3>Weeks 2-4: Immersion in Programs &amp; Content</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Thorough understanding of programs in assigned areas—objectives, content, delivery format, audience
+- [ ] Working proficiency in authoring tools for creating e-learning content
+- [ ] Familiarity with evaluation processes—how feedback is collected, analyzed, and used
+- [ ] Understanding of how training programs connect to business outcomes in assigned areas
+- [ ] Initial view of program strengths, gaps, and improvement opportunities</p>
+<p><strong>Activities:</strong>
+- Observe experienced team members facilitating training sessions
+- Review existing program materials—facilitator guides, learner resources, slide decks, e-learning modules
+- Practice creating content in authoring tools using existing templates
+- Study evaluation data from recent programs to understand what's working and what needs adjustment
+- Assist with an in-progress program delivery to learn logistics and stakeholder dynamics</p>
+<p><strong>Milestones:</strong>
+- [ ] Can describe the purpose, audience, and design of each program in assigned areas
+- [ ] Comfortable navigating authoring tools and creating basic content
+- [ ] Understands the evaluation framework and how program effectiveness is measured
+- [ ] Initial relationships built with key stakeholders and subject matter experts
+- [ ] Has observed at least two facilitated training sessions</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How well do you understand the programs in your assigned areas?
+- What have you learned about the tools, design standards, and evaluation processes?
+- How are relationships with stakeholders and SMEs developing?
+- What support or additional training do you need?
+- Initial feedback on work quality and engagement</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Solid understanding of assigned program areas and their context
+- [ ] Working proficiency in authoring tools and LMS
+- [ ] Key relationships initiated with stakeholders and SMEs
+- [ ] Design standards and evaluation processes understood
+- [ ] Comfortable engaging with team and seeking guidance appropriately</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Build Independence</h3>
+<p><strong>Primary Objectives:</strong>
+- Design and deliver standard training programs in assigned areas
+- Create e-learning content that meets organizational quality standards
+- Manage stakeholder communication and program logistics independently
+- Begin using evaluation data to improve program effectiveness</p>
+<h3>Weeks 5-6: Taking On Program Ownership</h3>
+<p><strong>Activities:</strong>
+- Design or update training content for assigned programs using instructional design principles
+- Facilitate or co-facilitate training sessions with growing confidence
+- Develop e-learning modules using authoring tools that are engaging and aligned with standards
+- Communicate with program stakeholders about timelines, participation, and outcomes
+- Collect and analyze post-training evaluations for assigned programs</p>
+<p><strong>Demonstrating Program Delivery:</strong>
+- [ ] Training programs delivered with clear objectives, appropriate activities, and logical content flow
+- [ ] E-learning content developed that is engaging, accessible, and meets quality standards
+- [ ] Facilitation showing growing confidence in managing group dynamics and pacing
+- [ ] Stakeholders informed about program status, timelines, and participation data
+- [ ] Evaluation data collected consistently and analyzed for actionable insights</p>
+<h3>Weeks 7-8: Deepening Design &amp; Evaluation Skills</h3>
+<p><strong>Activities:</strong>
+- Gather information from managers and SMEs to improve program content and relevance
+- Begin distinguishing between stated training requests and underlying performance gaps
+- Make concrete improvements to program design based on evaluation feedback
+- Build relationships with facilitators, vendors, and cross-functional partners
+- Maintain and organize training materials library for assigned program areas</p>
+<p><strong>Growing Impact:</strong>
+- [ ] Stakeholder input meaningfully improving program content and relevance
+- [ ] Evaluation data driving visible improvements in program design and delivery
+- [ ] Growing skill in needs gathering—asking the right questions to understand what's really needed
+- [ ] Training materials library well-organized and current for assigned areas
+- [ ] Productive working relationships with facilitators and cross-functional partners</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is program ownership developing in your assigned areas?
+- How confident are you in facilitation and content design?
+- What evaluation insights have you acted on?
+- Where are you growing most and where do you need support?
+- Feedback on program quality and stakeholder communication</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Designing and delivering standard training programs independently
+- [ ] E-learning content meeting quality and engagement standards
+- [ ] Facilitation skills developing with positive learner feedback
+- [ ] Evaluation data being used to drive program improvements
+- [ ] Stakeholder relationships supporting effective program delivery</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Establish Yourself</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate as the owner of assigned program areas with full delivery responsibility
+- Demonstrate consistent program design, facilitation, and evaluation capability
+- Show growing ability to connect training programs to business outcomes
+- Establish trajectory for professional development in L&amp;D</p>
+<h3>Weeks 9-10: Full IC2 Operation</h3>
+<p><strong>Activities:</strong>
+- Own end-to-end program lifecycle for assigned areas—design, development, delivery, evaluation, maintenance
+- Facilitate training sessions and workshops independently for varied audiences
+- Produce evaluation reports that communicate what's working, what needs adjustment, and recommendations
+- Identify and implement process improvements that make program administration more efficient
+- Maintain content quality and currency through regular review cycles</p>
+<p><strong>IC2 Expectations Met:</strong>
+- [ ] Training programs designed and delivered with solid instructional design principles
+- [ ] E-learning modules developed that are engaging, accessible, and aligned with standards
+- [ ] Workshops facilitated with growing confidence—managing dynamics and adapting delivery
+- [ ] Program content maintained and updated based on feedback, input, and changing needs
+- [ ] Evaluation data consistently collected, analyzed, and used to improve programs</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Build a development plan with your manager focused on advancing toward needs analysis and strategic L&amp;D work
+- Identify areas for deeper expertise—facilitation mastery, e-learning innovation, program measurement
+- Discuss IC3 path and the capabilities needed for senior L&amp;D work
+- Solidify position and reputation as a reliable, quality-focused L&amp;D professional
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear understanding of your program areas and delivery responsibilities
+- [ ] Development plan established with specific goals for skill advancement
+- [ ] Relationships with stakeholders and SMEs solidified
+- [ ] Known as a reliable, quality-focused L&amp;D professional for assigned areas
+- [ ] Positioned for continued growth toward strategic L&amp;D work</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Program design and delivery quality evaluation
+- Facilitation skill development and learner feedback
+- Stakeholder communication and needs-gathering growth
+- Recognition and development areas</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at IC2 level
+- [ ] Program ownership clearly established for assigned areas
+- [ ] Instructional design and facilitation skills demonstrated
+- [ ] Strong stakeholder relationships and communication
+- [ ] Clear on continued growth path toward IC3</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct manager</td>
+<td>Guidance, feedback, development planning</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Senior L&amp;D Specialists</td>
+<td>Mentorship, design review, best practices</td>
+<td>Ongoing</td>
+</tr>
+<tr>
+<td>Subject matter experts</td>
+<td>Program content accuracy and relevance</td>
+<td>Per program, ongoing</td>
+</tr>
+<tr>
+<td>HRBPs</td>
+<td>Training needs, program sponsorship, business context</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>Internal facilitators</td>
+<td>Co-facilitation, delivery coordination</td>
+<td>Per program</td>
+</tr>
+<tr>
+<td>Department leads</td>
+<td>Program feedback, needs identification</td>
+<td>First month, as needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common IC2 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unfamiliar with organization's authoring tools</td>
+<td>Dedicated tool training; practice with templates; build skills progressively</td>
+</tr>
+<tr>
+<td>Facilitation nerves with new audiences</td>
+<td>Start with co-facilitation; build confidence gradually; seek feedback after sessions</td>
+</tr>
+<tr>
+<td>Struggling to connect programs to business outcomes</td>
+<td>Ask stakeholders about the "why" behind training requests; learn to frame impact in business terms</td>
+</tr>
+<tr>
+<td>Inheriting programs of varying quality</td>
+<td>Prioritize improvements based on evaluation data; don't try to fix everything at once</td>
+</tr>
+<tr>
+<td>Unclear on design standards and expectations</td>
+<td>Review exemplar programs; ask for feedback on early designs; use established templates</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] Assigned program areas identified</li>
+<li>[ ] Authoring tools and LMS access provisioned</li>
+<li>[ ] Key stakeholder and SME meetings scheduled</li>
+<li>[ ] Existing program materials and evaluation data compiled</li>
+<li>[ ] First 30-day learning plan outlined</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] L&amp;D team orientation complete</li>
+<li>[ ] Program portfolio reviewed</li>
+<li>[ ] Tools training initiated</li>
+<li>[ ] Design standards and evaluation processes introduced</li>
+<li>[ ] Weekly cadence established</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Program ownership expanding at appropriate pace</li>
+<li>[ ] Facilitation opportunities provided with observation and feedback</li>
+<li>[ ] Design skills developing through practice and mentorship</li>
+<li>[ ] Stakeholder relationships forming</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: IC2 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

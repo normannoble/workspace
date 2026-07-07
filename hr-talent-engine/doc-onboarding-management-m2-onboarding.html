@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: Senior HR Manager (M2) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: Senior HR Manager (M2)</div>
+<h1>30-60-90 Day Onboarding: Senior HR Manager (M2)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> M2 — Senior HR Manager
+<strong>Focus:</strong> Assessing team and program health across disciplines, establishing independent leadership, developing M1 managers, building cross-functional partnerships
+<strong>Manager's Role:</strong> Strategic partner, providing organizational context, supporting autonomy, offering guidance on the most complex situations</p>
+<p>M2 Senior HR Managers are experienced leaders expected to operate with independence across multiple HR disciplines. Onboarding focuses on rapidly understanding the people, programs, and partnerships they inherit—then assessing what works, what needs improvement, and where strategic alignment is needed. The goal is to establish credible leadership quickly while resisting the urge to change things before fully understanding context.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Understand the Organization</h3>
+<p><strong>Primary Objectives:</strong>
+- Assess team capabilities, dynamics, and health across disciplines and management layers
+- Understand the HR programs, processes, and cross-discipline coordination patterns in place
+- Build relationships with M1 managers, business leaders, and cross-functional partners
+- Map the strategic landscape—organizational priorities, HR function strategy, and how your teams connect to both</p>
+<h3>Week 1: Strategic Orientation</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>Org overview, HR function strategy, executive priorities, role expectations</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Team Structure</td>
+<td>Meet M1 managers—understand their teams, capabilities, challenges, and leadership maturity</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Programs</td>
+<td>Review major HR programs owned by your teams, current state, and upcoming cycle deadlines</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Stakeholders</td>
+<td>Meet senior business leaders—understand their HR satisfaction, pain points, and strategic needs</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cross-Function</td>
+<td>Meet Finance, Legal, IT partners—understand cross-functional dependencies and collaboration patterns</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] 1:1 with each M1 manager (weekly)
+- [ ] Skip-level 1:1s with key team members
+- [ ] Senior business leaders across the organization
+- [ ] Cross-functional partners (Finance, Legal, IT)
+- [ ] Previous leader or interim owner (if applicable)</p>
+<h3>Weeks 2-4: Deep Immersion</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Clear assessment of each M1 manager's leadership capability, development needs, and growth trajectory
+- [ ] Understanding of program quality, compliance posture, and employee experience across disciplines
+- [ ] Map of cross-discipline coordination—where handoffs work well and where they break down
+- [ ] Business cycle readiness assessment—upcoming performance reviews, compensation planning, hiring surges, and open enrollment
+- [ ] Initial view of where strategic alignment, resource allocation, or process improvements are needed</p>
+<p><strong>Activities:</strong>
+- Observe M1 managers in their team meetings and 1:1s (with permission) to assess management practices
+- Review HR metrics, program outcomes, and team performance data
+- Attend cross-functional forums to understand how HR is perceived and positioned
+- Study the HRIS infrastructure, analytics capabilities, and reporting used across disciplines
+- Document findings and initial hypotheses without rushing to conclusions</p>
+<p><strong>Milestones:</strong>
+- [ ] Management cadence established with all M1 managers
+- [ ] Can articulate each team's current priorities, strengths, and challenges
+- [ ] Understand the full portfolio of HR programs and their business impact
+- [ ] Business stakeholders know you and understand your role
+- [ ] Initial assessment of organizational health across your teams</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- What is your assessment of team capabilities and M1 manager readiness?
+- Where do you see the biggest risks and opportunities across disciplines?
+- What cross-discipline coordination issues have you identified?
+- How are business stakeholder relationships developing?
+- Initial feedback on contributions</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Clear mental model of teams, programs, and organizational dynamics
+- [ ] M1 managers feel supported and know their new leader
+- [ ] Key business stakeholder relationships established
+- [ ] Identified 3-5 high-priority areas for improvement or investment
+- [ ] Operating with confidence and appropriate judgment</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Assess and Improve</h3>
+<p><strong>Primary Objectives:</strong>
+- Begin coaching M1 managers to strengthen their management practices
+- Drive improvements to cross-discipline coordination and program quality
+- Handle complex people situations independently and decisively
+- Establish your leadership brand with business stakeholders</p>
+<h3>Weeks 5-6: Strengthening the Foundation</h3>
+<p><strong>Activities:</strong>
+- Initiate coaching conversations with M1 managers on specific development areas
+- Address the most pressing cross-discipline coordination gap identified in month one
+- Make sound people decisions independently—hiring, performance, resource allocation
+- Lead a business cycle or program deliverable end-to-end through your teams
+- Begin shaping team strategy aligned with organizational objectives</p>
+<p><strong>Demonstrating Independent Leadership:</strong>
+- [ ] M1 managers receiving targeted coaching that improves their management practice
+- [ ] Complex people situation handled with confidence and sound judgment
+- [ ] Cross-discipline coordination improved in at least one tangible area
+- [ ] Resource allocation decisions made that balance team capacity with business priorities
+- [ ] Business stakeholders experiencing improved HR partnership</p>
+<h3>Weeks 7-8: Building Organizational Strength</h3>
+<p><strong>Activities:</strong>
+- Implement a process improvement that increases efficiency or program quality
+- Develop or refine development plans for M1 managers
+- Represent the HR function credibly in cross-functional leadership forums
+- Build stronger partnerships with Finance, Legal, and IT on shared initiatives
+- Begin identifying future management candidates from the IC ranks</p>
+<p><strong>Growing Impact:</strong>
+- [ ] HR teams delivering with improved consistency and coordination across disciplines
+- [ ] M1 managers showing growth in management capability
+- [ ] Business leaders increasing their trust and partnership with your teams
+- [ ] Cross-functional collaboration strengthening through your engagement
+- [ ] Management culture across your teams reflecting shared standards and expectations</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How are M1 managers developing under your coaching?
+- What improvements have you implemented, and what impact are you seeing?
+- Where do you need more authority or resources?
+- How are cross-functional relationships progressing?
+- Feedback on leadership effectiveness and strategic alignment</p>
+<p><strong>Success Indicators:</strong>
+- [ ] M1 manager development actively underway with visible progress
+- [ ] At least one meaningful process or coordination improvement implemented
+- [ ] Complex people decisions made independently with sound outcomes
+- [ ] Business stakeholders trust your leadership and partnership
+- [ ] Operating across multiple disciplines with confidence and credibility</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Lead with Confidence</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate fully at M2 level—independent leadership across disciplines
+- Shape team strategy and align resources to organizational priorities
+- Demonstrate sustained impact through your teams, not personal heroics
+- Establish trajectory for growing organizational responsibility</p>
+<h3>Weeks 9-10: Full M2 Operation</h3>
+<p><strong>Activities:</strong>
+- Own team performance and program delivery across all disciplines with full accountability
+- Drive strategic planning for your teams aligned with the next business cycle
+- Manage M1 manager performance—recognize excellence, address gaps, develop potential
+- Lead cross-functional initiatives that improve organizational outcomes
+- Handle the most sensitive people situations in your scope with sound judgment</p>
+<p><strong>M2 Expectations Met:</strong>
+- [ ] HR teams consistently delivering high-quality work across disciplines
+- [ ] Strong team culture with high engagement and low regrettable attrition
+- [ ] M1 managers growing as people leaders with clear development trajectories
+- [ ] Significant programs owned end-to-end with measurable outcomes
+- [ ] Business leaders trust and want to partner with your teams</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Set team strategy and objectives for the next quarter
+- Develop bench strength and succession plans for key roles
+- Discuss M3 path if interested
+- Solidify position and reputation as a senior HR leader
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear strategic vision for your teams and programs
+- [ ] Development plan established for your own leadership growth
+- [ ] Relationships solidified across business leaders, cross-functional partners, and HR leadership
+- [ ] Known as an effective senior HR leader who develops managers and delivers results
+- [ ] Positioned for continued strategic impact</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Team and M1 manager development evaluation
+- Cross-discipline leadership and program ownership observed
+- Path forward (deepening M2 impact vs. broadening toward M3)
+- Recognition and growth areas</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at M2 level with independence and confidence
+- [ ] Ownership clearly established across teams and programs
+- [ ] M1 manager development demonstrating your leadership multiplier effect
+- [ ] Strong reputation with business stakeholders and HR leadership
+- [ ] Clear on continued growth path</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct manager</td>
+<td>Strategic alignment, organizational context, growth</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>M1 managers</td>
+<td>Coaching, delegation, team health</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Senior business leaders</td>
+<td>Partnership, trust, HR impact</td>
+<td>Biweekly or monthly</td>
+</tr>
+<tr>
+<td>Cross-functional partners (Finance, Legal, IT)</td>
+<td>Coordination, shared initiatives</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>Peer M2/M3 HR leaders</td>
+<td>Shared learning, coordination, escalation</td>
+<td>Biweekly</td>
+</tr>
+<tr>
+<td>Skip-level team members</td>
+<td>Pulse on team health, emerging talent</td>
+<td>Monthly or as needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common M2 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inheriting M1 managers with uneven capability</td>
+<td>Assess honestly; invest in development; set clear expectations with patience</td>
+</tr>
+<tr>
+<td>Cross-discipline coordination gaps</td>
+<td>Identify the highest-impact handoff to fix first; build systems rather than relying on heroics</td>
+</tr>
+<tr>
+<td>Stepping in too much rather than developing managers</td>
+<td>Coach M1s through problems rather than solving for them; track your delegation patterns</td>
+</tr>
+<tr>
+<td>Business stakeholders skeptical of new HR leadership</td>
+<td>Listen first; deliver quick wins; demonstrate strategic thinking alongside operational reliability</td>
+</tr>
+<tr>
+<td>Balancing breadth across disciplines with depth in any one</td>
+<td>Leverage M1 managers for discipline depth; focus on integration and coordination as your value-add</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] Team structure and M1 manager profiles prepared</li>
+<li>[ ] Handoff notes from previous leader prepared</li>
+<li>[ ] Key business stakeholder meetings scheduled</li>
+<li>[ ] Current program portfolio and upcoming cycles documented</li>
+<li>[ ] Strategic context and expectations documented</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] M1 manager introductions and 1:1s completed</li>
+<li>[ ] Business stakeholder introductions done</li>
+<li>[ ] Program and organizational context transferred</li>
+<li>[ ] Management cadence established</li>
+<li>[ ] Cross-functional partner introductions completed</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Leadership independence growing—handling more without escalation</li>
+<li>[ ] M1 manager development progressing</li>
+<li>[ ] Cross-discipline coordination improving</li>
+<li>[ ] Business stakeholder trust building</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: M2 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

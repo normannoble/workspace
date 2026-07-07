@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: Director of HR (E1) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: Director of HR (E1)</div>
+<h1>30-60-90 Day Onboarding: Director of HR (E1)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> E1 — Director of HR
+<strong>Focus:</strong> Establishing domain ownership, building executive partnerships, developing senior HR leaders, connecting people strategy to business outcomes
+<strong>Manager's Role:</strong> Executive peer, providing strategic context and organizational access, partnering on the highest-stakes decisions</p>
+<p>E1 Directors of HR are executive leaders who own a significant HR domain and operate at the intersection of people strategy and business outcomes. Onboarding focuses on understanding the domain's current state, assessing leadership bench strength, building executive-level partnerships, and developing a strategic vision that anticipates organizational needs 1-3 years ahead. The goal is to establish executive credibility quickly while taking full accountability for domain outcomes.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Assess the Landscape</h3>
+<p><strong>Primary Objectives:</strong>
+- Assess the domain's current state—program quality, team capabilities, compliance posture, and business impact
+- Build executive-level relationships with C-suite peers and cross-functional partners
+- Understand company strategy deeply enough to connect domain investments to business outcomes
+- Evaluate M3 leaders and the broader leadership bench within the domain</p>
+<h3>Week 1: Executive Immersion</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>Executive team introductions, company strategy briefing, board context (if applicable)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Domain Review</td>
+<td>Assess domain programs, metrics, team structure, and current strategic priorities</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Leadership Team</td>
+<td>Meet M2 and M3 leaders—evaluate capabilities, development needs, and strategic readiness</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Business Context</td>
+<td>Meet business unit leaders and cross-functional executives—understand strategic needs and HR satisfaction</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Strategic Alignment</td>
+<td>Deep-dive with CPO/CHRO on domain expectations, organizational priorities, and executive dynamics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] 1:1 with each M2 and M3 leader in the domain
+- [ ] Skip-level meetings with key M1 managers and senior HR professionals
+- [ ] C-suite executives (CEO, CFO, CTO, COO)
+- [ ] Finance, Legal, and Technology leadership
+- [ ] Board members or board committee chairs (if applicable and appropriate)</p>
+<h3>Weeks 2-4: Strategic Assessment</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Comprehensive assessment of domain program quality, adoption, employee experience, and business impact
+- [ ] Clear view of M3 leadership capability and readiness for Director-level development
+- [ ] Understanding of how the domain connects to and depends on other HR domains
+- [ ] Assessment of where domain investments create competitive advantage vs. merely operational compliance
+- [ ] Map of executive relationships, organizational dynamics, and decision-making patterns at the leadership level</p>
+<p><strong>Activities:</strong>
+- Review domain metrics, program effectiveness data, and business impact measures
+- Assess the leadership bench—M3s ready for growth, M2s with Director potential, succession gaps
+- Evaluate domain technology, analytics capabilities, and infrastructure investments
+- Understand the regulatory and compliance landscape relevant to the domain
+- Develop initial strategic assessment connecting domain capabilities to business needs</p>
+<p><strong>Milestones:</strong>
+- [ ] Leadership cadence established with all direct reports
+- [ ] Can articulate domain strengths, gaps, and strategic opportunities with executive fluency
+- [ ] Executive relationships initiated—viewed as a credible leadership addition
+- [ ] Understanding of company financial dynamics, competitive positioning, and strategic priorities
+- [ ] Initial strategic assessment developed (for manager discussion and executive alignment)</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- What is your assessment of the domain's strategic health and business impact?
+- Where does the domain create competitive advantage, and where does it merely maintain compliance?
+- How do you evaluate the leadership bench—M3s, M2s, and succession strength?
+- What executive partnerships need investment?
+- Initial feedback on executive presence and contributions</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Deep understanding of domain across programs, people, and business impact
+- [ ] Domain leadership team trusts and is energized by the new executive
+- [ ] Executive relationships established with credibility and mutual respect
+- [ ] Identified highest-priority strategic and organizational investments
+- [ ] Operating with executive judgment and strategic perspective</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Shape Direction</h3>
+<p><strong>Primary Objectives:</strong>
+- Develop M3 leaders toward Director-level capability with deliberate coaching
+- Begin shaping domain strategy that connects people investments to business outcomes
+- Make strategic trade-offs with company-level perspective
+- Build executive partnerships that position the domain as a strategic asset</p>
+<h3>Weeks 5-6: Establishing Executive Ownership</h3>
+<p><strong>Activities:</strong>
+- Set strategic direction for the domain with clear connection to business objectives
+- Initiate development plans for M3 leaders that build strategic capability, not just operational excellence
+- Make consequential decisions about domain priorities, investments, and resource allocation
+- Contribute to company strategy discussions from a people-informed perspective
+- Address the highest-priority program quality or coordination gap in the domain</p>
+<p><strong>Demonstrating Executive Leadership:</strong>
+- [ ] Domain strategy articulated with clarity and business connection—not just HR language
+- [ ] M3 leaders receiving coaching that develops strategic thinking and executive readiness
+- [ ] Strategic trade-offs made with company-level perspective, not just domain optimization
+- [ ] Cross-functional executive partnerships producing tangible collaboration
+- [ ] Domain team feeling increased clarity of purpose and strategic direction</p>
+<h3>Weeks 7-8: Driving Strategic Impact</h3>
+<p><strong>Activities:</strong>
+- Lead a strategic initiative that demonstrates domain impact on business outcomes
+- Build executive alignment on people investments within the domain
+- Strengthen Finance, Legal, and Technology partnerships on shared strategic priorities
+- Develop the leadership bench—identify succession candidates and create development opportunities
+- Represent the domain in executive forums and company strategic discussions</p>
+<p><strong>Growing Impact:</strong>
+- [ ] Domain strategy gaining executive support and organizational momentum
+- [ ] M3 leaders growing toward greater strategic capability and executive readiness
+- [ ] Cross-functional executive partnerships deepening beyond coordination to strategic alignment
+- [ ] People investments in the domain demonstrating connection to business outcomes
+- [ ] Domain positioned as a source of competitive advantage, not just operational necessity</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is domain strategy taking shape, and how does it connect to company objectives?
+- What progress are M3 leaders making in their development?
+- How are executive partnerships evolving?
+- Where do you need more authority, resources, or organizational support?
+- Feedback on executive leadership and strategic impact</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Domain strategy articulated and gaining organizational alignment
+- [ ] M3 leader development underway with visible trajectory
+- [ ] Executive partnerships producing strategic value beyond coordination
+- [ ] At least one initiative demonstrating domain impact on business outcomes
+- [ ] Operating with full executive accountability for domain performance</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Drive Strategic Impact</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate fully at E1 level—full accountability for domain outcomes and strategic direction
+- Shape company strategy through active executive contribution
+- Demonstrate sustained strategic impact through the leadership team
+- Establish long-term trajectory for the domain and senior leadership development</p>
+<h3>Weeks 9-10: Full E1 Operation</h3>
+<p><strong>Activities:</strong>
+- Own domain outcomes completely—program effectiveness, business impact, and team performance
+- Drive strategic planning for the domain with 1-3 year horizons
+- Manage the leadership team—develop M3s, assess M2s, build succession depth
+- Lead cross-functional executive initiatives that improve company-wide outcomes
+- Contribute to company strategy as an executive participant with people-informed perspective</p>
+<p><strong>E1 Expectations Met:</strong>
+- [ ] Domain delivering measurable business value with clear connection between people investments and company outcomes
+- [ ] Strategic vision for the domain anticipating organizational needs 1-3 years ahead
+- [ ] M3 leaders growing toward Director-level capability through deliberate development
+- [ ] Executive partnerships with Finance, Technology, and Operations driving company-wide outcomes
+- [ ] Full accountability owned—program effectiveness, adoption, and business impact without requiring escalation</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Develop domain strategic roadmap for the next 1-3 years
+- Establish succession plans for leadership roles within the domain
+- Discuss E2 development path with your manager
+- Solidify position and reputation as an executive leader
+- Fully transition from "new hire" mindset</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear strategic vision for the domain with executive and organizational alignment
+- [ ] Development plan established for your own executive growth
+- [ ] Relationships solidified across the executive team and key stakeholders
+- [ ] Known as a strategic executive who drives business outcomes through people
+- [ ] Positioned for continued impact at the senior executive level</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Domain ownership and strategic direction evaluation
+- Senior leader development and bench strength assessment
+- Executive influence and cross-functional impact observed
+- Path forward (deepening E1 domain impact vs. broadening toward E2)
+- Recognition and growth areas</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating fully at E1 level with strategic authority and executive credibility
+- [ ] Domain ownership clearly established with measurable business impact
+- [ ] Senior leader development demonstrating executive multiplier effect
+- [ ] Strong executive partnerships and domain positioned as strategic asset
+- [ ] Clear on continued growth path</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPO/CHRO</td>
+<td>Strategic alignment, executive counsel, domain authority</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>M2 and M3 leaders</td>
+<td>Development, delegation, domain health</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>CEO</td>
+<td>Company strategy, organizational priorities, executive credibility</td>
+<td>First month, monthly</td>
+</tr>
+<tr>
+<td>CFO</td>
+<td>Budget, people investments, shared analytics and business cases</td>
+<td>First month, biweekly or monthly</td>
+</tr>
+<tr>
+<td>CTO/COO</td>
+<td>Cross-functional strategy, organizational alignment</td>
+<td>First month, monthly</td>
+</tr>
+<tr>
+<td>Business unit leaders</td>
+<td>Workforce needs, domain impact, strategic partnership</td>
+<td>First month, ongoing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common E1 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transitioning from senior management to executive leadership mindset</td>
+<td>Focus on strategy and influence, not operational management; resist the pull to go deep on execution</td>
+</tr>
+<tr>
+<td>Inheriting M3 leaders with uneven strategic readiness</td>
+<td>Assess honestly; invest in development for high-potential leaders; address gaps directly</td>
+</tr>
+<tr>
+<td>Executive team unsure of domain's strategic value</td>
+<td>Connect every conversation to business outcomes; demonstrate strategic thinking; deliver early wins with business impact</td>
+</tr>
+<tr>
+<td>Balancing domain depth with company-wide perspective</td>
+<td>Let M3 leaders own domain depth; focus your energy on strategic connections and executive influence</td>
+</tr>
+<tr>
+<td>Building executive partnerships from a new position</td>
+<td>Lead with listening and strategic value; demonstrate sound judgment before pushing bold initiatives</td>
+</tr>
+<tr>
+<td>Board-level exposure when not yet established</td>
+<td>Prepare thoroughly; focus on business impact language; build confidence through smaller executive forums first</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] Domain organizational structure and leadership profiles prepared</li>
+<li>[ ] Handoff notes from previous leader prepared</li>
+<li>[ ] Executive team introductions scheduled</li>
+<li>[ ] Domain strategy, metrics, and key challenges documented</li>
+<li>[ ] Board and executive context documented</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] Executive team introductions completed</li>
+<li>[ ] Domain leadership team introductions and 1:1s completed</li>
+<li>[ ] Strategic context and organizational landscape transferred</li>
+<li>[ ] Leadership cadence established</li>
+<li>[ ] Cross-functional executive introductions completed</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Executive leadership developing—shaping domain strategy with authority</li>
+<li>[ ] M3 leader development progressing toward executive readiness</li>
+<li>[ ] Executive partnerships deepening beyond coordination</li>
+<li>[ ] Domain impact on business outcomes increasingly visible</li>
+<li>[ ] Course corrections made as needed</li>
+</ul>
+<hr />
+<p><em>See also: E1 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

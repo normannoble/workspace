@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progression Guide: IC2 to IC3 &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html" class="active">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="career-development.html">Career Development</a> &rsaquo; Progression Guide: IC2 to IC3</div>
+<h1>Progression Guide: IC2 to IC3</h1>
+<h2>L&amp;D Specialist to Senior L&amp;D Specialist</h2>
+<h2>Overview</h2>
+<p>The transition from IC2 (Professional) to IC3 (Senior) represents the shift from <strong>reliable program design and delivery</strong> to <strong>strategic learning leadership and business impact</strong>. This is often the most significant career transition for L&amp;D professionals—moving from creating well-designed training programs to diagnosing performance gaps, choosing the right interventions (which aren't always training), and measuring business impact.</p>
+<p>This transition typically takes 2-4 years at IC2 and requires demonstrating sustained senior-level impact, not just improved design and facilitation skills.</p>
+<h2>The Core Shift</h2>
+<table>
+<thead>
+<tr>
+<th>IC2 (Professional)</th>
+<th>IC3 (Senior)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Designs and delivers programs for assigned areas</td>
+<td>Designs high-impact programs grounded in validated business needs and performance gaps</td>
+</tr>
+<tr>
+<td>Applies instructional design principles to create solid content</td>
+<td>Applies deep adult learning expertise across multiple modalities for knowledge retention and behavior change</td>
+</tr>
+<tr>
+<td>Collects and analyzes post-training evaluations</td>
+<td>Builds evaluation frameworks that measure behavior change (Level 3) and business impact (Level 4)</td>
+</tr>
+<tr>
+<td>Gathers information from stakeholders to improve programs</td>
+<td>Conducts performance consulting that diagnoses root causes before prescribing solutions</td>
+</tr>
+<tr>
+<td>Manages training materials and resources for assigned areas</td>
+<td>Builds a learning ecosystem including formal programs, peer learning, and knowledge repositories</td>
+</tr>
+<tr>
+<td>Receives guidance on complex design challenges</td>
+<td>Mentors junior L&amp;D team members in design, facilitation, and consulting</td>
+</tr>
+<tr>
+<td>Success = consistent delivery of well-designed programs</td>
+<td>Success = measurable improvement in organizational capability and performance</td>
+</tr>
+</tbody>
+</table>
+<p><em>The fundamental question changes from </em><em>"Am I delivering effective training programs?"</em><em>
+to </em><em>"Am I solving real performance problems and building organizational capability?"</em>**</p>
+<h2>Key Skills to Develop</h2>
+<h3>1. Performance Consulting &amp; Needs Analysis</h3>
+<p>At IC2, you gather information from stakeholders to improve program content. At IC3, you conduct rigorous needs analyses that diagnose root causes before prescribing solutions—distinguishing between skill gaps, process issues, and motivation problems.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Business leaders and HRBPs view you as a strategic partner for solving performance challenges, not just a training catalog to order from</li>
+<li>You push back constructively when training is not the right solution, recommending process changes, job aids, or management interventions instead</li>
+<li>Your program designs are grounded in validated business needs—not created from assumptions or stakeholder requests alone</li>
+<li>You ask questions that uncover the real performance gap, not just the surface-level training request</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Study performance consulting frameworks—learn to distinguish between "can't do" (skill gap), "won't do" (motivation), and "can't because" (process/environment)</li>
+<li>The next time a stakeholder requests training, practice a structured needs analysis: what's the performance gap? What evidence exists? What are the potential root causes?</li>
+<li>Build relationships with HRBPs who can provide business context and help you understand the organizational dynamics behind training requests</li>
+<li>Track whether your programs actually address the performance gaps they target—follow up with managers 60-90 days after delivery</li>
+</ul>
+<h3>2. Learning Impact &amp; Measurement</h3>
+<p>At IC2, you collect and analyze post-training evaluations. At IC3, you build evaluation frameworks that go beyond satisfaction scores to measure knowledge acquisition, behavior change, and business impact.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Evaluation frameworks measure multiple levels—not just "did participants like it?" but "did they learn it?", "are they applying it?", and "is it improving business outcomes?"</li>
+<li>Stakeholder reports communicate program outcomes in terms that business leaders understand and value, not just L&amp;D metrics</li>
+<li>Insights from program data inform continuous improvement—driving decisions about what to expand, redesign, or retire</li>
+<li>You can demonstrate a connection between your learning programs and observable performance improvements</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Study the Kirkpatrick model in depth—design a Level 3 (behavior change) evaluation for one of your current programs</li>
+<li>Partner with business stakeholders to define what success looks like before a program launches, so you can measure against agreed outcomes</li>
+<li>Learn to present learning data in business terms: instead of "92% completion rate," try "managers who completed the program reduced new hire ramp time by 3 weeks"</li>
+<li>Build a portfolio of programs where you can credibly demonstrate impact beyond participant satisfaction</li>
+</ul>
+<h3>3. Learning Ecosystem &amp; Knowledge Management</h3>
+<p>At IC2, you maintain well-organized training materials and resources. At IC3, you build a learning ecosystem that extends beyond formal programs to include peer learning, knowledge repositories, communities of practice, and on-the-job development resources.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Your learning strategy includes formal programs, peer learning opportunities, knowledge sharing practices, and on-the-job resources—not just a course catalog</li>
+<li>Onboarding, manager development, and leadership programs you design are consistently cited as valuable by participants and their managers</li>
+<li>You establish knowledge sharing practices and communities of practice that reduce tribal knowledge dependencies</li>
+<li>You contribute visibly to a culture of continuous learning where development is an ongoing practice, not an annual event</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Audit the learning resources available in your area—identify gaps where informal learning, job aids, or peer networks could supplement formal programs</li>
+<li>Pilot a community of practice or peer learning group around a topic area where you see demand and expertise</li>
+<li>Design blended learning experiences that combine instructor-led, virtual, self-paced, and on-the-job elements</li>
+<li>Study how other organizations build learning cultures—attend L&amp;D conferences, read case studies, and bring ideas back to your team</li>
+</ul>
+<h3>4. Mentorship &amp; Team Multiplication</h3>
+<p>At IC2, your impact is your own program output. At IC3, your impact includes developing junior L&amp;D team members and raising the quality bar for the function.</p>
+<p><strong>What this looks like:</strong></p>
+<ul>
+<li>Junior L&amp;D professionals grow faster because of your mentorship in design, facilitation, and consulting</li>
+<li>You share best practices and frameworks that improve the consistency and quality of the team's work</li>
+<li>You provide constructive feedback on others' program designs and facilitation that helps them improve</li>
+<li>Your work sets a benchmark that elevates what the team considers "good"</li>
+</ul>
+<p><strong>How to develop this:</strong></p>
+<ul>
+<li>Offer to review a junior team member's program design and provide detailed, constructive feedback—explain the "why" behind your suggestions</li>
+<li>When you solve a design challenge or develop an effective facilitation technique, document it and share it with the team</li>
+<li>Ask to co-facilitate a session with a less experienced team member, giving them primary responsibility while you provide real-time coaching</li>
+<li>Create templates, checklists, or design frameworks that codify your experience and make it reusable by others</li>
+</ul>
+<h2>Common Pitfalls</h2>
+<h3>Confusing polished delivery with strategic impact</h3>
+<p>IC2 rewards well-designed, well-facilitated programs. IC3 requires that those programs solve real business problems. A beautifully designed workshop that doesn't address the actual performance gap isn't IC3 work—it's IC2 work done excellently.</p>
+<h3>Saying "yes" to every training request</h3>
+<p>IC3 professionals sometimes fall into the trap of building whatever stakeholders ask for. Performance consulting means sometimes saying "training won't fix this"—and recommending a different intervention. If you never push back on requests, you're functioning as an order taker, not a strategic partner.</p>
+<h3>Measuring only what's easy to measure</h3>
+<p>Satisfaction surveys are easy to collect; behavior change is hard to measure. But IC3 requires you to push beyond Level 1 evaluations. If you only report on satisfaction and completion, you can't demonstrate business impact.</p>
+<h3>Working in isolation from the business</h3>
+<p>IC3 L&amp;D professionals understand the business context for their programs deeply. If you're designing learning experiences without understanding the business problems they're supposed to solve, your programs will miss the mark regardless of their instructional quality.</p>
+<h3>Not developing others</h3>
+<p>If junior team members aren't growing because of your investment in them, you're missing a key IC3 responsibility. Individual excellence without team multiplication keeps you in IC2 territory.</p>
+<h2>How to Demonstrate Readiness</h2>
+<p>Promotion to IC3 requires sustained demonstration of senior-level impact over 6+ months. Here's how to build your case:</p>
+<h3>Build a Track Record</h3>
+<ul>
+<li>Document learning programs you designed that resulted in measurable behavior change or performance improvement—with data connecting training to outcomes</li>
+<li>Show evidence of performance consulting conversations where you diagnosed root causes and recommended the right intervention (including when it wasn't training)</li>
+<li>Gather feedback from business leaders and HRBPs about the quality of your partnership and the impact of your programs</li>
+<li>Track mentorship impact—how have junior team members' capabilities grown because of your guidance?</li>
+</ul>
+<h2>Self-Assessment Questions</h2>
+<ol>
+<li>Do business leaders and HRBPs see me as a strategic partner for solving performance challenges, or just a training provider?</li>
+<li>Can I conduct a rigorous needs analysis that distinguishes between skill gaps, process issues, and motivation problems?</li>
+<li>Do my evaluation frameworks measure beyond participant satisfaction—can I demonstrate behavior change and business impact?</li>
+<li>Have I built learning experiences across multiple modalities that meet learners where they are?</li>
+<li>Am I contributing to a learning ecosystem that extends beyond formal training programs?</li>
+<li>Are junior L&amp;D team members growing faster because of my mentorship and guidance?</li>
+</ol>
+<p>If you can answer "yes" to most of these consistently over 6+ months, you're likely ready for IC3.</p>
+<h2>Typical Timeline</h2>
+<p>Most L&amp;D professionals progress from IC2 to IC3 in <strong>2-4 years</strong>. This is often the longest single-level tenure in L&amp;D because IC3 requires developing genuinely new capabilities—performance consulting, impact measurement, and strategic partnership—that go beyond getting better at design and facilitation. The transition is faster for those who proactively build business relationships, invest in measurement skills, and seek out complex performance challenges rather than straightforward training requests.</p>
+<p><strong>Remember:</strong> IC3 is about solving performance problems and building organizational capability, not just designing better training. You need to demonstrate sustained impact as a strategic learning partner, not just a skilled instructional designer and facilitator.</p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Executive Career Progression &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html" class="active">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="career-development.html">Career Development</a> &rsaquo; HR Executive Career Progression</div>
+<h1>HR Executive Career Progression</h1>
+<p><em>Executive Track Overview</em></p>
+<h2>Introduction</h2>
+<p>This document outlines career progression on the Executive track for senior HR leaders. The Executive track (E1-E3) represents the transition from senior management to executive leadership, with increasing accountability for company-level people strategy and business outcomes.</p>
+<p>Our approach to leveling is outcome-based, not task-based. Each level describes what success looks like—the desired end states—rather than a checklist of activities. This means you're evaluated on impact and outcomes, not just what you do day-to-day.</p>
+<p>Executive roles are rare and highly selective. Many excellent M3-level leaders have fulfilling careers without reaching the Executive track, and that represents significant success. These roles require a genuine interest in executive leadership: board accountability, external presence, company-level people strategy, and developing the next generation of senior leaders.</p>
+<h2>Core Philosophy</h2>
+<p><strong>Executive levels represent the transition from management to executive leadership.</strong> The shift is qualitative, not just quantitative—it's about the nature of the work, not just the scale.</p>
+<p>As you progress through executive levels, the fundamental question changes:</p>
+<ul>
+<li>E1 (Director of HR): "Am I accountable for domain outcomes that drive business success?"</li>
+<li>E2 (Senior Director of HR): "Am I shaping how the entire HR function succeeds?"</li>
+<li>E3 (Chief People Officer): "Am I accountable for people strategy as a source of company success?"</li>
+</ul>
+<p><strong>Plateauing is normal and healthy.</strong> M3 represents significant leadership success. E1 represents executive achievement. Not everyone needs to reach E3—the CPO role requires specific interests and capabilities that may not align with everyone's strengths.</p>
+<h2>The Three Executive Levels at a Glance</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Title</th>
+<th>Scope</th>
+<th>Core Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>Director of HR</td>
+<td>Domain ownership</td>
+<td>Am I accountable for domain business outcomes?</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Senior Director of HR</td>
+<td>Cross-domain / CPO partner</td>
+<td>Am I shaping how the HR function succeeds?</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Chief People Officer</td>
+<td>Company people leadership</td>
+<td>Am I accountable for people strategy as competitive advantage?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>E1: Director of HR</h2>
+<p><em>Domain Ownership and Executive Leadership</em></p>
+<p>The Director of HR is an executive leader who owns a significant HR domain (such as Talent &amp; Development, Employee Experience &amp; Operations, or Total Rewards &amp; People Analytics). This role operates at the intersection of people strategy and business outcomes, with full accountability for the domain's success across the organization.</p>
+<p>Directors move beyond managing senior HR managers to developing future Heads of HR (M3s), shaping executive-level people strategy, and building cross-functional partnerships with other executives. They are accountable not just for program excellence within their domain, but for how that domain drives business performance, organizational health, and competitive advantage through people.</p>
+<h3>What Success Looks Like</h3>
+<ul>
+<li>An HR domain that delivers measurable business value, with clear connection between people investments and company outcomes</li>
+<li>Strategic vision for the domain that anticipates organizational needs 1-3 years ahead and positions the company to attract, develop, and retain the talent it needs</li>
+<li>Program quality within the domain that creates competitive advantage through people, not just operational compliance</li>
+<li>Full accountability for domain outcomes—program effectiveness, adoption, employee experience, and business impact—owned without escalation</li>
+<li>Contributions to company strategy as an executive participant, bringing people-informed perspective to business decisions</li>
+<li>Cross-functional executive partnerships with Finance, Technology, Operations, and other functions that improve company-wide outcomes</li>
+<li>M3s (Heads of HR) who are growing toward Director-level capability through deliberate development and strategic exposure</li>
+<li>High engagement and retention across the domain, with the team known as a destination for strong HR talent</li>
+</ul>
+<h3>Key Shift from M3</h3>
+<p>The fundamental question changes from "Am I building organizational capability within HR?" to "Am I accountable for domain outcomes that drive business success?" At M3, you contribute to strategy. At E1, you own domain strategy with full business accountability. You're a member of the executive team, not just a senior manager. Your focus expands from HR function performance to how your people domain creates business value.</p>
+<h3>Typical Experience</h3>
+<p>12-18+ years of professional HR experience. 6-10+ years in HR management, including experience at M3 level or equivalent. Progression from M3 typically takes 3-5+ years.</p>
+<hr />
+<h2>E2: Senior Director of HR</h2>
+<p><em>Cross-Domain Leadership and CPO Partnership</em></p>
+<p>The Senior Director of HR is a senior executive who operates across multiple HR domains or owns the day-to-day leadership of the entire HR function. Where Directors own specific domains, Senior Directors take a general management perspective—ensuring all of HR works together effectively, aligns with company strategy, and delivers a coherent employee experience.</p>
+<p>This role serves as a close partner to the Chief People Officer, often deputizing in their absence and contributing directly to enterprise people strategy. Senior Directors develop Directors (E1s) into future executive leaders, shape how HR leadership operates, drive organizational transformation through people, and represent the company's people capabilities externally.</p>
+<h3>What Success Looks Like</h3>
+<ul>
+<li>Multiple HR domains that work together effectively, delivering a coherent and seamless employee experience across the full talent lifecycle</li>
+<li>Organizational effectiveness across the HR function—coordination, prioritization, and resource allocation optimized for company outcomes</li>
+<li>Strategic coherence across all people programs—investments in hiring, development, compensation, and culture tell a consistent story</li>
+<li>A true partnership with the CPO—contributes to enterprise people strategy, not just executes on it</li>
+<li>Ability to represent the CPO and the HR function credibly in executive forums, board contexts, or external settings</li>
+<li>Directors (E1s) who are growing toward Senior Director or CPO-level capability through deliberate development</li>
+<li>Enterprise-wide change initiatives led effectively—cultural shifts, organizational redesigns, and workforce transformations that deliver lasting results</li>
+<li>External presence through thought leadership that builds company reputation and attracts talent</li>
+</ul>
+<h3>Key Shift from E1</h3>
+<p>The fundamental question changes from "Am I accountable for domain success?" to "Am I shaping how the entire HR function succeeds?" The shift is from domain excellence to organizational leadership, from executive participation to executive partnership. You optimize for company-wide people outcomes, not domain outcomes. Your stakeholders expand to include the board, investors, and external audiences.</p>
+<h3>Typical Experience</h3>
+<p>15-20+ years of professional HR experience. 8-12+ years in senior HR leadership, including meaningful time at Director (E1) level. Progression from E1 typically takes 3-5+ years, and E2 positions are very rare.</p>
+<hr />
+<h2>E3: Chief People Officer</h2>
+<p><em>Ultimate People Accountability</em></p>
+<p>The Chief People Officer is the senior-most HR executive, with ultimate accountability for the company's people strategy, organizational culture, talent capabilities, and the health of the employee experience. The CPO serves on the executive team as a peer to the CEO, CFO, CTO, and other C-level leaders, and represents the company's people strategy to the board of directors, investors, customers, and the broader industry.</p>
+<p>This role requires balancing multiple dimensions: setting the vision for how the company wins through people while enabling day-to-day execution, building long-term organizational capability while delivering near-term talent outcomes, and maintaining strategic perspective while staying grounded in the realities of employee experience. The CPO is both architect of the company's people future and steward of its current culture and organizational health.</p>
+<h3>What Success Looks Like</h3>
+<ul>
+<li>A people vision and strategy that creates sustainable competitive advantage—the company wins in its markets in part because of how it attracts, develops, and retains talent</li>
+<li>People investments that prove sound over 3-5+ year horizons—bets on leadership development, culture, compensation philosophy, and organizational design that build cumulative advantage</li>
+<li>A seat at the table as a true peer on the executive team—people perspective integrated into all major company decisions</li>
+<li>Board-level communication that builds confidence in people strategy, organizational health, succession planning, and talent risk management</li>
+<li>An HR function that is a source of competitive advantage—attracts exceptional HR talent, delivers reliably, and continuously raises the bar</li>
+<li>HR leadership team (E1s, E2s, M3s) that operates with excellence and continues developing</li>
+<li>Succession planning at all senior levels—the organization's success doesn't depend on any single leader, including the CPO</li>
+<li>Recognition as an industry thought leader; external presence that enhances company reputation</li>
+<li>People risks identified, quantified, and managed appropriately—retention of key talent, succession gaps, compliance exposure, and organizational health</li>
+<li>Effective crisis management capability—the organization responds effectively to sensitive people situations and workforce disruptions</li>
+</ul>
+<h3>Key Shift from E2</h3>
+<p>The fundamental question changes from "Am I shaping how the HR function succeeds?" to "Am I accountable for people strategy as a source of company success?" At E2, you partner with the CPO. At E3, you are the people executive—a peer to the CEO, accountable to the board, responsible for people and culture as competitive advantage. You own not just HR effectiveness but the company's relationship with its workforce.</p>
+<h3>Typical Experience</h3>
+<p>18-25+ years of professional HR experience. 10+ years in senior or executive HR leadership, including significant time at Director or Senior Director level. CPO transitions are primarily about opportunity—most E2s will not become CPOs at their current company.</p>
+<hr />
+<h2>How Executive Progressions Work</h2>
+<h3>Core Principles</h3>
+<p><strong>Executive transitions are about opportunity as much as capability.</strong> Unlike IC or M-track progressions, executive positions are very limited. There may be only 2-4 E1 positions, 1-2 E2 positions, and exactly one CPO.</p>
+<p><strong>The shift is qualitative, not quantitative.</strong> Moving from M3 to E1 isn't about managing more. It's about a fundamentally different type of work—domain ownership, board accountability, executive partnership, and connecting people strategy to business outcomes.</p>
+<p><strong>External moves are common.</strong> Many executives reach their level by moving to a new company. Internal promotion requires the right opportunity to exist.</p>
+<h3>What We Look For</h3>
+<ul>
+<li><strong>Demonstrated Impact:</strong> Sustained track record of outcomes at the next level (12-24+ months)</li>
+<li><strong>Leadership Development:</strong> History of developing leaders who themselves become senior executives</li>
+<li><strong>Strategic Judgment:</strong> People decisions and investments that prove sound over years</li>
+<li><strong>Executive Presence:</strong> Ability to operate effectively with board, investors, and external stakeholders</li>
+<li><strong>Cultural Fit:</strong> Alignment with company values and ability to shape organizational culture</li>
+</ul>
+<h3>Typical Timelines</h3>
+<table>
+<thead>
+<tr>
+<th>Transition</th>
+<th>Typical Time</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3 → E1</td>
+<td>3-5+ years</td>
+<td>Transition to executive leadership</td>
+</tr>
+<tr>
+<td>E1 → E2</td>
+<td>3-5+ years</td>
+<td>Very limited positions; often via external move</td>
+</tr>
+<tr>
+<td>E2 → E3</td>
+<td>Varies greatly</td>
+<td>Primarily opportunity-dependent</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: These are rough guidelines. Executive transitions depend heavily on opportunity, organizational growth, and individual circumstances.</em></p>
+<hr />
+<h2>Key Differences from the Management Track</h2>
+<h3>Accountability</h3>
+<ul>
+<li><strong>Management track (M1-M3):</strong> Accountable for HR outcomes—team performance, program delivery, quality, talent development within the function.</li>
+<li><strong>Executive track (E1-E3):</strong> Accountable for business outcomes—how people strategy contributes to company success, competitive advantage, and strategic positioning.</li>
+</ul>
+<h3>Stakeholders</h3>
+<ul>
+<li><strong>Management track:</strong> Primarily internal stakeholders—HR teams, business partners, immediate leadership.</li>
+<li><strong>Executive track:</strong> Internal and external stakeholders—board of directors, investors, customers, partners, industry community.</li>
+</ul>
+<h3>Strategic Horizon</h3>
+<ul>
+<li><strong>Management track:</strong> Planning horizons of 6-18 months with focus on execution and team capability.</li>
+<li><strong>Executive track:</strong> Planning horizons of 1-5+ years with focus on positioning, competitive advantage, and organizational capability.</li>
+</ul>
+<h3>Development Focus</h3>
+<ul>
+<li><strong>Management track:</strong> Developing individual contributors and managers within HR.</li>
+<li><strong>Executive track:</strong> Developing executives and senior leaders who will shape the organization's people future.</li>
+</ul>
+<hr />
+<h2>Career Considerations</h2>
+<h3>Is the Executive Track Right for You?</h3>
+<p>The executive track may be right if you:</p>
+<ul>
+<li>Genuinely enjoy connecting people strategy to business outcomes and competitive positioning</li>
+<li>Are energized by external visibility—board presentations, investor discussions, industry presence</li>
+<li>Find deep satisfaction in developing other senior leaders and executives</li>
+<li>Are comfortable with ultimate accountability—the buck stops with you</li>
+<li>Think naturally about 3-5+ year horizons and building lasting organizational capability through people</li>
+<li>Navigate organizational politics and executive dynamics effectively</li>
+</ul>
+<p>The executive track may not be right if you:</p>
+<ul>
+<li>Prefer deep HR domain work over strategic and external responsibilities</li>
+<li>Find board and investor interactions draining rather than energizing</li>
+<li>Are more comfortable with shared accountability than ultimate ownership</li>
+<li>Prefer to focus on current execution rather than long-term positioning</li>
+<li>Would be pursuing executive roles for the title rather than genuine interest in the work</li>
+</ul>
+<h3>Alternative Paths</h3>
+<p><strong>There's no shame in being an excellent M3.</strong> Head of HR is a significant leadership achievement. Many outstanding HR leaders have fulfilling careers at M3 without pursuing the executive track.</p>
+<p>Similarly, some leaders find deep satisfaction as E1 Directors without pursuing E2 or E3. Each level offers meaningful work and impact.</p>
+<hr />
+<h2>Related Resources</h2>
+<p>For more detailed guidance on specific transitions, refer to:</p>
+<ul>
+<li><strong>Job Descriptions</strong> for your current and target level (detailed success outcomes)</li>
+<li><strong>Progression Guides</strong> for specific level transitions (M3→E1, E1→E2, E2→E3)</li>
+<li><strong>Readiness Assessments</strong> for structured evaluation of your readiness</li>
+<li><strong>Your Manager or Sponsor</strong> for personalized guidance and feedback</li>
+</ul>
+<p><strong>Remember:</strong> Executive leadership isn't about reaching the top—it's about finding the level of accountability and impact that aligns with your interests and strengths. The best executives are those who genuinely want to do executive work, not just hold executive titles.</p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

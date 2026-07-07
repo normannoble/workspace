@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management Track Offboarding — Human Resources &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html" class="active">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="offboarding.html">Offboarding</a> &rsaquo; Management Track Offboarding — Human Resources</div>
+<h1>Management Track Offboarding — Human Resources</h1>
+<h2>Overview</h2>
+<p><strong>Track:</strong> Management
+<strong>Function:</strong> Human Resources
+<strong>Levels Covered:</strong> M1 (HR Manager) through M3 (Head of HR)</p>
+<p>Offboarding an HR manager creates compounding risk that goes beyond losing a single contributor. Managers own people relationships — their direct reports need immediate clarity on reporting, their stakeholders need continuity of HR partnership, and any active performance management situations (FDPs, PIPs) need seamless handoff to protect both the organization and the employees involved. The departure of an HR manager also affects the team's culture, rhythm, and psychological safety in ways that individual contributor departures typically do not.</p>
+<p>The stakes escalate significantly with level. An M1 departure requires reassigning a small team and transitioning basic management responsibilities. An M3 departure affects the entire HR function's strategic direction, requires executive communication, and may trigger succession planning at the organizational level. Because HR managers often oversee sensitive employee matters — performance management, employee relations, compensation decisions, and organizational restructuring — the offboarding process must ensure complete continuity of confidential processes and management accountability.</p>
+<hr />
+<h2>Departure Type Handling</h2>
+<h3>Voluntary — Resignation</h3>
+<p><strong>Notice periods by level:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Standard Notice</th>
+<th>Recommended Minimum</th>
+<th>Priority Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>2-4 weeks</td>
+<td>3 weeks</td>
+<td>Direct report transition, active management situations, team stability</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>4 weeks</td>
+<td>4 weeks</td>
+<td>Multi-team coverage, M1 manager transition, program continuity, stakeholder relationships</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>4-6 weeks</td>
+<td>6 weeks</td>
+<td>Function-wide leadership transition, executive communication, strategic context preservation, succession planning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Standard process:</strong>
+1. Confirm last day and immediately identify interim reporting structure for direct reports
+2. Audit all active people management situations — FDPs, PIPs, pending performance reviews, compensation decisions, promotion cases, and employee relations matters
+3. Create knowledge transfer plan covering people context, program ownership, and stakeholder relationships
+4. For M2-M3: develop succession plan and coordinated communication strategy
+5. Transition stakeholder relationships with personal introductions to interim or permanent successors
+6. For M3: brief executive leadership and participate in transition planning for function leadership</p>
+<h3>Voluntary — Retirement</h3>
+<p>Retirement of HR managers offers extended transition opportunities that are especially valuable for preserving management context and developing successors.</p>
+<ul>
+<li><strong>Extended transition:</strong> For M2+, negotiate a 2-3 month transition; for M3, consider 3-6 months given the strategic context and relationship network</li>
+<li><strong>Successor development:</strong> Use the extended timeline to accelerate the development of the designated successor through shadowing, co-leadership, and graduated handoff of responsibilities</li>
+<li><strong>Management context documentation:</strong> Capture performance review context, team development assessments, organizational knowledge, and stakeholder relationship maps in written form</li>
+<li><strong>Advisory arrangements:</strong> M2-M3 retirees may be willing to serve as management advisors post-departure — particularly valuable for the successor navigating the first few months and for continuity on long-running organizational initiatives</li>
+<li><strong>Celebration:</strong> Acknowledge the manager's contributions — particularly their impact on the people they developed. Invite former team members to participate if appropriate</li>
+</ul>
+<h3>Involuntary — Performance-Based</h3>
+<p>Performance-based terminations for HR managers follow the underperformance process (FDP then PIP). The unique challenge is ensuring the departing manager's direct reports experience minimal disruption and that all active management responsibilities transfer cleanly.</p>
+<ul>
+<li><strong>Pre-termination preparation:</strong> During the PIP period, senior leadership should have already begun contingency planning — identifying an interim manager, ensuring no management situations are handled solely by the PIP'd manager without oversight, and preparing direct reports for potential change</li>
+<li><strong>Direct report protection:</strong> The immediate priority is ensuring direct reports have a manager who knows them and can provide continuity. Brief the interim manager on each direct report's performance status, development goals, and any ongoing concerns</li>
+<li><strong>Active cases:</strong> All active PIPs, FDPs, and performance reviews the departing manager was conducting must be immediately reassigned with full documentation. The new manager must review all documentation before their next touchpoint with each affected employee</li>
+<li><strong>Confidential matters:</strong> Ensure all sensitive employee information, investigation notes, and management files are properly transferred to the interim manager and HR leadership</li>
+<li><strong>Team communication:</strong> Communicate the change to the team promptly with focus on continuity and support. Do not share the circumstances of the departure beyond what is appropriate.</li>
+<li>See Underperformance Management Guide</li>
+</ul>
+<h3>Involuntary — Layoff</h3>
+<p>Layoffs affecting HR managers create particular complexity because the remaining HR team must support the broader organization through the same event while managing their own transition.</p>
+<ul>
+<li><strong>Immediate coverage:</strong> Ensure all direct reports have clear interim reporting before the departure takes effect. For M2-M3, this may mean redistributing multiple teams across remaining managers</li>
+<li><strong>Emotional impact:</strong> HR managers being laid off while the HR function supports a broader RIF face an especially difficult situation. Handle with maximum dignity and support</li>
+<li><strong>Management continuity:</strong> Ensure all active people management processes (reviews, development plans, compensation decisions) have clear ownership immediately</li>
+<li><strong>Remaining managers:</strong> Address the additional workload and emotional burden on managers who absorb the departing manager's team and responsibilities</li>
+<li><strong>Organizational messaging:</strong> For M3 departures during a RIF, coordinate with executive leadership on messaging that addresses both the function and the broader organization</li>
+</ul>
+<hr />
+<h2>Knowledge Transfer Plan</h2>
+<h3>M1 — HR Manager</h3>
+<p><strong>Key knowledge areas:</strong>
+- <strong>Direct report context:</strong> Performance assessments, development plans, career aspirations, and working styles for each team member (3-6 people)
+- <strong>1:1 relationship context:</strong> Key concerns, ongoing coaching themes, and trust-based knowledge from regular 1:1s that will not appear in formal documentation
+- <strong>Active management situations:</strong> Any performance concerns, interpersonal issues, or development interventions in progress
+- <strong>Team culture and rhythm:</strong> Meeting cadences, team norms, communication preferences, and the unwritten rules that make the team work
+- <strong>Program and delivery ownership:</strong> HR programs, cycles, and deliverables the team is responsible for, including current status and upcoming deadlines
+- <strong>Stakeholder relationships:</strong> Business leaders and cross-functional partners the M1 works with directly, including relationship context and communication preferences
+- <strong>Domain expertise:</strong> The HR discipline-specific knowledge that allows the M1 to provide technical guidance to the team</p>
+<p><strong>Transfer method:</strong> Structured handoff sessions with interim manager covering each direct report individually (1 hour per person); written performance and development summaries for all team members; stakeholder transition meetings; program status documentation</p>
+<p><strong>Estimated transfer time:</strong> 1-2 weeks</p>
+<p><strong>Level-specific considerations:</strong>
+- The most critical handoff is the people context — formal documents capture performance ratings but not the nuanced understanding of what motivates each person, where they're struggling, and what they need next
+- Schedule a direct conversation between the departing M1 and the interim manager about each team member, covering context that wouldn't appear in a performance review
+- Ensure the interim manager has at least one 1:1 with each team member before the M1's last day, ideally with a warm handoff
+- Transfer ownership of any active FDPs or PIPs with complete documentation and a briefing on current status
+- Update the team on the transition plan in a team meeting, with focus on continuity and who to go to for what</p>
+<h3>M2 — Senior HR Manager</h3>
+<p><strong>Key knowledge areas:</strong>
+- <strong>Direct report context (expanded scope):</strong> Performance assessments, development plans, and relationship context for direct reports including M1 managers (8-15 people in total span)
+- <strong>M1 development context:</strong> Coaching plans, growth areas, and management development trajectories for M1 managers — this is the most unique knowledge an M2 carries
+- <strong>Cross-discipline coordination:</strong> How the M2 coordinates delivery across multiple HR disciplines, resolves cross-team conflicts, and optimizes for overall function effectiveness
+- <strong>Program ownership:</strong> Significant HR programs or functional areas owned end-to-end, including strategy, metrics, and stakeholder expectations
+- <strong>People decisions context:</strong> Recent hiring decisions, promotions, compensation actions, and terminations, with the rationale behind each — critical for consistency with future decisions
+- <strong>Strategic alignment:</strong> How the M2 translates HR function strategy into team priorities, manages business cycle planning, and represents HR in leadership forums
+- <strong>Business partnerships:</strong> Senior business leader relationships, cross-functional partnerships (Finance, Legal, IT), and the trust and context built through those relationships
+- <strong>Hiring pipeline:</strong> Any active recruiting for the HR function, including role definitions, candidate pipelines, and interview process status</p>
+<p><strong>Transfer method:</strong> Dedicated sessions with interim leader covering: (1) each direct report including M1 managers, (2) program ownership and strategy, (3) stakeholder relationships, (4) cross-discipline coordination model; written documentation of all active management situations, programs, and strategic priorities; stakeholder transition meetings; M1 manager briefing sessions</p>
+<p><strong>Estimated transfer time:</strong> 2-3 weeks</p>
+<p><strong>Level-specific considerations:</strong>
+- The M1 managers who report to the departing M2 need particular attention — they lose their primary management coach and development sponsor. Brief the successor on each M1's development trajectory and immediate needs
+- For each M1 manager: document their strengths, growth areas, current coaching focus, and any performance concerns, plus context on their team's dynamics that the M2 understands from skip-level visibility
+- Transfer ownership of cross-discipline coordination explicitly: who manages the handoffs between recruiting and onboarding, how HRBP insights feed into L&amp;D programming, how compensation data flows to hiring
+- Document the business cycle management approach: how annual performance reviews, compensation planning, open enrollment, and hiring surges are planned and resourced
+- Transition business leader relationships with personal introductions — these relationships are built on trust that doesn't transfer automatically</p>
+<h3>M3 — Head of HR</h3>
+<p><strong>Key knowledge areas:</strong>
+- <strong>HR function strategy:</strong> The strategic vision for the HR function, including priorities, resource allocation decisions, and the reasoning behind organizational design choices
+- <strong>Manager development portfolio:</strong> M1 and M2 managers' development trajectories, succession readiness assessments, and the M3's assessment of bench strength across the function
+- <strong>Executive relationships:</strong> Partnerships with C-level executives, board relationships (if applicable), and the context behind strategic people decisions made at the executive level
+- <strong>Organizational health intelligence:</strong> The M3's assessment of organizational health, culture dynamics, engagement risks, and retention concerns across the company — much of which lives in their head rather than in reports
+- <strong>Function-wide standards:</strong> HR practices, quality standards, and cultural expectations the M3 established and reinforces — the "how we do things here" for the HR function
+- <strong>Cross-functional partnerships:</strong> Strategic relationships with Finance, Legal, IT, and business leadership, including ongoing initiatives, joint priorities, and negotiated agreements
+- <strong>Compliance posture:</strong> The M3's understanding of the organization's compliance landscape, outstanding risks, and strategic decisions about where to invest in compliance versus accept risk
+- <strong>Workforce planning context:</strong> Forward-looking plans for company growth, organizational design decisions in progress, and strategic talent decisions that span 6-18 months
+- <strong>Budget and resource context:</strong> HR function budget, planned investments, headcount decisions, and vendor contracts and renewals</p>
+<p><strong>Transfer method:</strong> Extended knowledge transfer program with the successor (or interim leader) including: daily sessions during the first 1-2 weeks; written strategic documents covering function vision, organizational assessments, and forward plan; executive transition meetings with CEO, CFO, and board (if applicable); stakeholder transition meetings across the business; M1/M2 manager briefings on succession context and development priorities; recorded sessions on the most complex topics for future reference</p>
+<p><strong>Estimated transfer time:</strong> 3-6 weeks</p>
+<p><strong>Level-specific considerations:</strong>
+- M3 departures are strategic organizational events. The successor needs not just the "what" but the "why" behind every major HR decision made in the last 12-24 months
+- Create a "state of the HR function" document: current priorities, organizational health assessment, key risks, planned investments, succession pipeline status, and recommended next steps
+- Transition executive relationships personally — schedule joint meetings with the CEO, CFO, and other executives where the M3 introduces the successor and provides context
+- Document the management assessment for every M1 and M2: strengths, growth areas, development needs, succession readiness, and any performance concerns
+- Transfer workforce planning context including strategic hires planned, organizational design changes under consideration, and any confidential restructuring plans
+- Brief the successor on all active sensitive matters: pending investigations, legal risks, executive compensation decisions, and board-level people items
+- For board-adjacent M3s: ensure the successor has full context on board reporting, people metrics, and the narrative framework used for board updates
+- Consider a 3-month advisory arrangement for the successor to call on during the transition period</p>
+<h3>Knowledge Transfer Checklist</h3>
+<p>Management-specific items that apply across all levels (scope increases with level):</p>
+<ul>
+<li>[ ] Direct report performance and development context documented and briefed to interim/successor manager</li>
+<li>[ ] Active FDPs, PIPs, and performance management situations transferred with complete documentation</li>
+<li>[ ] 1:1 relationship context shared — including trust-based knowledge that won't appear in formal records</li>
+<li>[ ] Team meeting cadences, norms, and communication practices documented</li>
+<li>[ ] Active management decisions in progress (compensation, promotions, hiring) documented with status and rationale</li>
+<li>[ ] All HR programs and deliverables owned by the manager's teams documented with status and accountability</li>
+<li>[ ] Stakeholder relationships mapped and personally transitioned to successor</li>
+<li>[ ] Cross-functional partnerships (Finance, Legal, IT, business leadership) transitioned with context</li>
+<li>[ ] Confidential matters (investigations, legal issues, sensitive employee situations) securely transferred</li>
+<li>[ ] Budget, headcount, and resource allocation context documented (M2+)</li>
+<li>[ ] Function-wide strategic context and organizational health assessment documented (M3)</li>
+<li>[ ] Succession and bench strength assessments documented for all managers (M2+)</li>
+</ul>
+<h3>Documentation Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Level</th>
+<th>Deadline</th>
+<th>Recipient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Individual development summaries for each direct report</td>
+<td>All</td>
+<td>Week 1 of notice</td>
+<td>Interim/successor manager (confidential)</td>
+</tr>
+<tr>
+<td>Active management situations briefing (FDPs, PIPs, concerns)</td>
+<td>All</td>
+<td>Day 1-2 of notice</td>
+<td>Interim manager and HR leadership (confidential)</td>
+</tr>
+<tr>
+<td>Program and deliverable status with upcoming deadlines</td>
+<td>All</td>
+<td>Week 1 of notice</td>
+<td>Interim manager and team</td>
+</tr>
+<tr>
+<td>Stakeholder relationship map with context and transition plan</td>
+<td>All</td>
+<td>Week 1 of notice</td>
+<td>Interim/successor manager</td>
+</tr>
+<tr>
+<td>Manager development assessments for M1 direct reports</td>
+<td>M2+</td>
+<td>Mid-notice period</td>
+<td>Successor and senior HR leadership (confidential)</td>
+</tr>
+<tr>
+<td>Cross-discipline coordination model and business cycle playbook</td>
+<td>M2+</td>
+<td>Mid-notice period</td>
+<td>Successor and team leads</td>
+</tr>
+<tr>
+<td>HR function strategic assessment and forward plan</td>
+<td>M3</td>
+<td>Throughout notice</td>
+<td>Successor and executive leadership (confidential)</td>
+</tr>
+<tr>
+<td>Workforce planning and organizational design context</td>
+<td>M3</td>
+<td>Mid-notice period</td>
+<td>Successor and executive leadership</td>
+</tr>
+<tr>
+<td>Budget and resource allocation documentation</td>
+<td>M2+</td>
+<td>Week 1 of notice</td>
+<td>Successor and Finance partner</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Stakeholder Communication Plan</h2>
+<h3>Communication Sequence</h3>
+<table>
+<thead>
+<tr>
+<th>Audience</th>
+<th>When</th>
+<th>Who Communicates</th>
+<th>Key Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct reports</td>
+<td>Day 1 (after HR notified)</td>
+<td>Departing manager and skip-level jointly</td>
+<td>Departure, interim plan, reassurance of continuity</td>
+</tr>
+<tr>
+<td>HR leadership team</td>
+<td>Day 0-1</td>
+<td>Skip-level manager</td>
+<td>Departure details, impact assessment, succession plan</td>
+</tr>
+<tr>
+<td>Extended HR team (M2+)</td>
+<td>Days 1-2</td>
+<td>HR leadership</td>
+<td>Departure, interim leadership, and continuity plan</td>
+</tr>
+<tr>
+<td>Business stakeholders</td>
+<td>Days 2-3</td>
+<td>Skip-level manager and departing manager</td>
+<td>Transition plan, new point of contact, continuity assurance</td>
+</tr>
+<tr>
+<td>Cross-functional partners (Finance, Legal, IT)</td>
+<td>Days 2-3</td>
+<td>Skip-level manager or departing manager</td>
+<td>Transition plan for joint initiatives and partnerships</td>
+</tr>
+<tr>
+<td>Executive leadership (M3)</td>
+<td>Day 0-1</td>
+<td>CPO or CEO</td>
+<td>Departure, succession plan, strategic continuity</td>
+</tr>
+<tr>
+<td>Board (M3, if applicable)</td>
+<td>Days 1-3</td>
+<td>CPO or CEO</td>
+<td>Departure, interim plan, succession timeline</td>
+</tr>
+<tr>
+<td>Broader organization (M3)</td>
+<td>Days 3-5</td>
+<td>Executive leadership</td>
+<td>Brief, professional announcement with continuity message</td>
+</tr>
+</tbody>
+</table>
+<h3>Level-Specific Communication Notes</h3>
+<p><strong>M1:</strong> Communication is focused on the direct team and immediate business stakeholders. Direct reports hear first and hear directly from their manager (and skip-level) — not through rumor. The message emphasizes continuity: who will manage the team, what stays the same, and when the permanent plan will be clear.</p>
+<p><strong>M2:</strong> Communication extends to all HR teams the M2 oversees, M1 managers who lose their direct coach, and senior business stakeholders. The message addresses both operational continuity (programs will continue) and management continuity (M1 managers have clear support). Name the interim leader and their authority level.</p>
+<p><strong>M3:</strong> Communication is organizational. Executive leadership should be involved in crafting the message. Direct reports (M1s and M2s) hear first, followed by the broader HR function, then business stakeholders, then the company. The narrative addresses strategic continuity — the HR function's direction is sound, the leadership bench is strong, and the succession plan is underway. For public-facing organizations, coordinate external messaging if needed.</p>
+<hr />
+<h2>Exit Interview Focus Areas</h2>
+<h3>Standard Questions (All Management Levels)</h3>
+<ul>
+<li>What aspects of managing within the HR function worked well for you? What were the biggest challenges?</li>
+<li>How effective was the organization at supporting your development as a people leader — not just an HR practitioner?</li>
+<li>Did you feel you had the authority, resources, and organizational support to lead your team effectively?</li>
+<li>How well did the HR function coordinate across disciplines? Where did collaboration break down?</li>
+<li>Were there management challenges specific to leading HR professionals that the organization should better address?</li>
+<li>How effective was your own manager at coaching your leadership growth and helping you navigate complex people situations?</li>
+<li>Would you recommend this HR function as a place to build a management career? Why or why not?</li>
+</ul>
+<h3>Level-Specific Questions</h3>
+<p><strong>M1:</strong>
+- Was the transition from individual contributor to manager well-supported? What would have helped?
+- Did you feel prepared for the emotional demands of managing HR professionals who themselves deal with sensitive employee situations?
+- Were expectations for your management development realistic and clearly communicated?
+- What would have made you stay and continue growing as a manager within this function?</p>
+<p><strong>M2:</strong>
+- Did you feel you had enough autonomy to make the people decisions and program trade-offs your role required?
+- How effective was the organization at supporting your development of M1 managers?
+- Were there systemic barriers to cross-discipline coordination or program delivery that should be addressed?
+- What is your assessment of the HR function's bench strength and talent pipeline?</p>
+<p><strong>M3:</strong>
+- What is your assessment of the HR function's strategic positioning and capability for the company's next phase of growth?
+- Were there organizational or executive-level barriers that limited the HR function's impact?
+- What are the most important investments the HR function should make in the next 12-18 months?
+- How could the organization better attract, develop, and retain senior HR leaders?
+- What strategic risks do you see that your successor should prioritize?</p>
+<hr />
+<h2>Manager Checklist — By Phase</h2>
+<h3>Notification Phase (Day 0-1)</h3>
+<ul>
+<li>[ ] Acknowledge the departure professionally; schedule transition planning meeting within 24 hours</li>
+<li>[ ] Notify HR leadership and initiate formal offboarding process</li>
+<li>[ ] Identify and confirm interim manager for the departing person's direct reports</li>
+<li>[ ] Audit all active management situations: FDPs, PIPs, performance reviews, compensation decisions, promotion cases</li>
+<li>[ ] Review all sensitive matters the departing manager is handling (investigations, legal issues, confidential situations)</li>
+<li>[ ] For M2-M3: brief senior/executive leadership and begin succession planning</li>
+<li>[ ] For M3: coordinate with CPO/CEO on communication plan and interim leadership</li>
+</ul>
+<h3>Transition Phase (Notice Period)</h3>
+<ul>
+<li>[ ] Create level-appropriate knowledge transfer plan</li>
+<li>[ ] Conduct structured briefings on each direct report with interim manager</li>
+<li>[ ] Ensure interim manager has at least one 1:1 with each affected team member before departure</li>
+<li>[ ] Transfer all active management situations with complete documentation</li>
+<li>[ ] Reassign program ownership and stakeholder coverage</li>
+<li>[ ] Communicate departure to team, HR function, and stakeholders per communication plan</li>
+<li>[ ] For M1: facilitate warm handoff of team to interim manager</li>
+<li>[ ] For M2: brief successor on each M1 manager's development trajectory and needs</li>
+<li>[ ] For M2+: transition business partnerships and cross-functional relationships personally</li>
+<li>[ ] For M3: conduct executive transition meetings (CEO, CFO, board if applicable)</li>
+<li>[ ] For M3: create "state of the HR function" document</li>
+<li>[ ] Schedule exit interview with senior HR leadership or CPO</li>
+<li>[ ] Plan appropriate team acknowledgment</li>
+<li>[ ] Begin backfill process</li>
+</ul>
+<h3>Final Day</h3>
+<ul>
+<li>[ ] Conduct final 1:1 — acknowledge contributions, confirm all handoffs are complete</li>
+<li>[ ] Verify all management situations (FDPs, PIPs, reviews) have been transferred</li>
+<li>[ ] Confirm all confidential files and sensitive matters are properly secured</li>
+<li>[ ] Collect company equipment</li>
+<li>[ ] Confirm IT/security access revocation — including HRIS admin access, employee data systems, and manager-level permissions</li>
+<li>[ ] Ensure all direct reports know the plan and feel supported</li>
+<li>[ ] Confirm interim manager is prepared for the first week of management</li>
+</ul>
+<h3>Post-Departure (Weeks 1-4)</h3>
+<ul>
+<li>[ ] Check in with direct reports (now under interim management) on the transition experience</li>
+<li>[ ] Monitor team health, morale, and any emerging management gaps</li>
+<li>[ ] Address knowledge gaps — reach out to advisory contact if arranged</li>
+<li>[ ] Ensure all active management situations are progressing appropriately under new leadership</li>
+<li>[ ] For M2+: check in with M1 managers on their support needs under new leadership</li>
+<li>[ ] For M3: follow up with executive stakeholders on transition effectiveness</li>
+<li>[ ] Initiate hiring process for permanent replacement</li>
+<li>[ ] Review exit interview feedback and take action on systemic issues</li>
+<li>[ ] Update management development plans for remaining managers based on new span and responsibilities</li>
+</ul>
+<hr />
+<h2>Cross-References</h2>
+<h3>Job Descriptions</h3>
+<ul>
+<li>M1 — HR Manager</li>
+<li>M2 — Senior HR Manager</li>
+<li>M3 — Head of HR</li>
+</ul>
+<h3>Framework and Process</h3>
+<ul>
+<li>Offboarding Framework — Universal offboarding process and philosophy</li>
+<li>Underperformance Management Guide — Process leading to performance-based offboarding</li>
+<li>Offboarding Plan Template — Generic template for creating offboarding plans</li>
+</ul>
+<h3>Onboarding (Lifecycle Counterpart)</h3>
+<ul>
+<li>Management Onboarding Plans — The lifecycle counterpart to management offboarding</li>
+</ul>
+<h3>Career Development</h3>
+<ul>
+<li>Management Career Progression Overview</li>
+</ul>
+<hr />
+<p><em>Last Updated: March 2026</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>

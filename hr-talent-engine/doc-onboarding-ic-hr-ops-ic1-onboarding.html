@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-60-90 Day Onboarding: HR Operations Coordinator (IC1) &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="A comprehensive, level-calibrated HR operations framework covering job descriptions, hiring, onboarding, performance management, career development, and offboarding.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1200px;
+    --content-width: 860px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.topnav-logo svg { color: white; }
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+</div>
+<div class="topnav-links"><a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html" class="active">Onboarding</a><a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+<div class="doc-content">
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="onboarding.html">Onboarding</a> &rsaquo; 30-60-90 Day Onboarding: HR Operations Coordinator (IC1)</div>
+<h1>30-60-90 Day Onboarding: HR Operations Coordinator (IC1)</h1>
+<h2>Overview</h2>
+<p><strong>Level:</strong> IC1 — HR Operations Coordinator
+<strong>Focus:</strong> Learning HR operations fundamentals, building HRIS proficiency, establishing accuracy and reliability habits
+<strong>Manager's Role:</strong> Structured guide, active coach, regular feedback provider</p>
+<p>IC1 HR Operations Coordinators are early-career professionals building their foundation in HR systems and processes. Onboarding is highly structured with clear daily expectations, frequent check-ins, and progressive responsibility. The goal is to move from guided task execution to reliable independent processing within 90 days, with a growing understanding of how each task contributes to broader HR operations.</p>
+<hr />
+<h2>Days 1-30: Learn</h2>
+<h3>Theme: Build the Foundation</h3>
+<p><strong>Primary Objectives:</strong>
+- Understand the employee lifecycle and how HR operations supports each stage
+- Learn the HRIS platform, core modules, and data entry standards
+- Build working relationships with HR team members, IT, and key stakeholders
+- Establish habits of accuracy, confidentiality, and proactive communication</p>
+<h3>Week 1: Welcome &amp; Orientation</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+<th>Activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Welcome</td>
+<td>Team introductions, HR orientation, workspace and tool setup, overview of HR Ops team structure and mission</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Systems</td>
+<td>HRIS walkthrough (navigation, core modules, data entry procedures), security and access protocols</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Process</td>
+<td>Employee lifecycle overview—from hire to separation—and how HR Ops supports each stage</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Compliance</td>
+<td>Data privacy and confidentiality protocols, I-9 procedures, record-keeping fundamentals</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Practice</td>
+<td>Complete first guided HRIS transaction, review standard operating procedures, recap week with manager</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Meetings to Schedule:</strong>
+- [ ] Manager 1:1 (weekly)
+- [ ] 1:1 with each HR Ops team member
+- [ ] HR Business Partners overview meeting
+- [ ] IT/Systems team for tool access and integration context
+- [ ] Benefits administration team introduction
+- [ ] Onboarding buddy check-in (if assigned)</p>
+<h3>Weeks 2-4: Learning the Systems and Processes</h3>
+<p><strong>Learning Goals:</strong>
+- [ ] Navigate the HRIS confidently—process basic transactions, enter data, run simple reports
+- [ ] Understand standard operating procedures for routine employee lifecycle events
+- [ ] Know confidentiality and data privacy requirements for handling employee information
+- [ ] Recognize key compliance obligations (I-9, benefits enrollment timelines, record retention)
+- [ ] Understand how data flows between HRIS, payroll, and benefits systems</p>
+<p><strong>Activities:</strong>
+- Process guided HRIS transactions (new hires, status changes, personal data updates) with reviewer oversight
+- Practice maintaining employee records using established checklists and SOPs
+- Handle routine HR inquiries through established service channels with guidance
+- Attend HR Ops team meetings and observe cross-functional process handoffs
+- Build a personal reference guide of systems, procedures, and key contacts</p>
+<p><strong>Milestones:</strong>
+- [ ] First HRIS transactions processed correctly with minimal corrections
+- [ ] Employee records maintained accurately following data hygiene standards
+- [ ] Can explain the employee lifecycle stages and HR Ops responsibilities at each
+- [ ] Comfortable with data privacy protocols and confidentiality requirements
+- [ ] Knows when to ask questions vs. when to escalate to senior team members</p>
+<h3>30-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How comfortable are you with the HRIS and core processes?
+- What parts of the operational workflow feel clear vs. confusing?
+- How are relationships developing with team members and stakeholders?
+- What additional training or support would be helpful?
+- Initial feedback on accuracy, timeliness, and attention to detail</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Can navigate the HRIS and complete basic transactions independently
+- [ ] Understands the employee lifecycle and HR Ops role at each stage
+- [ ] Processes routine transactions with decreasing error rates
+- [ ] Communicates proactively about progress, blockers, and when help is needed
+- [ ] Demonstrates care for data accuracy and employee confidentiality</p>
+<hr />
+<h2>Days 31-60: Contribute</h2>
+<h3>Theme: Build Independence</h3>
+<p><strong>Primary Objectives:</strong>
+- Process HRIS transactions and lifecycle events with growing independence
+- Maintain employee records and data hygiene consistently without reminders
+- Begin identifying data discrepancies and process gaps proactively
+- Contribute reliably to HR operations workflow and team objectives</p>
+<h3>Weeks 5-6: Owning Routine Operations</h3>
+<p><strong>Activities:</strong>
+- Take primary responsibility for processing assigned transaction types independently
+- Maintain employee records with consistent accuracy—data current, documents filed, standards met
+- Handle routine employee and manager inquiries through established service channels
+- Process onboarding paperwork, benefits enrollment support, and offboarding checklists
+- Track personal accuracy metrics and work toward team standards</p>
+<p><strong>Demonstrating Reliable Execution:</strong>
+- [ ] Routine transactions processed correctly and within expected timeframes
+- [ ] Employee records maintained without reminders—data hygiene standards met
+- [ ] Sensitive information handled with appropriate care and confidentiality
+- [ ] Standard operating procedures followed consistently with understanding of the reasoning
+- [ ] Data discrepancies flagged when identified during routine tasks</p>
+<h3>Weeks 7-8: Growing Judgment</h3>
+<p><strong>Activities:</strong>
+- Handle moderately complex transactions (transfers, promotions, leave entries) with guidance available
+- Begin resolving routine HR inquiries independently rather than escalating everything
+- Contribute observations about process bottlenecks or SOP improvements to the team
+- Support compliance documentation activities (record audits, filing reviews)
+- Take on a stretch assignment (e.g., help update an SOP, assist with a data audit)</p>
+<p><strong>Growing Impact:</strong>
+- [ ] Anticipating next steps in processes without being prompted
+- [ ] Resolving routine inquiries independently while escalating appropriately
+- [ ] Feedback from team members and stakeholders is positive on reliability and accuracy
+- [ ] Growing understanding of how individual tasks connect to broader operational outcomes
+- [ ] Fewer repeat questions—building on prior learning consistently</p>
+<h3>60-Day Check-in</h3>
+<p><strong>Manager Discussion Points:</strong>
+- How is your confidence processing transactions independently?
+- Where are you still needing guidance most?
+- What patterns or improvement opportunities have you noticed?
+- How are your working relationships with the broader HR team?
+- Feedback on accuracy, initiative, and professional growth trajectory</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Processing assigned transactions with minimal oversight
+- [ ] Data hygiene consistently meets team standards
+- [ ] Routine inquiries handled independently with appropriate escalation
+- [ ] Proactively flagging discrepancies and potential process issues
+- [ ] Incorporating feedback effectively with visible improvement</p>
+<hr />
+<h2>Days 61-90: Own</h2>
+<h3>Theme: Establish Yourself</h3>
+<p><strong>Primary Objectives:</strong>
+- Operate as a reliable, independent HR Ops contributor the team counts on
+- Demonstrate consistent accuracy, timeliness, and process adherence
+- Show growing understanding of how operations supports the broader HR function
+- Establish habits and reputation that position you for continued growth</p>
+<h3>Weeks 9-10: Full Independent Operation</h3>
+<p><strong>Activities:</strong>
+- Manage full assigned workload of HRIS transactions and employee lifecycle events independently
+- Handle compliance documentation requirements (I-9 completion, benefits enrollment, record filing) reliably
+- Resolve routine and moderately complex inquiries with confidence
+- Support team data audit activities and quality assurance checks
+- Contribute process improvement ideas based on hands-on experience</p>
+<p><strong>IC1 Expectations Met:</strong>
+- [ ] Employee records maintained with high accuracy through careful data entry and attention to detail
+- [ ] HRIS transactions processed correctly and within expected timeframes consistently
+- [ ] Required employment documents collected, verified, and filed per regulatory requirements
+- [ ] Sensitive information handled with appropriate care following data privacy protocols
+- [ ] Positive contributions to team through reliability, curiosity, and consistent effort</p>
+<h3>Weeks 11-12: Setting Long-Term Trajectory</h3>
+<p><strong>Activities:</strong>
+- Discuss development goals and areas of interest within HR operations
+- Explore IC2 HR Operations Specialist path if interested—what skills to develop next
+- Document any process observations or learnings to share with the team
+- Solidify relationships across the HR function
+- Fully transition from "new hire" mindset to established team contributor</p>
+<p><strong>Looking Ahead:</strong>
+- [ ] Clear understanding of your strengths and development areas in HR Ops
+- [ ] Development plan established with manager
+- [ ] Relationships with HR team members and stakeholders solidified
+- [ ] Known as a dependable, accurate coordinator
+- [ ] Positioned for continued growth toward IC2</p>
+<h3>90-Day Review</h3>
+<p><strong>Manager Discussion Points:</strong>
+- Comprehensive onboarding assessment
+- Data accuracy and process reliability evaluation
+- Professional growth and learning behaviors observed
+- Path forward—deepening operational skills vs. expanding into new HR Ops areas
+- Recognition and development areas</p>
+<p><strong>Success Indicators:</strong>
+- [ ] Operating reliably at IC1 level with consistent accuracy and timeliness
+- [ ] Process ownership clearly established for assigned transaction types
+- [ ] Growing understanding of HR operations beyond just assigned tasks
+- [ ] Strong working relationships with HR team and stakeholders
+- [ ] Clear on continued growth path within HR operations</p>
+<hr />
+<h2>Key Relationships to Build</h2>
+<table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Why</th>
+<th>When to Meet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct manager</td>
+<td>Alignment, feedback, development</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Senior HR Ops team members</td>
+<td>Day-to-day guidance, knowledge sharing</td>
+<td>Daily/as needed</td>
+</tr>
+<tr>
+<td>HR Business Partners</td>
+<td>Understanding broader HR context</td>
+<td>First month</td>
+</tr>
+<tr>
+<td>Benefits administration team</td>
+<td>Process handoffs, enrollment support</td>
+<td>First month, ongoing</td>
+</tr>
+<tr>
+<td>IT/Systems team</td>
+<td>Tool access, troubleshooting, system support</td>
+<td>First week, as needed</td>
+</tr>
+<tr>
+<td>Payroll team</td>
+<td>Data integration, process dependencies</td>
+<td>First month, as needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common IC1 Onboarding Challenges</h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overwhelmed by HRIS complexity and multiple modules</td>
+<td>Focus on one module at a time; build a personal cheat sheet; ask for repeated walkthroughs</td>
+</tr>
+<tr>
+<td>Fear of making data errors with real employee information</td>
+<td>Use checklists for every transaction; have work reviewed early; understand that errors can be corrected</td>
+</tr>
+<tr>
+<td>Unsure when to ask vs. figure it out</td>
+<td>Default to asking early on; discuss the "ask vs. solve" threshold with manager</td>
+</tr>
+<tr>
+<td>Difficulty understanding compliance requirements</td>
+<td>Focus on the "what to do" first, the "why" will come with experience; keep compliance reference guides handy</td>
+</tr>
+<tr>
+<td>Managing multiple transaction types simultaneously</td>
+<td>Use a tracking system; prioritize by deadline; ask manager for guidance on sequencing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Manager Checklist</h2>
+<h3>Pre-Arrival</h3>
+<ul>
+<li>[ ] HRIS access and training materials prepared</li>
+<li>[ ] System accounts and tool access provisioned</li>
+<li>[ ] Assigned transaction types identified for training progression</li>
+<li>[ ] Onboarding buddy or mentor assigned</li>
+<li>[ ] First two weeks of meetings scheduled</li>
+</ul>
+<h3>Week 1</h3>
+<ul>
+<li>[ ] Orientation and system setup complete</li>
+<li>[ ] HRIS walkthrough and initial training done</li>
+<li>[ ] Compliance and confidentiality protocols reviewed</li>
+<li>[ ] First guided transaction assigned</li>
+<li>[ ] Weekly 1:1 cadence established</li>
+</ul>
+<h3>Ongoing</h3>
+<ul>
+<li>[ ] Accuracy and timeliness tracking in place</li>
+<li>[ ] Feedback delivered regularly with specific examples</li>
+<li>[ ] Complexity of assignments increasing appropriately</li>
+<li>[ ] Learning behaviors reinforced and encouraged</li>
+<li>[ ] Course corrections made early when needed</li>
+</ul>
+<hr />
+<p><em>See also: IC1 Job Description</em></p>
+</div>
+
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+Talent Engine
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>
