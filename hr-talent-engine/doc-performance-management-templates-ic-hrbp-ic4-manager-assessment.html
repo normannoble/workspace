@@ -28,8 +28,8 @@
     --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
     --radius: 12px;
     --radius-sm: 8px;
-    --max-width: 1200px;
-    --content-width: 860px;
+    --max-width: 1280px;
+    --content-width: 900px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,16 +66,10 @@ body {
     align-items: center;
     gap: 0.6rem;
 }
-.topnav-logo {
+.topnav-logo-img {
     width: 28px;
     height: 28px;
-    background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.topnav-logo svg { color: white; }
 .topnav-brand {
     font-weight: 700;
     font-size: 1rem;
@@ -459,6 +453,76 @@ body {
     color: var(--purple-800);
 }
 
+/* ─── Sidebar Layout ─── */
+.page-with-sidebar {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+.sidebar {
+    position: sticky;
+    top: 80px;
+    padding: 1.5rem 0;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 0.5rem 0.75rem 0.35rem;
+}
+.sidebar a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.12s;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+}
+.sidebar a:hover {
+    background: var(--purple-50);
+    color: var(--purple-700);
+}
+.sidebar a.active {
+    background: var(--purple-50);
+    color: var(--purple-700);
+    font-weight: 600;
+    border-left-color: var(--purple-500);
+}
+.sidebar .sidebar-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: var(--purple-50);
+    color: var(--purple-600);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-right: 0.4rem;
+    border: 1px solid var(--purple-100);
+}
+.sidebar-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 0.6rem 0.75rem;
+}
+.page-main {
+    min-width: 0;
+}
+
 /* ─── Footer ─── */
 .footer {
     background: var(--surface);
@@ -527,6 +591,8 @@ body {
     .container { padding: 0 1rem; }
     .doc-content { padding: 1.5rem 1rem 4rem; }
     .doc-content h1 { font-size: 1.5rem; }
+    .page-with-sidebar { grid-template-columns: 1fr; padding: 0 1rem; }
+    .sidebar { display: none; }
     .footer-cols { gap: 2rem; }
     .footer-inner { flex-direction: column; }
     .matrix-table { font-size: 0.72rem; }
@@ -544,7 +610,7 @@ body {
 <div class="topnav-inner">
 <div class="topnav-left">
 <a href="index.html" class="topnav-brand">
-<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+<img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
 Talent Engine
 </a>
 </div>
@@ -552,8 +618,12 @@ Talent Engine
 </div>
 </nav>
 
-<div class="doc-content">
+<div class="container" style="padding-top:1.5rem;">
 <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="performance-management.html">Performance Management</a> &rsaquo; Manager Assessment: Senior HR Business Partner (IC4)</div>
+</div>
+<div class="page-with-sidebar">
+<nav class="sidebar"><div class="sidebar-title">Talent Acquisition</div><a href="doc-performance-management-templates-ic-talent-acquisition-ic1-manager-assessment.html"><span class="sidebar-badge">IC1</span>Manager Assessment: Talent Acquisition Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic1-peer-assessment.html"><span class="sidebar-badge">IC1</span>Peer Assessment: Talent Acquisition Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic1-self-assessment.html"><span class="sidebar-badge">IC1</span>Self-Assessment: Talent Acquisition Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic2-manager-assessment.html"><span class="sidebar-badge">IC2</span>Manager Assessment: Recruiter (IC2)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic2-peer-assessment.html"><span class="sidebar-badge">IC2</span>Peer Assessment: Recruiter (IC2)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic2-self-assessment.html"><span class="sidebar-badge">IC2</span>Self-Assessment: Recruiter (IC2)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic3-manager-assessment.html"><span class="sidebar-badge">IC3</span>Manager Assessment: Senior Recruiter (IC3)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic3-peer-assessment.html"><span class="sidebar-badge">IC3</span>Peer Assessment: Senior Recruiter (IC3)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic3-self-assessment.html"><span class="sidebar-badge">IC3</span>Self-Assessment: Senior Recruiter (IC3)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic4-manager-assessment.html"><span class="sidebar-badge">IC4</span>Manager Assessment: Principal Recruiter (IC4)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic4-peer-assessment.html"><span class="sidebar-badge">IC4</span>Peer Assessment: Principal Recruiter (IC4)</a><a href="doc-performance-management-templates-ic-talent-acquisition-ic4-self-assessment.html"><span class="sidebar-badge">IC4</span>Self-Assessment: Principal Recruiter (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">HR Operations</div><a href="doc-performance-management-templates-ic-hr-ops-ic1-manager-assessment.html"><span class="sidebar-badge">IC1</span>Manager Assessment: HR Operations Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-hr-ops-ic1-peer-assessment.html"><span class="sidebar-badge">IC1</span>Peer Assessment: HR Operations Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-hr-ops-ic1-self-assessment.html"><span class="sidebar-badge">IC1</span>Self-Assessment: HR Operations Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-hr-ops-ic2-manager-assessment.html"><span class="sidebar-badge">IC2</span>Manager Assessment: HR Operations Specialist (IC2)</a><a href="doc-performance-management-templates-ic-hr-ops-ic2-peer-assessment.html"><span class="sidebar-badge">IC2</span>Peer Assessment: HR Operations Specialist (IC2)</a><a href="doc-performance-management-templates-ic-hr-ops-ic2-self-assessment.html"><span class="sidebar-badge">IC2</span>Self-Assessment: HR Operations Specialist (IC2)</a><a href="doc-performance-management-templates-ic-hr-ops-ic3-manager-assessment.html"><span class="sidebar-badge">IC3</span>Manager Assessment: Senior HR Operations Specialist (IC3)</a><a href="doc-performance-management-templates-ic-hr-ops-ic3-peer-assessment.html"><span class="sidebar-badge">IC3</span>Peer Assessment: Senior HR Operations Specialist (IC3)</a><a href="doc-performance-management-templates-ic-hr-ops-ic3-self-assessment.html"><span class="sidebar-badge">IC3</span>Self-Assessment: Senior HR Operations Specialist (IC3)</a><a href="doc-performance-management-templates-ic-hr-ops-ic4-manager-assessment.html"><span class="sidebar-badge">IC4</span>Manager Assessment: Principal HR Operations Specialist (IC4)</a><a href="doc-performance-management-templates-ic-hr-ops-ic4-peer-assessment.html"><span class="sidebar-badge">IC4</span>Peer Assessment: Principal HR Operations Specialist (IC4)</a><a href="doc-performance-management-templates-ic-hr-ops-ic4-self-assessment.html"><span class="sidebar-badge">IC4</span>Self-Assessment: Principal HR Operations Specialist (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">HRBP</div><a href="doc-performance-management-templates-ic-hrbp-ic2-manager-assessment.html"><span class="sidebar-badge">IC2</span>Manager Assessment: Junior HR Business Partner (IC2)</a><a href="doc-performance-management-templates-ic-hrbp-ic2-peer-assessment.html"><span class="sidebar-badge">IC2</span>Peer Assessment: Junior HR Business Partner (IC2)</a><a href="doc-performance-management-templates-ic-hrbp-ic2-self-assessment.html"><span class="sidebar-badge">IC2</span>Self-Assessment: Junior HR Business Partner (IC2)</a><a href="doc-performance-management-templates-ic-hrbp-ic3-manager-assessment.html"><span class="sidebar-badge">IC3</span>Manager Assessment: HR Business Partner (IC3)</a><a href="doc-performance-management-templates-ic-hrbp-ic3-peer-assessment.html"><span class="sidebar-badge">IC3</span>Peer Assessment: HR Business Partner (IC3)</a><a href="doc-performance-management-templates-ic-hrbp-ic3-self-assessment.html"><span class="sidebar-badge">IC3</span>Self-Assessment: HR Business Partner (IC3)</a><a href="doc-performance-management-templates-ic-hrbp-ic4-manager-assessment.html" class="active"><span class="sidebar-badge">IC4</span>Manager Assessment: Senior HR Business Partner (IC4)</a><a href="doc-performance-management-templates-ic-hrbp-ic4-peer-assessment.html"><span class="sidebar-badge">IC4</span>Peer Assessment: Senior HR Business Partner (IC4)</a><a href="doc-performance-management-templates-ic-hrbp-ic4-self-assessment.html"><span class="sidebar-badge">IC4</span>Self-Assessment: Senior HR Business Partner (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Learning & Development</div><a href="doc-performance-management-templates-ic-learning-and-development-ic1-manager-assessment.html"><span class="sidebar-badge">IC1</span>Manager Assessment: L&D Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic1-peer-assessment.html"><span class="sidebar-badge">IC1</span>Peer Assessment: L&D Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic1-self-assessment.html"><span class="sidebar-badge">IC1</span>Self-Assessment: L&D Coordinator (IC1)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic2-manager-assessment.html"><span class="sidebar-badge">IC2</span>Manager Assessment: L&D Specialist (IC2)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic2-peer-assessment.html"><span class="sidebar-badge">IC2</span>Peer Assessment: L&D Specialist (IC2)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic2-self-assessment.html"><span class="sidebar-badge">IC2</span>Self-Assessment: L&D Specialist (IC2)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic3-manager-assessment.html"><span class="sidebar-badge">IC3</span>Manager Assessment: Senior L&D Specialist (IC3)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic3-peer-assessment.html"><span class="sidebar-badge">IC3</span>Peer Assessment: Senior L&D Specialist (IC3)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic3-self-assessment.html"><span class="sidebar-badge">IC3</span>Self-Assessment: Senior L&D Specialist (IC3)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic4-manager-assessment.html"><span class="sidebar-badge">IC4</span>Manager Assessment: Principal L&D Specialist (IC4)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic4-peer-assessment.html"><span class="sidebar-badge">IC4</span>Peer Assessment: Principal L&D Specialist (IC4)</a><a href="doc-performance-management-templates-ic-learning-and-development-ic4-self-assessment.html"><span class="sidebar-badge">IC4</span>Self-Assessment: Principal L&D Specialist (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Compensation & Benefits</div><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic2-manager-assessment.html"><span class="sidebar-badge">IC2</span>Manager Assessment: Compensation Analyst (IC2)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic2-peer-assessment.html"><span class="sidebar-badge">IC2</span>Peer Assessment: Compensation Analyst (IC2)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic2-self-assessment.html"><span class="sidebar-badge">IC2</span>Self-Assessment: Compensation Analyst (IC2)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic3-manager-assessment.html"><span class="sidebar-badge">IC3</span>Manager Assessment: Senior Compensation Analyst (IC3)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic3-peer-assessment.html"><span class="sidebar-badge">IC3</span>Peer Assessment: Senior Compensation Analyst (IC3)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic3-self-assessment.html"><span class="sidebar-badge">IC3</span>Self-Assessment: Senior Compensation Analyst (IC3)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic4-manager-assessment.html"><span class="sidebar-badge">IC4</span>Manager Assessment: Principal Compensation Analyst (IC4)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic4-peer-assessment.html"><span class="sidebar-badge">IC4</span>Peer Assessment: Principal Compensation Analyst (IC4)</a><a href="doc-performance-management-templates-ic-compensation-and-benefits-ic4-self-assessment.html"><span class="sidebar-badge">IC4</span>Self-Assessment: Principal Compensation Analyst (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Management</div><a href="doc-performance-management-templates-management-m1-manager-assessment.html"><span class="sidebar-badge">M1</span>Manager Assessment: HR Manager (M1)</a><a href="doc-performance-management-templates-management-m1-peer-assessment.html"><span class="sidebar-badge">M1</span>Peer Assessment: HR Manager (M1)</a><a href="doc-performance-management-templates-management-m1-self-assessment.html"><span class="sidebar-badge">M1</span>Self-Assessment: HR Manager (M1)</a><a href="doc-performance-management-templates-management-m2-manager-assessment.html"><span class="sidebar-badge">M2</span>Manager Assessment: Senior HR Manager (M2)</a><a href="doc-performance-management-templates-management-m2-peer-assessment.html"><span class="sidebar-badge">M2</span>Peer Assessment: Senior HR Manager (M2)</a><a href="doc-performance-management-templates-management-m2-self-assessment.html"><span class="sidebar-badge">M2</span>Self-Assessment: Senior HR Manager (M2)</a><a href="doc-performance-management-templates-management-m3-manager-assessment.html"><span class="sidebar-badge">M3</span>Manager Assessment: Head of HR (M3)</a><a href="doc-performance-management-templates-management-m3-peer-assessment.html"><span class="sidebar-badge">M3</span>Peer Assessment: Head of HR (M3)</a><a href="doc-performance-management-templates-management-m3-self-assessment.html"><span class="sidebar-badge">M3</span>Self-Assessment: Head of HR (M3)</a><div class="sidebar-divider"></div><div class="sidebar-title">Executive</div><a href="doc-performance-management-templates-executive-e1-manager-assessment.html"><span class="sidebar-badge">E1</span>Manager Assessment: Director of HR (E1)</a><a href="doc-performance-management-templates-executive-e1-peer-assessment.html"><span class="sidebar-badge">E1</span>Peer Assessment: Director of HR (E1)</a><a href="doc-performance-management-templates-executive-e1-self-assessment.html"><span class="sidebar-badge">E1</span>Self-Assessment: Director of HR (E1)</a><a href="doc-performance-management-templates-executive-e2-manager-assessment.html"><span class="sidebar-badge">E2</span>Manager Assessment: Senior Director of HR (E2)</a><a href="doc-performance-management-templates-executive-e2-peer-assessment.html"><span class="sidebar-badge">E2</span>Peer Assessment: Senior Director of HR (E2)</a><a href="doc-performance-management-templates-executive-e2-self-assessment.html"><span class="sidebar-badge">E2</span>Self-Assessment: Senior Director of HR (E2)</a><a href="doc-performance-management-templates-executive-e3-manager-assessment.html"><span class="sidebar-badge">E3</span>Manager Assessment: Chief People Officer (E3)</a><a href="doc-performance-management-templates-executive-e3-peer-assessment.html"><span class="sidebar-badge">E3</span>Peer Assessment: Chief People Officer (E3)</a><a href="doc-performance-management-templates-executive-e3-self-assessment.html"><span class="sidebar-badge">E3</span>Self-Assessment: Chief People Officer (E3)</a></nav>
+<div class="page-main doc-content">
 <h1>Manager Assessment: Senior HR Business Partner (IC4)</h1>
 <p><strong>Employee Name:</strong> [Employee Name]
 <strong>Manager Name:</strong> [Your Name]
@@ -656,12 +726,13 @@ Talent Engine
 <p><em>Calibration discussion points (questions, borderline cases, topics for peer managers):</em></p>
 <p>[Your notes]</p>
 </div>
+</div>
 
 <footer class="footer">
 <div class="footer-inner">
 <div class="footer-brand">
 <a href="index.html" class="topnav-brand">
-<div class="topnav-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+<img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
 Talent Engine
 </a>
 <p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
