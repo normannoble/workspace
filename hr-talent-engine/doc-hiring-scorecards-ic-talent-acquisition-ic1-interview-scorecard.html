@@ -459,42 +459,33 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 2rem;
     align-items: start;
 }
 .sidebar {
-    position: sticky;
-    top: 80px;
     padding: 1.5rem 0;
-    max-height: calc(100vh - 96px);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
 }
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 .sidebar-title {
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-muted);
-    padding: 0.5rem 0.6rem 0.3rem;
+    padding: 0.5rem 0.35rem 0.3rem;
 }
 .sidebar a {
-    display: block;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
     font-size: 0.76rem;
     color: var(--text-secondary);
     text-decoration: none;
-    padding: 0.3rem 0.6rem;
+    padding: 0.3rem 0.35rem;
     border-radius: 6px;
     transition: all 0.12s;
     line-height: 1.35;
     border-left: 2px solid transparent;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .sidebar a:hover {
     background: var(--purple-50);
@@ -518,10 +509,46 @@ body {
     border: 1px solid var(--purple-100);
     flex-shrink: 0;
 }
+.sidebar-group { margin-bottom: 0.25rem; }
+.sidebar-group[open] > .sidebar-group-summary::after { transform: rotate(90deg); }
+.sidebar-group-summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    padding: 0.4rem 0.35rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    user-select: none;
+}
+.sidebar-group-summary::-webkit-details-marker { display: none; }
+.sidebar-group-summary::after {
+    content: '›';
+    margin-left: auto;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: transform 0.15s;
+    font-size: 0.95rem;
+}
+.sidebar-group-summary:hover { background: var(--purple-50); color: var(--purple-700); }
+.sidebar-group-body { padding: 0.15rem 0 0.35rem 0.35rem; border-left: 1px solid var(--border-light); margin-left: 0.5rem; }
+.sidebar-subtitle {
+    font-size: 0.63rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 0.5rem 0.35rem 0.25rem;
+}
 .sidebar-divider {
     height: 1px;
     background: var(--border-light);
-    margin: 0.6rem 0.75rem;
+    margin: 0.6rem 0.35rem;
 }
 .page-main {
     min-width: 0;
@@ -615,10 +642,10 @@ body {
 <div class="topnav-left">
 <a href="index.html" class="topnav-brand">
 <img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
-Talent Engine
+goaspire
 </a>
 </div>
-<div class="topnav-links"><a href="job-descriptions.html">Jobs</a><a href="hiring.html" class="active">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance</a><a href="career-development.html">Career</a><a href="offboarding.html">Offboarding</a></div>
+<div class="topnav-links"><a href="overview.html">Overview</a><a href="job-descriptions.html">Role</a><a href="hiring.html" class="active">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance</a><a href="career-development.html">Career</a><a href="offboarding.html">Offboarding</a></div>
 </div>
 </nav>
 
@@ -626,7 +653,7 @@ Talent Engine
 <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="hiring.html">Hiring</a> &rsaquo; Interview Scorecard: TA Coordinator (IC1)</div>
 </div>
 <div class="page-with-sidebar">
-<nav class="sidebar"><div class="sidebar-title">Job Ads — Talent Acquisition</div><a href="doc-hiring-job-ads-ic-talent-acquisition-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>Talent Acquisition Coordinator — Human Resources</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Recruiter — Human Resources</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior Recruiter — Human Resources</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal Recruiter — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — HR Operations</div><a href="doc-hiring-job-ads-ic-hr-ops-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>HR Operations Coordinator — Human Resources</a><a href="doc-hiring-job-ads-ic-hr-ops-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>HR Operations Specialist — Human Resources</a><a href="doc-hiring-job-ads-ic-hr-ops-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior HR Operations Specialist — Human Resources</a><a href="doc-hiring-job-ads-ic-hr-ops-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal HR Operations Specialist — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — HRBP</div><a href="doc-hiring-job-ads-ic-hrbp-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Junior HR Business Partner — Human Resources</a><a href="doc-hiring-job-ads-ic-hrbp-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>HR Business Partner — Human Resources</a><a href="doc-hiring-job-ads-ic-hrbp-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Senior HR Business Partner — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — Learning & Development</div><a href="doc-hiring-job-ads-ic-learning-and-development-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>L&D Coordinator — Human Resources</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>L&D Specialist — Human Resources</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior L&D Specialist — Human Resources</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal L&D Specialist — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — Compensation & Benefits</div><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Compensation Analyst — Human Resources</a><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior Compensation Analyst — Human Resources</a><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal Compensation Analyst — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — Mgmt</div><a href="doc-hiring-job-ads-management-m1-job-ad.html"><span class="sidebar-badge">M1</span>HR Manager — Human Resources</a><a href="doc-hiring-job-ads-management-m2-job-ad.html"><span class="sidebar-badge">M2</span>Senior HR Manager — Human Resources</a><a href="doc-hiring-job-ads-management-m3-job-ad.html"><span class="sidebar-badge">M3</span>Head of HR — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Job Ads — Exec</div><a href="doc-hiring-job-ads-executive-e1-job-ad.html"><span class="sidebar-badge">E1</span>Director of HR — Human Resources</a><a href="doc-hiring-job-ads-executive-e2-job-ad.html"><span class="sidebar-badge">E2</span>Senior Director of HR — Human Resources</a><a href="doc-hiring-job-ads-executive-e3-job-ad.html"><span class="sidebar-badge">E3</span>Chief People Officer — Human Resources</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — Talent Acquisition</div><a href="doc-hiring-scorecards-ic-talent-acquisition-ic1-interview-scorecard.html" class="active"><span class="sidebar-badge">IC1</span>Interview Scorecard: TA Coordinator (IC1)</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Interview Scorecard: Recruiter (IC2)</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Interview Scorecard: Senior Recruiter (IC3)</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Interview Scorecard: Principal Recruiter (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — HR Operations</div><a href="doc-hiring-scorecards-ic-hr-ops-ic1-interview-scorecard.html"><span class="sidebar-badge">IC1</span>Interview Scorecard: HR Operations Coordinator (IC1)</a><a href="doc-hiring-scorecards-ic-hr-ops-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Interview Scorecard: HR Operations Specialist (IC2)</a><a href="doc-hiring-scorecards-ic-hr-ops-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Interview Scorecard: Senior HR Operations Specialist (IC3)</a><a href="doc-hiring-scorecards-ic-hr-ops-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Interview Scorecard: Principal HR Operations Specialist (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — HRBP</div><a href="doc-hiring-scorecards-ic-hrbp-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Interview Scorecard: Junior HR Business Partner (IC2)</a><a href="doc-hiring-scorecards-ic-hrbp-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Interview Scorecard: HR Business Partner (IC3)</a><a href="doc-hiring-scorecards-ic-hrbp-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Interview Scorecard: Senior HR Business Partner (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — Learning & Development</div><a href="doc-hiring-scorecards-ic-learning-and-development-ic1-interview-scorecard.html"><span class="sidebar-badge">IC1</span>Interview Scorecard: L&D Coordinator (IC1)</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Interview Scorecard: L&D Specialist (IC2)</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Interview Scorecard: Senior L&D Specialist (IC3)</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Interview Scorecard: Principal L&D Specialist (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — Compensation & Benefits</div><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Interview Scorecard: Compensation Analyst (IC2)</a><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Interview Scorecard: Senior Compensation Analyst (IC3)</a><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Interview Scorecard: Principal Compensation Analyst (IC4)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — Mgmt</div><a href="doc-hiring-scorecards-management-m1-interview-scorecard.html"><span class="sidebar-badge">M1</span>Interview Scorecard: HR Manager (M1)</a><a href="doc-hiring-scorecards-management-m2-interview-scorecard.html"><span class="sidebar-badge">M2</span>Interview Scorecard: Senior HR Manager (M2)</a><a href="doc-hiring-scorecards-management-m3-interview-scorecard.html"><span class="sidebar-badge">M3</span>Interview Scorecard: Head of HR (M3)</a><div class="sidebar-divider"></div><div class="sidebar-title">Scorecards — Exec</div><a href="doc-hiring-scorecards-executive-e1-interview-scorecard.html"><span class="sidebar-badge">E1</span>Interview Scorecard: Director of HR (E1)</a><a href="doc-hiring-scorecards-executive-e2-interview-scorecard.html"><span class="sidebar-badge">E2</span>Interview Scorecard: Senior Director of HR (E2)</a><a href="doc-hiring-scorecards-executive-e3-interview-scorecard.html"><span class="sidebar-badge">E3</span>Interview Scorecard: Chief People Officer (E3)</a></nav>
+<nav class="sidebar"><details class="sidebar-group"><summary class="sidebar-group-summary">Job Ads</summary><div class="sidebar-group-body"><div class="sidebar-subtitle">Talent Acquisition</div><a href="doc-hiring-job-ads-ic-talent-acquisition-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>Talent Acquisition Coordinator</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Recruiter</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior Recruiter</a><a href="doc-hiring-job-ads-ic-talent-acquisition-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal Recruiter</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">HR Operations</div><a href="doc-hiring-job-ads-ic-hr-ops-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>HR Operations Coordinator</a><a href="doc-hiring-job-ads-ic-hr-ops-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>HR Operations Specialist</a><a href="doc-hiring-job-ads-ic-hr-ops-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior HR Operations Specialist</a><a href="doc-hiring-job-ads-ic-hr-ops-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal HR Operations Specialist</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">HRBP</div><a href="doc-hiring-job-ads-ic-hrbp-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Junior HR Business Partner</a><a href="doc-hiring-job-ads-ic-hrbp-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>HR Business Partner</a><a href="doc-hiring-job-ads-ic-hrbp-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Senior HR Business Partner</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Learning & Development</div><a href="doc-hiring-job-ads-ic-learning-and-development-ic1-job-ad.html"><span class="sidebar-badge">IC1</span>L&D Coordinator</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>L&D Specialist</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior L&D Specialist</a><a href="doc-hiring-job-ads-ic-learning-and-development-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal L&D Specialist</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Compensation & Benefits</div><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic2-job-ad.html"><span class="sidebar-badge">IC2</span>Compensation Analyst</a><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic3-job-ad.html"><span class="sidebar-badge">IC3</span>Senior Compensation Analyst</a><a href="doc-hiring-job-ads-ic-compensation-and-benefits-ic4-job-ad.html"><span class="sidebar-badge">IC4</span>Principal Compensation Analyst</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Mgmt</div><a href="doc-hiring-job-ads-management-m1-job-ad.html"><span class="sidebar-badge">M1</span>HR Manager</a><a href="doc-hiring-job-ads-management-m2-job-ad.html"><span class="sidebar-badge">M2</span>Senior HR Manager</a><a href="doc-hiring-job-ads-management-m3-job-ad.html"><span class="sidebar-badge">M3</span>Head of HR</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Exec</div><a href="doc-hiring-job-ads-executive-e1-job-ad.html"><span class="sidebar-badge">E1</span>Director of HR</a><a href="doc-hiring-job-ads-executive-e2-job-ad.html"><span class="sidebar-badge">E2</span>Senior Director of HR</a><a href="doc-hiring-job-ads-executive-e3-job-ad.html"><span class="sidebar-badge">E3</span>Chief People Officer</a><div class="sidebar-divider"></div></div></details><details class="sidebar-group" open><summary class="sidebar-group-summary">Scorecards</summary><div class="sidebar-group-body"><div class="sidebar-subtitle">Talent Acquisition</div><a href="doc-hiring-scorecards-ic-talent-acquisition-ic1-interview-scorecard.html" class="active"><span class="sidebar-badge">IC1</span>TA Coordinator</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Recruiter</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Senior Recruiter</a><a href="doc-hiring-scorecards-ic-talent-acquisition-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Principal Recruiter</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">HR Operations</div><a href="doc-hiring-scorecards-ic-hr-ops-ic1-interview-scorecard.html"><span class="sidebar-badge">IC1</span>HR Operations Coordinator</a><a href="doc-hiring-scorecards-ic-hr-ops-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>HR Operations Specialist</a><a href="doc-hiring-scorecards-ic-hr-ops-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Senior HR Operations Specialist</a><a href="doc-hiring-scorecards-ic-hr-ops-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Principal HR Operations Specialist</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">HRBP</div><a href="doc-hiring-scorecards-ic-hrbp-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Junior HR Business Partner</a><a href="doc-hiring-scorecards-ic-hrbp-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>HR Business Partner</a><a href="doc-hiring-scorecards-ic-hrbp-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Senior HR Business Partner</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Learning & Development</div><a href="doc-hiring-scorecards-ic-learning-and-development-ic1-interview-scorecard.html"><span class="sidebar-badge">IC1</span>L&D Coordinator</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>L&D Specialist</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Senior L&D Specialist</a><a href="doc-hiring-scorecards-ic-learning-and-development-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Principal L&D Specialist</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Compensation & Benefits</div><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic2-interview-scorecard.html"><span class="sidebar-badge">IC2</span>Compensation Analyst</a><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic3-interview-scorecard.html"><span class="sidebar-badge">IC3</span>Senior Compensation Analyst</a><a href="doc-hiring-scorecards-ic-compensation-and-benefits-ic4-interview-scorecard.html"><span class="sidebar-badge">IC4</span>Principal Compensation Analyst</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Mgmt</div><a href="doc-hiring-scorecards-management-m1-interview-scorecard.html"><span class="sidebar-badge">M1</span>HR Manager</a><a href="doc-hiring-scorecards-management-m2-interview-scorecard.html"><span class="sidebar-badge">M2</span>Senior HR Manager</a><a href="doc-hiring-scorecards-management-m3-interview-scorecard.html"><span class="sidebar-badge">M3</span>Head of HR</a><div class="sidebar-divider"></div><div class="sidebar-subtitle">Exec</div><a href="doc-hiring-scorecards-executive-e1-interview-scorecard.html"><span class="sidebar-badge">E1</span>Director of HR</a><a href="doc-hiring-scorecards-executive-e2-interview-scorecard.html"><span class="sidebar-badge">E2</span>Senior Director of HR</a><a href="doc-hiring-scorecards-executive-e3-interview-scorecard.html"><span class="sidebar-badge">E3</span>Chief People Officer</a></div></details></nav>
 <div class="page-main doc-content">
 <h1>Interview Scorecard: TA Coordinator (IC1)</h1>
 <h2>Candidate Information</h2>
@@ -991,14 +1018,14 @@ Talent Engine
 <div class="footer-brand">
 <a href="index.html" class="topnav-brand">
 <img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
-Talent Engine
+goaspire
 </a>
 <p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
 </div>
 <div class="footer-cols">
 <div class="footer-col">
 <h4>Framework</h4>
-<a href="job-descriptions.html">Job Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+<a href="job-descriptions.html">Role Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
 </div>
 <div class="footer-col">
 <h4>Resources</h4>

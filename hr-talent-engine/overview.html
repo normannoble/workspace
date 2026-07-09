@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview &mdash; Talent Engine by GoAspire</title>
+<meta name="description" content="Talent Engine is an AI-powered talent architecture system that generates a complete, internally consistent employee lifecycle framework for any organization.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-width: 1280px;
+    --content-width: 900px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top Nav ─── */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+}
+.topnav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-logo-img {
+    width: 28px;
+    height: 28px;
+}
+.topnav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.topnav-links {
+    display: flex;
+    gap: 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.topnav-links::-webkit-scrollbar { display: none; }
+.topnav-links a {
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.topnav-links a:hover {
+    color: var(--purple-700);
+    background: var(--purple-50);
+}
+.topnav-links a.active {
+    color: var(--purple-700);
+    background: var(--purple-50);
+    font-weight: 600;
+}
+
+/* ─── Hero ─── */
+.hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+    color: white;
+    padding: 5.5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    line-height: 1.12;
+    position: relative;
+}
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.65;
+    position: relative;
+}
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+    font-size: 2.25rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.hero-stat .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+
+/* ─── Container & Sections ─── */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.section {
+    padding: 4.5rem 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ─── Category Cards ─── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--purple-500);
+}
+.card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+.card-meta {
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ─── Level Matrix ─── */
+.matrix-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.25rem;
+    margin-top: 1rem;
+}
+.matrix-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.835rem;
+}
+.matrix-table th {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.matrix-table th:first-child { text-align: left; }
+.matrix-table td {
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+.matrix-table td:first-child {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+}
+.matrix-table td.empty { color: var(--text-muted); }
+
+/* ─── Category Page ─── */
+.page-header {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.page-header p {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+.breadcrumb {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+.breadcrumb a {
+    color: var(--purple-600);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ─── Track Sections ─── */
+.track-section { margin-bottom: 2.5rem; }
+.track-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--purple-500);
+    display: inline-block;
+}
+.doc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.6rem;
+}
+.doc-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+.doc-link:hover {
+    border-color: var(--purple-500);
+    background: var(--purple-50);
+    color: var(--purple-800);
+}
+.doc-link .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.45rem;
+    border-radius: 4px;
+    background: var(--purple-50);
+    color: var(--purple-700);
+    white-space: nowrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--purple-100);
+}
+
+/* ─── Document Page ─── */
+.doc-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+}
+.doc-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+.doc-content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    color: var(--text);
+}
+.doc-content h2:first-of-type { border-top: none; padding-top: 0; }
+.doc-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+.doc-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+}
+.doc-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.935rem;
+}
+.doc-content ul, .doc-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+.doc-content li {
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+.doc-content li ul { margin-top: 0.35rem; }
+.doc-content strong { color: var(--text); }
+.doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.86rem;
+}
+.doc-content th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    background: var(--purple-50);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--purple-800);
+    font-size: 0.8rem;
+}
+.doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+.doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+.doc-content em { color: var(--text-muted); }
+.doc-content code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.84em;
+    background: var(--purple-50);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--purple-100);
+    color: var(--purple-800);
+}
+
+/* ─── Sidebar Layout ─── */
+.page-with-sidebar {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+.sidebar {
+    padding: 1.5rem 0;
+}
+.sidebar-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 0.5rem 0.35rem 0.3rem;
+}
+.sidebar a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.3rem 0.35rem;
+    border-radius: 6px;
+    transition: all 0.12s;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+}
+.sidebar a:hover {
+    background: var(--purple-50);
+    color: var(--purple-700);
+}
+.sidebar a.active {
+    background: var(--purple-50);
+    color: var(--purple-700);
+    font-weight: 600;
+    border-left-color: var(--purple-500);
+}
+.sidebar .sidebar-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.05rem 0.25rem;
+    border-radius: 3px;
+    background: var(--purple-50);
+    color: var(--purple-600);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-right: 0.3rem;
+    border: 1px solid var(--purple-100);
+    flex-shrink: 0;
+}
+.sidebar-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 0.6rem 0.35rem;
+}
+.page-main {
+    min-width: 0;
+}
+
+/* ─── Footer ─── */
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+}
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-brand p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    max-width: 220px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+.footer-cols {
+    display: flex;
+    gap: 4rem;
+}
+.footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+.footer-col a {
+    display: block;
+    font-size: 0.835rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.2rem 0;
+}
+.footer-col a:hover { color: var(--purple-600); }
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero-stats { gap: 2rem; }
+    .hero-stat .num { font-size: 1.75rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .doc-list { grid-template-columns: 1fr; }
+    .topnav-inner { padding: 0 1rem; }
+    .topnav-links { display: none; }
+    .container { padding: 0 1rem; }
+    .doc-content { padding: 1.5rem 1rem 4rem; }
+    .doc-content h1 { font-size: 1.5rem; }
+    .page-with-sidebar { grid-template-columns: 1fr; padding: 0 1rem; }
+    .sidebar { display: none; }
+    .footer-cols { gap: 2rem; }
+    .footer-inner { flex-direction: column; }
+    .matrix-table { font-size: 0.72rem; }
+    .matrix-table th, .matrix-table td { padding: 0.4rem; }
+}
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .hero-stats { flex-direction: column; gap: 1rem; }
+    .footer-cols { flex-direction: column; gap: 1.5rem; }
+}
+/* ─── Pitch Deck ─── */
+.deck {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: calc(100vh - 64px);
+    scroll-behavior: smooth;
+}
+.deck::-webkit-scrollbar { width: 0; }
+.slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    position: relative;
+}
+.slide-inner {
+    max-width: 1100px;
+    width: 100%;
+    text-align: center;
+}
+.slide-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--purple-600);
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+}
+.slide-title {
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin-bottom: 2rem;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slide-title .accent { color: var(--purple-600); }
+.slide-lede {
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    color: var(--text-secondary);
+    line-height: 1.55;
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+}
+.slide-body { text-align: left; }
+.slide-body.center { text-align: center; }
+/* dark hero variant */
+.slide-hero {
+    background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 55%, var(--purple-500) 100%);
+    color: white;
+}
+.slide-hero .slide-title { color: white; }
+.slide-hero .slide-lede { color: rgba(255,255,255,0.85); }
+.slide-hero .slide-eyebrow { color: rgba(255,255,255,0.72); }
+.slide-hero .slide-title .accent { color: #FBBF24; }
+
+/* alt background variant to break rhythm */
+.slide-tint { background: linear-gradient(180deg, #FAFAFC 0%, #F3F0FA 100%); }
+
+/* Grid utilities used across slides */
+.deck-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.deck-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.deck-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+@media (max-width: 900px) {
+    .deck-grid-2, .deck-grid-3, .deck-grid-4 { grid-template-columns: 1fr; }
+}
+
+.deck-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+.deck-card h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--purple-600);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 0.6rem;
+}
+.deck-card p { color: var(--text-secondary); font-size: 0.94rem; line-height: 1.55; }
+
+/* Big stat callouts */
+.deck-stats { display: flex; justify-content: center; gap: clamp(1.5rem, 5vw, 4rem); flex-wrap: wrap; margin-top: 2rem; }
+.deck-stat { text-align: center; }
+.deck-stat .num { display: block; font-size: clamp(2.5rem, 5vw, 4.25rem); font-weight: 800; letter-spacing: -0.03em; color: var(--purple-700); line-height: 1; }
+.deck-stat .label { display: block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600; }
+.slide-hero .deck-stat .num { color: white; }
+.slide-hero .deck-stat .label { color: rgba(255,255,255,0.7); }
+
+/* Cascade diagram */
+.cascade { display: grid; grid-template-columns: 260px 60px 1fr; gap: 1rem; align-items: center; margin: 0 auto; max-width: 900px; text-align: left; }
+.cascade-source {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+    color: white; padding: 1.25rem; border-radius: 12px; text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+.cascade-source .k { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; }
+.cascade-source .v { font-size: 1.15rem; font-weight: 800; margin-top: 0.35rem; letter-spacing: -0.01em; }
+.cascade-arrow { display: flex; align-items: center; justify-content: center; color: var(--purple-400, #A78BFA); }
+.cascade-arrow svg { width: 60px; height: auto; }
+.cascade-targets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.cascade-target {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.65rem 0.85rem; font-size: 0.88rem; font-weight: 600; color: var(--text);
+    display: flex; align-items: center; gap: 0.55rem;
+}
+.cascade-target::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--purple-500); flex-shrink: 0; }
+@media (max-width: 700px) { .cascade { grid-template-columns: 1fr; } .cascade-arrow { transform: rotate(90deg); margin: 0 auto; } .cascade-targets { grid-template-columns: 1fr; } }
+
+/* Verbatim-quote cascade proof */
+.quote-source {
+    background: var(--purple-50); border: 1px solid var(--purple-100); border-left: 4px solid var(--purple-600);
+    padding: 1.25rem 1.5rem; border-radius: 10px; margin: 0 auto 2rem; max-width: 780px; text-align: left;
+    font-style: italic; color: var(--text); font-size: 1.05rem; line-height: 1.55;
+}
+.quote-appearances { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; max-width: 900px; margin: 0 auto; }
+.quote-appearance {
+    padding: 0.9rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary);
+    text-decoration: none; transition: all 0.15s;
+}
+.quote-appearance:hover { border-color: var(--purple-500); color: var(--purple-700); box-shadow: var(--shadow-md); }
+.quote-appearance .qa-icon {
+    display: block; width: 32px; height: 32px; margin: 0 auto 0.4rem;
+    background: var(--purple-50); border-radius: 8px; color: var(--purple-700);
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem;
+}
+@media (max-width: 700px) { .quote-appearances { grid-template-columns: repeat(2, 1fr); } }
+
+/* Framework matrix */
+.framework-matrix {
+    max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.framework-matrix table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.framework-matrix th, .framework-matrix td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-light); }
+.framework-matrix th { background: var(--purple-50); color: var(--purple-800); font-weight: 700; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; }
+.framework-matrix td:first-child { font-weight: 700; color: var(--text); }
+.framework-matrix tr:last-child td { border-bottom: none; }
+
+/* Problem/diagnosis comparison */
+.compare-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto; text-align: left; }
+.compare-2 > div { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.compare-2 .compare-bad { border-color: #FCA5A5; }
+.compare-2 .compare-good { border-color: var(--purple-500); background: linear-gradient(180deg, var(--purple-50) 0%, var(--surface) 45%); }
+.compare-2 h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.6rem; }
+.compare-2 .compare-bad h4 { color: #DC2626; }
+.compare-2 .compare-good h4 { color: var(--purple-700); }
+.compare-2 h3 { font-size: 1.2rem; margin-bottom: 0.8rem; letter-spacing: -0.015em; }
+.compare-2 ul { list-style: none; padding: 0; }
+.compare-2 li { padding: 0.35rem 0 0.35rem 1.35rem; position: relative; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.5; }
+.compare-2 .compare-bad li::before { content: '✕'; position: absolute; left: 0; color: #DC2626; font-weight: 800; }
+.compare-2 .compare-good li::before { content: '✓'; position: absolute; left: 0; color: var(--purple-700); font-weight: 800; }
+@media (max-width: 700px) { .compare-2 { grid-template-columns: 1fr; } }
+
+/* Engagement cards */
+.engagement { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto; text-align: left; }
+.engagement-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.6rem; box-shadow: var(--shadow-sm); }
+.engagement-card.featured { border-color: var(--purple-500); box-shadow: 0 15px 30px -12px rgba(124, 58, 237, 0.25); }
+.engagement-card h3 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+.engagement-card .tag { display: inline-block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.09em; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--purple-50); color: var(--purple-700); margin-bottom: 0.75rem; }
+.engagement-card dl { margin-top: 0.75rem; }
+.engagement-card dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-top: 0.9rem; font-weight: 700; }
+.engagement-card dd { margin-left: 0; font-size: 0.95rem; color: var(--text); margin-top: 0.15rem; line-height: 1.5; }
+@media (max-width: 700px) { .engagement { grid-template-columns: 1fr; } }
+
+/* CTA */
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.6rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; transition: all 0.15s; }
+.cta-btn.primary { background: white; color: var(--purple-700); }
+.cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -6px rgba(0,0,0,0.25); }
+.cta-btn.secondary { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.35); }
+.cta-btn.secondary:hover { background: rgba(255,255,255,0.22); }
+
+/* Nav chrome — progress dots + slide counter + prev/next */
+.deck-progress {
+    position: fixed; right: 1.25rem; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 0.5rem; z-index: 90;
+}
+.deck-progress button {
+    width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+    background: rgba(0,0,0,0.18); transition: all 0.2s;
+}
+.deck-progress button:hover { background: rgba(0,0,0,0.35); transform: scale(1.3); }
+.deck-progress button.active { background: var(--purple-600); transform: scale(1.5); }
+.slide-hero ~ .deck-nav .deck-nav-btn { color: white; border-color: rgba(255,255,255,0.4); }
+.deck-nav {
+    position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 0.75rem; z-index: 90;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(10px);
+    padding: 0.4rem 0.6rem; border-radius: 999px; border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+}
+.deck-nav-btn {
+    width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border);
+    background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary); transition: all 0.15s;
+}
+.deck-nav-btn:hover:not(:disabled) { background: var(--purple-50); color: var(--purple-700); border-color: var(--purple-500); }
+.deck-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.deck-counter { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; padding: 0 0.35rem; min-width: 3rem; text-align: center; font-variant-numeric: tabular-nums; }
+.deck-hint { position: fixed; bottom: 1.4rem; right: 1.25rem; font-size: 0.72rem; color: var(--text-muted); z-index: 90; background: rgba(255,255,255,0.85); padding: 0.35rem 0.6rem; border-radius: 6px; }
+@media (max-width: 700px) { .deck-hint { display: none; } .deck-progress { display: none; } }
+
+.pill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+.pill-list .pill { background: var(--purple-50); color: var(--purple-800); font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.82rem; border: 1px solid var(--purple-100); }
+
+/* Engagement card refinements */
+.engagement-card .engagement-lede { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; margin: 0.35rem 0 1rem; }
+.engagement-card dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-top: 1rem; font-weight: 700; }
+.engagement-list { list-style: none; padding: 0; margin: 0.4rem 0 0.35rem; }
+.engagement-list li { position: relative; padding: 0.3rem 0 0.3rem 1.35rem; font-size: 0.93rem; color: var(--text); line-height: 1.5; }
+.engagement-list li::before { content: '✓'; position: absolute; left: 0.15rem; top: 0.3rem; color: var(--purple-600); font-weight: 800; font-size: 0.9rem; }
+
+/* Tier rows — horizontal stacked layout */
+.tier-rows { max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.tier-row { display: grid; grid-template-columns: 220px 1fr 180px; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-light); text-align: left; gap: 1.25rem; }
+.tier-row:last-child { border-bottom: none; }
+.tier-row-name { display: flex; flex-direction: column; gap: 0.15rem; }
+.tier-row-label { font-size: 1.3rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+.tier-row-note { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+.tier-row-cell { display: flex; flex-direction: column; gap: 0.15rem; }
+.tier-row-cell-k { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.tier-row-cell-v { font-size: 0.95rem; color: var(--text); font-weight: 600; line-height: 1.4; }
+.tier-row-cell:last-child .tier-row-cell-v { color: var(--purple-700); font-weight: 700; }
+.tier-addons { max-width: 900px; margin: 1.75rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border-light); text-align: center; }
+.tier-addons-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted); font-weight: 700; }
+@media (max-width: 700px) { .tier-row { grid-template-columns: 1fr; text-align: left; } }
+</style>
+</head>
+<body>
+<nav class="topnav">
+<div class="topnav-inner">
+<div class="topnav-left">
+<a href="index.html" class="topnav-brand">
+<img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
+goaspire
+</a>
+</div>
+<div class="topnav-links"><a href="overview.html" class="active">Overview</a><a href="job-descriptions.html">Role</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a><a href="performance-management.html">Performance</a><a href="career-development.html">Career</a><a href="offboarding.html">Offboarding</a></div>
+</div>
+</nav>
+
+
+<div class="deck" id="deck">
+
+<!-- Slide 1: Hero -->
+<section class="slide slide-hero" data-slide="1">
+<div class="slide-inner">
+<div class="slide-eyebrow">GoAspire · Talent Engine</div>
+<h1 class="slide-title">Your employee lifecycle framework should <span class="accent">hold together.</span></h1>
+<p class="slide-lede">Most don't. Talent Engine builds coherent, level-calibrated lifecycle systems in weeks — and keeps every downstream document aligned as you scale.</p>
+<div class="deck-stats">
+<div class="deck-stat"><span class="num">6</span><span class="label">Lifecycle domains</span></div>
+<div class="deck-stat"><span class="num">10</span><span class="label">Calibrated levels</span></div>
+<div class="deck-stat"><span class="num">208</span><span class="label">Live docs to browse</span></div>
+</div>
+</div>
+</section>
+
+<!-- Slide 2: The Problem -->
+<section class="slide slide-tint" data-slide="2">
+<div class="slide-inner">
+<div class="slide-eyebrow">The Problem</div>
+<h2 class="slide-title">Talent documents drift the moment they're written.</h2>
+<p class="slide-lede">The job description you hire against says one thing. The performance review measures another. The career ladder points somewhere else entirely. You built the system once — and it's been drifting apart ever since.</p>
+<div class="deck-grid-3">
+<div class="deck-card"><h4>The build</h4><p><strong>6–12 months</strong> of leadership and HR time to draft a full framework from scratch — RDs, ladders, review templates, hiring rubrics.</p></div>
+<div class="deck-card"><h4>The drift</h4><p>Documents are written in isolation and edited in isolation. Within a quarter of shipping, your RDs, reviews, and ladders are already telling different stories.</p></div>
+<div class="deck-card"><h4>The cost</h4><p>Unclear promotions. Reviews people don't trust. Hiring for roles that don't match the org anymore. Every leader building private workarounds.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Slide 3: Diagnosis -->
+<section class="slide" data-slide="3">
+<div class="slide-inner">
+<div class="slide-eyebrow">The Diagnosis</div>
+<h2 class="slide-title">You don't have a documentation problem. You have an <span class="accent">architecture</span> problem.</h2>
+<p class="slide-lede">Most talent stacks are written as separate artifacts — each document a self-contained draft. There's no shared source, no cascade, no way to keep them in sync. Every edit is a fresh chance to drift.</p>
+<div class="compare-2">
+<div class="compare-bad">
+<h4>Artifact approach</h4>
+<h3>Documents drafted independently</h3>
+<ul>
+<li>RDs live in Google Docs</li>
+<li>Review templates live in HRIS</li>
+<li>Career ladders live on Notion</li>
+<li>Hiring scorecards live in the ATS</li>
+<li>Every edit happens in isolation</li>
+<li>Reconciliation is a whole project</li>
+</ul>
+</div>
+<div class="compare-good">
+<h4>System approach</h4>
+<h3>Documents derived from a single source</h3>
+<ul>
+<li>One outcome-based RD per role</li>
+<li>Reviews derived from role outcomes</li>
+<li>Ladders map level transitions</li>
+<li>Scorecards test the same outcomes</li>
+<li>Change the RD → everything can regenerate</li>
+<li>Consistency is structural, not manual</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Slide 4: The Insight -->
+<section class="slide slide-tint" data-slide="4">
+<div class="slide-inner">
+<div class="slide-eyebrow">The Insight</div>
+<h2 class="slide-title">Make the Role Description the <span class="accent">single source of truth.</span></h2>
+<p class="slide-lede">An outcome-based RD isn't a task list. It's a definition of what success looks like at a level. Once success is defined in one place, every other document — from a hiring scorecard to a promotion decision — can be derived from it and stay aligned to it.</p>
+<div class="deck-grid-3">
+<div class="deck-card"><h4>Outcome-based</h4><p>Roles defined by what success looks like at each level, not what tasks are performed. Task lists rot; outcomes stay meaningful.</p></div>
+<div class="deck-card"><h4>Level-calibrated</h4><p>Every role explicit about how it differs from the level below and above. No ambiguity about what a promotion actually means.</p></div>
+<div class="deck-card"><h4>Cascade-ready</h4><p>Written in a structure downstream documents can consume. One canonical statement drives seven aligned artifacts.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Slide 5: The Mechanism -->
+<section class="slide" data-slide="5">
+<div class="slide-inner">
+<div class="slide-eyebrow">The Mechanism</div>
+<h2 class="slide-title">One outcome-based RD becomes <span class="accent">nine aligned documents.</span></h2>
+<p class="slide-lede">The Role Description sits at the root. Every downstream artifact — hiring, onboarding, performance, career, offboarding — inherits its language, its success criteria, its level bar. Change the RD, and the cascade can regenerate.</p>
+<div class="cascade">
+<div class="cascade-source">
+<div class="k">Source of truth</div>
+<div class="v">Role Description</div>
+</div>
+<div class="cascade-arrow">
+<svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L54 20 M46 12 L56 20 L46 28" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+<div class="cascade-targets">
+<div class="cascade-target">Job Ad</div>
+<div class="cascade-target">Interview Scorecard</div>
+<div class="cascade-target">30-60-90 Onboarding</div>
+<div class="cascade-target">Self Assessment</div>
+<div class="cascade-target">Peer Assessment</div>
+<div class="cascade-target">Manager Assessment</div>
+<div class="cascade-target">Progression Guide</div>
+<div class="cascade-target">Readiness Assessment</div>
+<div class="cascade-target">Offboarding Plan</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Slide 6: Cascade proof -->
+<section class="slide slide-tint" data-slide="6">
+<div class="slide-inner">
+<div class="slide-eyebrow">Proof · one phrase, five documents</div>
+<h2 class="slide-title">Not a diagram. <span class="accent">The actual cascade.</span></h2>
+<p class="slide-lede">Here is a single success outcome from the IC3 Senior Recruiter RD. It appears — verbatim or in a near-identical form — across five documents this demo generates. Click any card to open the real page.</p>
+<blockquote class="quote-source">"Critical roles filled with high-quality candidates who pass probation, receive strong early performance reviews, and remain with the organization beyond their first year."</blockquote>
+<div class="quote-appearances">
+<a class="quote-appearance" href="doc-job-descriptions-ic-talent-acquisition-ic3-senior-recruiter.html"><span class="qa-icon">RD</span>Role Description</a>
+<a class="quote-appearance" href="doc-hiring-scorecards-ic-talent-acquisition-ic3-interview-scorecard.html"><span class="qa-icon">SC</span>Interview Scorecard</a>
+<a class="quote-appearance" href="doc-onboarding-ic-talent-acquisition-ic3-onboarding.html"><span class="qa-icon">90</span>30-60-90 Onboarding</a>
+<a class="quote-appearance" href="doc-performance-management-templates-ic-talent-acquisition-ic3-manager-assessment.html"><span class="qa-icon">MA</span>Manager Assessment</a>
+<a class="quote-appearance" href="doc-career-development-progression-guides-talent-acquisition-ic3-to-ic4-progression-guide.html"><span class="qa-icon">PG</span>Progression Guide</a>
+</div>
+</div>
+</section>
+
+<!-- Slide 7: Live proof -->
+<section class="slide" data-slide="7">
+<div class="slide-inner">
+<div class="slide-eyebrow">Proof · You're inside it right now</div>
+<h2 class="slide-title">This site is not a mockup. It's <span class="accent">208 real documents</span>, all generated by Talent Engine.</h2>
+<p class="slide-lede">Every link in the top nav opens a fully-drafted document — a RD, an interview scorecard, a 30-60-90 plan, a self/peer/manager assessment, a promotion readiness assessment, a level-transition guide, or an offboarding plan. All calibrated. All aligned. Browse any of them.</p>
+<div class="deck-stats">
+<div class="deck-stat"><span class="num">6</span><span class="label">Lifecycle domains</span></div>
+<div class="deck-stat"><span class="num">5</span><span class="label">HR disciplines</span></div>
+<div class="deck-stat"><span class="num">10</span><span class="label">Calibrated levels</span></div>
+<div class="deck-stat"><span class="num">208</span><span class="label">Documents</span></div>
+</div>
+<div class="pill-list">
+<span class="pill">Talent Acquisition</span>
+<span class="pill">HR Operations</span>
+<span class="pill">HR Business Partnership</span>
+<span class="pill">Learning &amp; Development</span>
+<span class="pill">Compensation &amp; Benefits</span>
+</div>
+</div>
+</section>
+
+<!-- Slide 8: Mindvalley proof -->
+<section class="slide slide-hero" data-slide="8">
+<div class="slide-inner">
+<div class="slide-eyebrow">Production proof</div>
+<h2 class="slide-title">Mindvalley Technology runs <span class="accent">857 documents</span> on this system.</h2>
+<p class="slide-lede">Across 8 functions, 3 career tracks, and 11 calibrated levels — the full employee lifecycle from hire to exit, kept coherent as the org grew. Built once with Talent Engine, maintained continuously.</p>
+<div class="deck-stats">
+<div class="deck-stat"><span class="num">857</span><span class="label">Documents</span></div>
+<div class="deck-stat"><span class="num">8</span><span class="label">Functions</span></div>
+<div class="deck-stat"><span class="num">3</span><span class="label">Tracks</span></div>
+<div class="deck-stat"><span class="num">11</span><span class="label">Levels</span></div>
+</div>
+</div>
+</section>
+
+<!-- Slide 9: The Framework -->
+<section class="slide" data-slide="9">
+<div class="slide-inner">
+<div class="slide-eyebrow">What you get</div>
+<h2 class="slide-title">Six lifecycle domains. Three tracks. <span class="accent">Every level calibrated.</span></h2>
+<p class="slide-lede">The Talent Engine framework covers the full employee arc — hire, ramp, evaluate, grow, transition — as one integrated system. Nothing left to a Google Doc that will drift.</p>
+<div class="framework-matrix">
+<table>
+<thead><tr><th>Domain</th><th>What's inside</th><th>Per role or per track</th></tr></thead>
+<tbody>
+<tr><td>Role Descriptions</td><td>Outcome-based role definitions with level-calibrated success criteria</td><td>Per role, per level</td></tr>
+<tr><td>Hiring</td><td>Job ads (channel-ready) + interview scorecards derived from the RD</td><td>Per role, per level</td></tr>
+<tr><td>Onboarding</td><td>30-60-90 day plans with weekly agendas and milestone success criteria</td><td>Per role, per level</td></tr>
+<tr><td>Performance Management</td><td>Self, peer, and manager assessments tied directly to role outcomes</td><td>Per role, per level × 3</td></tr>
+<tr><td>Career Development</td><td>Track progression overviews, level-transition guides, promotion readiness assessments</td><td>Per transition</td></tr>
+<tr><td>Offboarding</td><td>Knowledge-transfer plans tied to what the role actually owns</td><td>Per track</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Slide 10: The Consistency Guarantee -->
+<section class="slide slide-tint" data-slide="10">
+<div class="slide-inner">
+<div class="slide-eyebrow">The Consistency Guarantee</div>
+<h2 class="slide-title">Change one RD. <span class="accent">Every downstream document regenerates to match.</span></h2>
+<p class="slide-lede">This is the difference between owning a static document library and owning a living talent system. When your Senior Recruiter role evolves — new market realities, new team structure, new outcomes — the RD changes once. Everything downstream can be regenerated in a pass and stay aligned.</p>
+<div class="deck-grid-2">
+<div class="deck-card"><h4>Without Talent Engine</h4><p>Update the RD. Then remember to update the interview scorecard. And the onboarding plan. And the three assessment templates. And the progression guide. And the offboarding checklist. Miss one, and drift is back.</p></div>
+<div class="deck-card"><h4>With Talent Engine</h4><p>Update the RD. Regenerate the cascade. Every downstream document reflects the change — with the same language, the same success criteria, the same level bar. Consistency is a property of the system, not a discipline you have to enforce.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Slide 11: Engagement Model -->
+<section class="slide" data-slide="11">
+<div class="slide-inner">
+<div class="slide-eyebrow">How we work together</div>
+<h2 class="slide-title">Two ways to bring Talent Engine to your organization.</h2>
+<p class="slide-lede">Pick the shape that fits your team. Both deliver the same underlying system, the same cascade architecture, and the same consistency guarantee — the difference is who runs it.</p>
+<div class="engagement">
+<div class="engagement-card featured">
+<span class="tag">Full Service</span>
+<h3>We build it for you</h3>
+<p class="engagement-lede">A complete talent framework, implemented end-to-end for your organization.</p>
+<dt>What's included</dt>
+<ul class="engagement-list">
+<li>Discovery workshops to define functions, levels, and org-specific outcomes</li>
+<li>Complete document generation across all 6 lifecycle domains</li>
+<li>Calibration sessions to refine RDs and rating anchors with leadership</li>
+<li>Handover documentation and training for internal teams</li>
+</ul>
+<dl>
+<dt>Effort</dt><dd>We build it. You adopt it.</dd>
+<dt>Best for</dt><dd>Orgs that want the outcome without the build cycle — or without expanding headcount to run it.</dd>
+</dl>
+</div>
+<div class="engagement-card">
+<span class="tag">Product License</span>
+<h3>You build with the Engine</h3>
+<p class="engagement-lede">The Talent Engine framework, templates, and AI tools — deployed for your team to run.</p>
+<dt>What's included</dt>
+<ul class="engagement-list">
+<li>Platform license — framework, templates, and all AI tools</li>
+<li>Onboarding &amp; training — 2-day workshop plus guided first-function build</li>
+<li>Annual support and framework updates</li>
+</ul>
+<dl>
+<dt>Effort</dt><dd>Your team runs the tools with our guidance.</dd>
+<dt>Best for</dt><dd>Orgs with a strong HR / People Ops function that want the leverage and the ownership.</dd>
+</dl>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Slide 12: Full Service tiers -->
+<section class="slide slide-tint" data-slide="12">
+<div class="slide-inner">
+<div class="slide-eyebrow">Full Service · scoped to your org</div>
+<h2 class="slide-title">Three tiers. <span class="accent">Built for the size of your org.</span></h2>
+<p class="slide-lede">Full Service scales to the shape of what you're building — a first-function pilot, a full People Ops rollout, or an org-wide leveling initiative. Every tier includes the same rigor; scope and timeline scale with complexity.</p>
+<div class="tier-rows">
+<div class="tier-row">
+<div class="tier-row-name">
+<span class="tier-row-label">Starter</span>
+<span class="tier-row-note">Right-sized pilot</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Scope</span>
+<span class="tier-row-cell-v">1–3 functions, up to 3 career tracks</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Timeline</span>
+<span class="tier-row-cell-v">2–4 weeks</span>
+</div>
+</div>
+<div class="tier-row">
+<div class="tier-row-name">
+<span class="tier-row-label">Growth</span>
+<span class="tier-row-note">Full People Ops rollout</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Scope</span>
+<span class="tier-row-cell-v">4–8 functions, full track coverage</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Timeline</span>
+<span class="tier-row-cell-v">4–6 weeks</span>
+</div>
+</div>
+<div class="tier-row">
+<div class="tier-row-name">
+<span class="tier-row-label">Enterprise</span>
+<span class="tier-row-note">Org-wide leveling</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Scope</span>
+<span class="tier-row-cell-v">8+ functions, custom leveling</span>
+</div>
+<div class="tier-row-cell">
+<span class="tier-row-cell-k">Timeline</span>
+<span class="tier-row-cell-v">6–10 weeks</span>
+</div>
+</div>
+</div>
+<div class="tier-addons">
+<div class="tier-addons-label">Add-ons available with either engagement</div>
+<div class="pill-list" style="margin-top: 0.75rem;">
+<span class="pill">Additional function build</span>
+<span class="pill">Quarterly recalibration</span>
+<span class="pill">Manager training workshop</span>
+<span class="pill">HRIS / performance-platform integration</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Slide 13: CTA -->
+<section class="slide slide-hero" data-slide="13">
+<div class="slide-inner">
+<div class="slide-eyebrow">Ready when you are</div>
+<h1 class="slide-title">Ready to see <span class="accent">your framework?</span></h1>
+<p class="slide-lede">Book a scoping call. We'll model your org structure, estimate what it takes to build, and show you what the first document set will look like — populated with your levels, your language, your outcomes.</p>
+<div class="cta-buttons">
+<a class="cta-btn primary" href="https://goaspire.ai/company/contact" target="_blank">Book a scoping call &rsaquo;</a>
+<a class="cta-btn secondary" href="job-descriptions.html">Explore the demo</a>
+</div>
+</div>
+</section>
+
+</div>
+
+<!-- Deck chrome -->
+<div class="deck-progress" id="deckProgress"></div>
+<div class="deck-nav" id="deckNav">
+<button class="deck-nav-btn" id="prevBtn" title="Previous slide (←)" aria-label="Previous slide">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+<span class="deck-counter" id="deckCounter">1 / 13</span>
+<button class="deck-nav-btn" id="nextBtn" title="Next slide (→)" aria-label="Next slide">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</button>
+</div>
+<div class="deck-hint">↑↓ · space · click</div>
+
+<script>
+(function() {
+    const deck = document.getElementById('deck');
+    const slides = deck.querySelectorAll('.slide');
+    const total = slides.length;
+    const counter = document.getElementById('deckCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsRoot = document.getElementById('deckProgress');
+
+    // Build progress dots
+    const dots = [];
+    for (let i = 0; i < total; i++) {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Slide ' + (i + 1));
+        b.addEventListener('click', () => goTo(i));
+        dotsRoot.appendChild(b);
+        dots.push(b);
+    }
+
+    let current = 0;
+    function goTo(i) {
+        i = Math.max(0, Math.min(total - 1, i));
+        slides[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function update(i) {
+        current = i;
+        counter.textContent = (i + 1) + ' / ' + total;
+        prevBtn.disabled = i === 0;
+        nextBtn.disabled = i === total - 1;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    update(0);
+
+    // Watch scroll position via IntersectionObserver
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                const idx = Array.from(slides).indexOf(entry.target);
+                if (idx >= 0) update(idx);
+            }
+        });
+    }, { root: deck, threshold: [0.6] });
+    slides.forEach(s => io.observe(s));
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    document.addEventListener('keydown', (e) => {
+        // Ignore when typing in a form field
+        if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault(); goTo(current + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault(); goTo(current - 1);
+        } else if (e.key === 'Home') {
+            e.preventDefault(); goTo(0);
+        } else if (e.key === 'End') {
+            e.preventDefault(); goTo(total - 1);
+        }
+    });
+})();
+</script>
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="index.html" class="topnav-brand">
+<img src="data:image/png;base64,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" alt="GoAspire" style="width:28px;height:28px;">
+goaspire
+</a>
+<p>A comprehensive, level-calibrated people operations framework by GoAspire.</p>
+</div>
+<div class="footer-cols">
+<div class="footer-col">
+<h4>Framework</h4>
+<a href="job-descriptions.html">Role Descriptions</a><a href="hiring.html">Hiring</a><a href="onboarding.html">Onboarding</a>
+</div>
+<div class="footer-col">
+<h4>Resources</h4>
+<a href="performance-management.html">Performance Management</a><a href="career-development.html">Career Development</a><a href="offboarding.html">Offboarding</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="https://goaspire.ai" target="_blank">GoAspire</a>
+<a href="https://goaspire.ai/company/contact" target="_blank">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">&copy; 2026 GoAspire. All rights reserved.</div>
+</footer>
+</body>
+</html>
